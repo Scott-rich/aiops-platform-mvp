@@ -1,0 +1,15 @@
+.env
+data/
+data-local/
+.venv/
+__pycache__/
+*.pyc
+*.sqlite3*
+*.jar
+*.gguf
+*.partial
+backups/
+artifacts/**/kafka-data/
+artifacts/**/checkpoints/
+artifacts/**/savepoints/
+artifacts/**/worker-data/

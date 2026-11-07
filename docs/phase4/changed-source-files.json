@@ -1,0 +1,27 @@
+{
+  "modified": [
+    ".env.example",
+    "README.md",
+    "app/incidents.py",
+    "app/local_detection.py",
+    "app/rca.py",
+    "docker-compose.yml",
+    "flink/Dockerfile",
+    "flink/README.md",
+    "flink/aggregate.py",
+    "flink/detector.py",
+    "infra/submit_job.py",
+    "scripts/local_platform.py",
+    "scripts/native_streaming.py",
+    "tests/test_stream_operators.py"
+  ],
+  "added": [
+    "app/detection_policy.py",
+    "app/detection_state.py",
+    "flink/adaptive.py",
+    "scripts/evaluate_detection.py",
+    "scripts/verify_adaptive_flink_local.py",
+    "scripts/verify_adaptive_streaming.py",
+    "tests/test_adaptive_detection.py"
+  ]
+}

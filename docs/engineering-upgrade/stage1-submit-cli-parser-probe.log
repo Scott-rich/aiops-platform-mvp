@@ -1,0 +1,5 @@
+Real Flink 1.20.3 DefaultCLI parse -> toConfiguration; no cluster started/contacted
+jobmanager:8081 {'rest.port': '8081', 'rest.path': '', 'jobmanager.rpc.address': 'jobmanager', 'rest.address': 'jobmanager', 'execution.target': 'remote', 'jobmanager.rpc.port': '8081', 'security.ssl.rest.enabled': 'false'}
+http://jobmanager:8081 {'rest.port': '8081', 'rest.path': '', 'jobmanager.rpc.address': 'jobmanager', 'rest.address': 'jobmanager', 'execution.target': 'remote', 'jobmanager.rpc.port': '8081', 'security.ssl.rest.enabled': 'false'}
+http://127.0.0.1:28081 {'rest.port': '28081', 'rest.path': '', 'jobmanager.rpc.address': '127.0.0.1', 'rest.address': '127.0.0.1', 'execution.target': 'remote', 'jobmanager.rpc.port': '28081', 'security.ssl.rest.enabled': 'false'}
+http://[::1]:8081 {'rest.port': '8081', 'rest.path': '', 'jobmanager.rpc.address': '0:0:0:0:0:0:0:1', 'rest.address': '0:0:0:0:0:0:0:1', 'execution.target': 'remote', 'jobmanager.rpc.port': '8081', 'security.ssl.rest.enabled': 'false'}

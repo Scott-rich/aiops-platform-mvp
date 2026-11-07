@@ -1,0 +1,83 @@
+{
+  "phase": 6,
+  "status": "implemented_and_measured_except_real_model_and_flink",
+  "regression": {
+    "total": 280,
+    "passed": 270,
+    "failed": 0,
+    "skipped": 10
+  },
+  "new_unit_tests": 24,
+  "live_checks": {
+    "http": {
+      "passed": 28,
+      "failed": 0
+    },
+    "kafka": {
+      "passed": 12,
+      "failed": 0
+    },
+    "slow_kafka": {
+      "passed": 6,
+      "failed": 0
+    }
+  },
+  "control_checks": {
+    "passed": 6,
+    "failed": 0
+  },
+  "live_http_successful": 1736,
+  "live_http_failed": 0,
+  "live_http_skipped": 0,
+  "live_kafka_durable": 4000,
+  "slow_kafka_durable": 1500,
+  "model": {
+    "status": "blocked",
+    "reason": "LLM_BASE_URL / LLM_MODEL not configured; no real call made",
+    "metrics": {
+      "actual_attempts": 0,
+      "reused_reports": 0,
+      "transport_successful_attempts": 0,
+      "outcomes": {},
+      "attempt_latency_ms": {
+        "count": 0,
+        "missing_or_invalid": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "diagnosis_latency_ms": {
+        "count": 0,
+        "missing_or_invalid": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "attempts_without_usage": 0,
+      "reported_token_totals": null,
+      "attempts_without_cost": 0,
+      "estimated_cost_by_currency": null,
+      "known_partial_estimated_cost_by_currency": null,
+      "cost_basis": "Provider-reported usage × configured prices; estimate only, excludes hardware and invoices. Missing usage/prices stay null; currencies never combined."
+    }
+  },
+  "source_sha256": "abe8e88363990370ca68174db50fe3273791790a343fbea903aaf20abfc8d8fd",
+  "new_databases_quick_check_ok": 13,
+  "provenance": {
+    "main": "artifacts/phase6/accepted/result.json",
+    "slow": "artifacts/phase6/slow-final/result.json",
+    "tests": "artifacts/phase6/regression-accepted.log"
+  },
+  "known_limits": [
+    "No new Flink runtime/Compose verification",
+    "No configured real model; latency/cost not measured",
+    "Short local single-broker measurements are not production capacity or high availability",
+    "Historical SQLite corruption root cause unresolved; this phase isolated new databases passed quick_check",
+    "Original available phase5 ZIP is truncated; pre-change source backup and existing tree retained"
+  ],
+  "next_phase": 7
+}

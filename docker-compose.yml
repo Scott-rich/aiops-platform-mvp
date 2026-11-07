@@ -1,0 +1,333 @@
+name: aiops-platform
+
+x-detection-env: &detection-env
+  DETECTION_MODE: ${DETECTION_MODE:-fixed}
+  DETECTION_MIN_REQUESTS: ${DETECTION_MIN_REQUESTS:-20}
+  DETECTION_MIN_HOSTS: ${DETECTION_MIN_HOSTS:-3}
+  DETECTION_MIN_WINDOWS: ${DETECTION_MIN_WINDOWS:-12}
+  DETECTION_HISTORY_WINDOWS: ${DETECTION_HISTORY_WINDOWS:-120}
+  DETECTION_BUCKET_HOURS: ${DETECTION_BUCKET_HOURS:-6}
+  DETECTION_MAX_AGE_MS: ${DETECTION_MAX_AGE_MS:-604800000}
+  DETECTION_SIGMA: ${DETECTION_SIGMA:-3.0}
+  DETECTION_RELATIVE_MARGIN: ${DETECTION_RELATIVE_MARGIN:-0.2}
+  DETECTION_LATENCY_MARGIN_MS: ${DETECTION_LATENCY_MARGIN_MS:-50.0}
+  DETECTION_ERROR_MARGIN: ${DETECTION_ERROR_MARGIN:-0.05}
+  DETECTION_CPU_MARGIN: ${DETECTION_CPU_MARGIN:-5.0}
+  DETECTION_MEMORY_MARGIN: ${DETECTION_MEMORY_MARGIN:-5.0}
+  DETECTION_MAX_SERVICES: ${DETECTION_MAX_SERVICES:-256}
+
+x-app: &app
+  image: aiops-app:local
+  build:
+    context: .
+    dockerfile: Dockerfile
+  environment: &app-env
+    LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    LOG_FORMAT: ${LOG_FORMAT:-json}
+    DATA_DIR: /data
+    KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    EXECUTION_MODE: kafka-worker
+    SIMULATOR_CONTROL_TOKEN: ${SIMULATOR_CONTROL_TOKEN:-}
+    FLINK_REST_URL: http://jobmanager:8081
+    FLINK_JOB_NAME: aiops-event-time-detector-v3
+    WORKER_CONNECT_ATTEMPTS: ${WORKER_CONNECT_ATTEMPTS:-12}
+    WORKER_POLL_FAILURES: ${WORKER_POLL_FAILURES:-5}
+    WORKER_COMMIT_TIMEOUT_MS: ${WORKER_COMMIT_TIMEOUT_MS:-15000}
+    WORKER_STORAGE_ATTEMPTS: ${WORKER_STORAGE_ATTEMPTS:-3}
+    DB_TIMEOUT_SECONDS: ${DB_TIMEOUT_SECONDS:-3}
+    EVIDENCE_OPERATION_TIMEOUT_SECONDS: ${EVIDENCE_OPERATION_TIMEOUT_SECONDS:-30}
+    EVIDENCE_RETENTION_DAYS: ${EVIDENCE_RETENTION_DAYS:-30}
+    FAST_STATE_MAX_KEYS: ${FAST_STATE_MAX_KEYS:-512}
+    LLM_BASE_URL: ${LLM_BASE_URL:-}
+    LLM_MODEL: ${LLM_MODEL:-}
+    LLM_API_KEY: ${LLM_API_KEY:-}
+    LLM_TIMEOUT_SECONDS: ${LLM_TIMEOUT_SECONDS:-20}
+    LLM_TOTAL_TIMEOUT_SECONDS: ${LLM_TOTAL_TIMEOUT_SECONDS:-30}
+    LLM_MAX_ATTEMPTS: ${LLM_MAX_ATTEMPTS:-2}
+    LLM_MAX_CALLS_PER_INCIDENT: ${LLM_MAX_CALLS_PER_INCIDENT:-2}
+    LLM_REQUESTS_PER_MINUTE: ${LLM_REQUESTS_PER_MINUTE:-10}
+    LLM_RETRY_BACKOFF_SECONDS: ${LLM_RETRY_BACKOFF_SECONDS:-0.5}
+    LLM_MAX_RESPONSE_BYTES: ${LLM_MAX_RESPONSE_BYTES:-1000000}
+    LLM_MAX_CONTEXT_RECORDS: ${LLM_MAX_CONTEXT_RECORDS:-48}
+    LLM_MAX_CONTEXT_BYTES: ${LLM_MAX_CONTEXT_BYTES:-64000}
+    LLM_MAX_TOKENS: ${LLM_MAX_TOKENS:-1500}
+    LLM_RESPONSE_FORMAT: ${LLM_RESPONSE_FORMAT:-none}
+    LLM_OUTPUT_PROTOCOL: ${LLM_OUTPUT_PROTOCOL:-analysis-v2}
+    LLM_TRUST_ENV: ${LLM_TRUST_ENV:-false}
+    LLM_INPUT_PRICE_PER_MILLION: ${LLM_INPUT_PRICE_PER_MILLION:-}
+    LLM_OUTPUT_PRICE_PER_MILLION: ${LLM_OUTPUT_PRICE_PER_MILLION:-}
+    LLM_COST_CURRENCY: ${LLM_COST_CURRENCY:-USD}
+    GATEWAY_URL: http://gateway:8000
+    ORDER_URL: http://order:8000
+    PAYMENT_URL: http://payment:8000
+    INVENTORY_URL: http://inventory:8000
+  volumes:
+    - app-data:/data
+  restart: unless-stopped
+
+x-simulator: &simulator
+  image: aiops-simulator:local
+  build:
+    context: .
+    dockerfile: simulator/Dockerfile
+  restart: unless-stopped
+  healthcheck:
+    test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health',timeout=2)"]
+    interval: 5s
+    timeout: 3s
+    retries: 20
+
+x-flink: &flink
+  image: aiops-flink:local
+  build:
+    context: .
+    dockerfile: flink/Dockerfile
+  environment: &flink-env
+    <<: *detection-env
+    KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    FLINK_JOB_NAME: aiops-event-time-detector-v3
+    FLINK_PARALLELISM: 2
+    FLINK_WINDOW_MS: 30000
+    FLINK_SLIDE_MS: 10000
+    FLINK_OUT_OF_ORDER_MS: 5000
+    FLINK_IDLE_MS: 10000
+    FLINK_DEDUP_TTL_MS: 300000
+    FLINK_DEDUP_BUCKETS: 64
+    FLINK_DEDUP_BUCKET_CAPACITY: 1000
+    FLINK_CHECKPOINT_INTERVAL_MS: 10000
+    FLINK_CHECKPOINT_TIMEOUT_MS: 60000
+    FLINK_CHECKPOINT_MIN_PAUSE_MS: 2000
+    FLINK_CHECKPOINT_PATH: file:///opt/flink/checkpoints
+    FLINK_PROPERTIES: |
+      jobmanager.rpc.address: jobmanager
+      rest.address: jobmanager
+      parallelism.default: 2
+      taskmanager.numberOfTaskSlots: 2
+      jobmanager.memory.process.size: 1024m
+      taskmanager.memory.process.size: 2048m
+      python.client.executable: /opt/pyflinkenv/bin/python
+      python.executable: /opt/pyflinkenv/bin/python
+      state.checkpoints.dir: file:///opt/flink/checkpoints
+      state.savepoints.dir: file:///opt/flink/savepoints
+      execution.checkpointing.externalized-checkpoint-retention: RETAIN_ON_CANCELLATION
+      restart-strategy.type: fixed-delay
+      restart-strategy.fixed-delay.attempts: 10
+      restart-strategy.fixed-delay.delay: 10s
+  volumes:
+    - flink-checkpoints:/opt/flink/checkpoints
+    - flink-savepoints:/opt/flink/savepoints
+
+services:
+  kafka-volume-init:
+    image: apache/kafka:3.9.1
+    user: root
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    entrypoint: ["/bin/sh", "-c", "chown -R 1000:1000 /var/lib/kafka/data"]
+
+  kafka:
+    image: apache/kafka:3.9.1
+    hostname: kafka
+    ports:
+      - "127.0.0.1:19092:19092"
+    environment:
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093,EXTERNAL://0.0.0.0:19092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://localhost:19092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    depends_on:
+      kafka-volume-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server", "localhost:9092", "--list"]
+      interval: 10s
+      timeout: 10s
+      start_period: 20s
+      retries: 20
+    restart: unless-stopped
+
+  kafka-init:
+    image: apache/kafka:3.9.1
+    depends_on:
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./infra/init-topics.sh:/init-topics.sh:ro
+    entrypoint: ["/bin/sh", "/init-topics.sh"]
+
+  flink-volume-init:
+    <<: *flink
+    user: root
+    entrypoint: ["/bin/sh", "-c", "chown -R flink:flink /opt/flink/checkpoints /opt/flink/savepoints"]
+
+  jobmanager:
+    <<: *flink
+    command: jobmanager
+    ports:
+      - "127.0.0.1:8081:8081"
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+      flink-volume-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8081/overview',timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+    restart: unless-stopped
+
+  taskmanager:
+    <<: *flink
+    command: taskmanager
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import json,sys,urllib.request; sys.exit(0 if json.load(urllib.request.urlopen('http://jobmanager:8081/overview',timeout=3)).get('taskmanagers',0)>0 else 1)"]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+    restart: unless-stopped
+
+  flink-submit:
+    <<: *flink
+    command: ["python", "/opt/flink/jobs/submit_job.py"]
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+      taskmanager:
+        condition: service_healthy
+
+  api:
+    <<: *app
+    environment:
+      <<: *app-env
+      API_AUTH_MODE: ${API_AUTH_MODE:-local}
+      API_READ_TOKEN: ${API_READ_TOKEN:-}
+      API_CONTROL_TOKEN: ${API_CONTROL_TOKEN:-}
+      TELEMETRY_INGEST_TOKEN: ${TELEMETRY_INGEST_TOKEN:-}
+      API_BODY_TIMEOUT_SECONDS: ${API_BODY_TIMEOUT_SECONDS:-5}
+    command: ["uvicorn", "app.api:app", "--no-proxy-headers", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/live',timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 20
+
+  worker:
+    <<: *app
+    command: ["python", "-m", "app.worker"]
+    stop_grace_period: 45s
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-m", "app.worker", "--healthcheck"]
+      interval: 10s
+      timeout: 4s
+      start_period: 40s
+      retries: 5
+
+  inventory:
+    <<: *simulator
+    environment:
+      SERVICE_NAME: inventory
+      SIMULATOR_CONTROL_TOKEN: ${SIMULATOR_CONTROL_TOKEN:-}
+      SIMULATOR_FAULT_AUDIT_DIR: /tmp/aiops-fault-audit
+      SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS: ${SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS:-3}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+
+  payment:
+    <<: *simulator
+    environment:
+      SERVICE_NAME: payment
+      SIMULATOR_CONTROL_TOKEN: ${SIMULATOR_CONTROL_TOKEN:-}
+      SIMULATOR_FAULT_AUDIT_DIR: /tmp/aiops-fault-audit
+      SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS: ${SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS:-3}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+
+  order:
+    <<: *simulator
+    environment:
+      SERVICE_NAME: order
+      SIMULATOR_CONTROL_TOKEN: ${SIMULATOR_CONTROL_TOKEN:-}
+      SIMULATOR_FAULT_AUDIT_DIR: /tmp/aiops-fault-audit
+      SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS: ${SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS:-3}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      INVENTORY_URL: http://inventory:8000
+      PAYMENT_URL: http://payment:8000
+    depends_on:
+      inventory:
+        condition: service_healthy
+      payment:
+        condition: service_healthy
+
+  gateway:
+    <<: *simulator
+    environment:
+      SERVICE_NAME: gateway
+      SIMULATOR_CONTROL_TOKEN: ${SIMULATOR_CONTROL_TOKEN:-}
+      SIMULATOR_FAULT_AUDIT_DIR: /tmp/aiops-fault-audit
+      SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS: ${SIMULATOR_DOWNSTREAM_TIMEOUT_SECONDS:-3}
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      ORDER_URL: http://order:8000
+    ports:
+      - "127.0.0.1:8001:8000"
+    depends_on:
+      order:
+        condition: service_healthy
+
+  loadgen:
+    image: aiops-simulator:local
+    build:
+      context: .
+      dockerfile: simulator/Dockerfile
+    command: ["python", "-m", "simulator.loadgen"]
+    environment:
+      GATEWAY_URL: http://gateway:8000
+      LOAD_RPS: ${LOAD_RPS:-5}
+    depends_on:
+      gateway:
+        condition: service_healthy
+      flink-submit:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  linux-agent:
+    <<: *app
+    profiles: ["collector"]
+    command: ["python", "-m", "app.linux_agent"]
+    depends_on:
+      kafka-init:
+        condition: service_completed_successfully
+
+volumes:
+  app-data:
+  kafka-data:
+  flink-checkpoints:
+  flink-savepoints:

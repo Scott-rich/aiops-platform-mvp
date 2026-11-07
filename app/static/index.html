@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>智能运维控制台</title>
+<style>
+:root{color-scheme:light dark;--bg:light-dark(#f5f7fa,#10151e);--panel:light-dark(#fff,#19212d);--text:light-dark(#172235,#e5ebf4);--muted:light-dark(#637085,#9caac0);--line:light-dark(#e2e8f0,#303d50);--soft:light-dark(#f0f4f9,#222d3e);--accent:light-dark(#126b63,#72d6c1);--accent-bg:light-dark(#e5f3ef,#193e38);--bad:light-dark(#b4303c,#ff9aa5);--bad-bg:light-dark(#fff0f1,#462933);--warn:light-dark(#9a5c06,#e9c176);--warn-bg:light-dark(#fff5df,#443921);--shadow:light-dark(0 5px 25px #17223505,0 5px 25px #0000000c)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}button,input,select{font:inherit}button,a,select{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}a{color:var(--accent);text-underline-offset:3px}button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}h1,h2,h3,p{margin:0}h1{font-size:25px;font-weight:650;letter-spacing:-.6px}h2{font-size:16px;font-weight:650}h3{font-size:14px;font-weight:650}small,.small{font-size:12px}.muted{color:var(--muted)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;overflow-wrap:anywhere}.tabular{font-variant-numeric:tabular-nums}.topbar{background:var(--panel);border-bottom:1px solid var(--line)}.bar-inner{max-width:1440px;margin:auto;padding:17px 30px;display:flex;align-items:center;gap:13px}.brand-mark{display:grid;grid-template-columns:repeat(2,7px);gap:3px;transform:rotate(-8deg)}.brand-mark i{display:block;width:7px;height:7px;background:var(--accent);border-radius:2px}.brand{font-size:16px;font-weight:700;letter-spacing:.2px}.brand-sub{color:var(--muted);font-size:12px;border-left:1px solid var(--line);padding-left:14px}.bar-links{display:flex;align-items:center;gap:18px;margin-left:auto;font-size:12px}.layout{max-width:1440px;margin:auto;padding:28px 30px 36px}.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:22px}.intro p{margin-top:6px;color:var(--muted)}.intro-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.button{padding:8px 13px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--text);font-weight:550;white-space:nowrap}.button:hover{background:var(--soft)}.button.primary{background:var(--accent);border-color:var(--accent);color:light-dark(#fff,#0b2c25)}.button.danger{color:var(--bad)}.connection{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--muted)}.dot.ok{background:var(--accent)}.dot.bad{background:var(--bad)}.badge{display:inline-flex;align-items:center;padding:3px 8px;gap:5px;border-radius:5px;font-size:12px;background:var(--soft);color:var(--muted);white-space:nowrap}.badge.open{background:var(--bad-bg);color:var(--bad)}.badge.recovering{background:var(--warn-bg);color:var(--warn)}.badge.resolved{background:var(--accent-bg);color:var(--accent)}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:20px}.metric{padding:18px 21px;background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}.metric .value{font-size:31px;line-height:1.25;font-weight:650;margin:8px 0 3px;letter-spacing:-1px}.metric .label{color:var(--muted);font-size:12px}.metric .note{font-size:12px;color:var(--muted)}.section{background:var(--panel);border:1px solid var(--line);border-radius:10px;min-width:0;box-shadow:var(--shadow)}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 20px;border-bottom:1px solid var(--line)}.section-head p{font-size:12px;color:var(--muted);margin-top:3px}.topology{display:flex;align-items:center;justify-content:center;gap:24px;padding:25px 22px;min-height:165px}.service{min-width:130px;max-width:195px;flex:1;padding:13px 15px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}.service-name{font-size:13px;font-weight:650;display:flex;align-items:center;gap:8px}.service-state{font-size:12px;margin-top:6px;color:var(--muted)}.service-hint{font-size:11px;color:var(--muted);margin-top:1px}.service.bad{border-color:var(--bad);background:var(--bad-bg)}.branch{display:grid;gap:12px;min-width:130px;max-width:195px;flex:1}.branch .service{width:100%;max-width:none}.connector{width:42px;flex:none;height:1px;position:relative;background:var(--line)}.connector:after{content:"";width:6px;height:6px;border:solid var(--muted);border-width:1px 1px 0 0;transform:rotate(45deg);position:absolute;right:0;top:-3px}.service-group{display:flex;align-items:center;gap:24px;width:100%;max-width:850px}.content-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.35fr);gap:20px;margin-top:20px;align-items:start}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:12px}th{color:var(--muted);font-weight:500;padding:11px 16px;background:var(--soft);white-space:nowrap}td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}tbody tr.selected{background:var(--accent-bg)}.incident-link{padding:0;border:0;background:transparent;color:var(--text);font-weight:600;text-align:left;line-height:1.5}.incident-link:hover{text-decoration:underline;text-underline-offset:3px}.incident-link span{display:block;font-weight:400;color:var(--muted);font-size:11px}.empty{padding:36px 20px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--text);font-size:14px;font-weight:550;margin-bottom:6px}.detail-body{padding:20px}.detail-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.detail-heading .id{margin-top:6px;color:var(--muted)}.detail-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}.fact .key{font-size:11px;color:var(--muted);margin-bottom:3px}.fact .val{font-size:12px;overflow-wrap:anywhere}.chips{display:flex;gap:6px;flex-wrap:wrap}.rule{border:0;border-top:1px solid var(--line);margin:18px 0}.report-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:15px 0 12px;flex-wrap:wrap}.report-toolbar label{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.select{max-width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--text)}.summary{padding:13px 15px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 6px 6px 0;line-height:1.8;font-size:13px;overflow-wrap:anywhere}.subhead{margin:18px 0 9px;display:flex;gap:9px;align-items:center;justify-content:space-between}.observations{padding:0 0 0 18px;margin:8px 0 0;font-size:12px}.observations li{margin:6px 0;overflow-wrap:anywhere}.hypothesis{padding:13px 0;border-top:1px solid var(--line)}.hypothesis:first-child{border-top:0}.hypothesis .cause{margin:7px 0;font-size:12px;line-height:1.8}.hypothesis ol{font-size:12px;padding-left:18px;margin:8px 0 0}.ref-button{border:0;padding:0;background:transparent;color:var(--accent);font:11px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;text-align:left;overflow-wrap:anywhere}.refs{display:flex;flex-wrap:wrap;gap:4px 11px;margin-top:7px}.evidence-note{font-size:12px;color:var(--muted);margin:10px 0}.coverage{display:flex;gap:13px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.audit{background:var(--soft);padding:12px 13px;border-radius:7px;margin-top:15px}.audit-row{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}.audit-hash{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:10px;overflow-wrap:anywhere;color:var(--muted);margin-top:7px}.verification{font-size:12px;margin-top:7px}.verification.ok{color:var(--accent)}.verification.error{color:var(--bad)}details{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;font-size:12px;font-weight:550}pre{max-height:290px;overflow:auto;padding:12px;background:var(--soft);border-radius:6px;font:11px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;word-break:break-word;margin-bottom:0}.evidence-modal{border:1px solid var(--line);border-radius:10px;padding:0;background:var(--panel);color:var(--text);width:min(780px,calc(100% - 30px));max-height:85vh;overflow:auto;box-shadow:0 25px 70px #0003}.evidence-modal::backdrop{background:#0006}.evidence-modal .dialog-body{padding:20px}.evidence-modal pre{max-height:none}.controls{margin-top:20px}.control-body{padding:17px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.control-copy{font-size:12px;color:var(--muted);max-width:600px}.control-actions{display:flex;gap:8px;flex-wrap:wrap}.message{margin:0 20px 17px;padding:10px 12px;border-radius:6px;background:var(--soft);font-size:12px;overflow-wrap:anywhere}.message.error{background:var(--bad-bg);color:var(--bad)}.global-error{margin:0 0 18px;padding:12px 15px;background:var(--bad-bg);color:var(--bad);border:1px solid var(--bad);border-radius:8px;font-size:12px}.notifications{padding:4px 0}.notification{display:flex;gap:9px;margin:9px 0;font-size:12px;align-items:baseline}.notification time{color:var(--muted);white-space:nowrap}.footer{margin-top:22px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}[hidden]{display:none!important}@media(max-width:1000px){.layout{padding:23px 20px}.bar-inner{padding:16px 20px}.content-grid{grid-template-columns:1fr}.detail-facts{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:650px){.bar-inner{padding:14px 16px}.brand-sub{display:none}.bar-links{gap:12px}.layout{padding:20px 14px}.intro{align-items:flex-start;flex-direction:column;gap:13px}h1{font-size:23px}.metrics{gap:8px}.metric{padding:13px 12px}.metric .value{font-size:25px}.metric .note{font-size:10px}.section-head{padding:15px}.service-group{gap:8px}.topology{padding:18px 12px}.service{padding:10px 9px;min-width:0}.service-name{font-size:11px;gap:5px}.service-state{font-size:10px}.service-hint{font-size:10px}.branch{min-width:0}.connector{width:17px}.detail-body{padding:16px}.detail-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.control-body{padding:16px}.control-actions{width:100%}.control-actions .button{flex:1;padding:9px 10px;font-size:12px}.report-toolbar label{width:100%;justify-content:space-between}.report-toolbar select{min-width:0;flex:1}th,td{padding:11px 12px}.audit-hash{font-size:10px}.button{padding:8px 11px}.message{margin:0 16px 16px}.footer{font-size:10px}}
+
+.rca-panel{margin-top:20px;padding-top:15px;border-top:1px solid var(--line)}.rca-label{margin-top:10px;font-weight:600}.rca-role-group{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:7px 0}.rca-graph{overflow:auto;max-height:430px;margin:12px 0 7px;border:1px solid var(--line);border-radius:7px;background:var(--soft)}.rca-graph svg{display:block;width:100%;min-width:600px}.rca-edge{fill:none;stroke:var(--muted);stroke-width:1.5}.rca-edge-declared{stroke-dasharray:5 4}.rca-node{fill:var(--panel);stroke:var(--line);stroke-width:1.5}.rca-node-direct{fill:var(--bad-bg)}.rca-node-candidate{stroke:var(--accent);stroke-width:2.5}.rca-node-name{fill:var(--text);font-size:12px;font-weight:600}.rca-node-role{fill:var(--muted);font-size:10px}.rca-warning{color:var(--warn)}.rca-candidate{padding:13px 0;border-bottom:1px solid var(--line)}.rca-candidate>p{margin-top:5px}.rca-direction{margin:8px 0;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="bar-inner">
+    <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="brand">智能运维控制台</span>
+    <span class="brand-sub">证据驱动的分布式故障诊断</span>
+    <nav class="bar-links" aria-label="帮助"><a href="/docs" target="_blank" rel="noopener">API 文档</a><a href="/health" target="_blank" rel="noopener">服务状态</a></nav>
+  </div>
+</header>
+<main class="layout">
+  <div class="intro">
+    <div><h1>运行概览</h1><p>从异常信号到故障事件，保留每一次诊断的证据。</p></div>
+    <div class="intro-actions"><span class="connection" id="connection"><i class="dot" aria-hidden="true"></i><span>正在连接后端</span></span><button class="button" id="refresh" type="button">刷新数据</button></div>
+  </div>
+  <div id="global-error" class="global-error" role="alert" hidden></div>
+  <section class="metrics" aria-label="运行指标">
+    <div class="metric"><div class="label">已采集事件</div><div class="value tabular" id="metric-events">—</div><div class="note">指标、日志与调用链</div></div>
+    <div class="metric"><div class="label">故障事件</div><div class="value tabular" id="metric-incidents">—</div><div class="note" id="incident-count-note">聚合后的故障记录</div></div>
+    <div class="metric"><div class="label">处理中</div><div class="value tabular" id="metric-open">—</div><div class="note">故障中与恢复中的事件</div></div>
+  </section>
+  <section class="section" aria-labelledby="service-title">
+    <div class="section-head"><div><h2 id="service-title">服务调用关系</h2><p>健康检查表示进程可用性；请求异常由故障事件反映。</p></div><span class="badge" id="execution-mode">模式待确认</span></div>
+    <div class="topology"><div class="service-group" aria-label="网关调用订单，订单依次调用库存和支付">
+      <div class="service" id="service-gateway"><div class="service-name"><i class="dot" aria-hidden="true"></i>gateway</div><div class="service-state">健康状态未知</div><div class="service-hint">请求入口</div></div>
+      <span class="connector" aria-hidden="true"></span>
+      <div class="service" id="service-order"><div class="service-name"><i class="dot" aria-hidden="true"></i>order</div><div class="service-state">健康状态未知</div><div class="service-hint">订单编排</div></div>
+      <span class="connector" aria-hidden="true"></span>
+      <div class="branch">
+        <div class="service" id="service-inventory"><div class="service-name"><i class="dot" aria-hidden="true"></i>inventory</div><div class="service-state">健康状态未知</div></div>
+        <div class="service" id="service-payment"><div class="service-name"><i class="dot" aria-hidden="true"></i>payment</div><div class="service-state">健康状态未知</div></div>
+      </div>
+    </div></div>
+  </section>
+  <div class="content-grid">
+    <section class="section" aria-labelledby="incident-title">
+      <div class="section-head"><div><h2 id="incident-title">故障事件</h2><p>相同故障的窗口告警合并记录，恢复后自动关闭。</p></div><span class="badge" id="incident-badge">等待数据</span></div>
+      <div class="table-wrap" id="incident-table-wrap" hidden><table><thead><tr><th>事件 / 优先检查</th><th>状态</th><th>告警</th><th>最近更新</th></tr></thead><tbody id="incident-rows"></tbody></table></div>
+      <div class="empty" id="incident-empty"><strong>等待故障事件</strong><span>后端产生事件后会自动显示在这里。</span></div>
+    </section>
+    <section class="section" aria-labelledby="detail-title">
+      <div class="section-head"><div><h2 id="detail-title">事件与诊断</h2><p>初步报告、补证版本和恢复报告均可回查。</p></div></div>
+      <div class="empty" id="detail-empty"><strong>选择一个故障事件</strong><span>查看影响范围、报告版本与原始证据。</span></div>
+      <div class="detail-body" id="detail" hidden>
+        <div class="detail-heading"><div><h3 id="detail-candidate">—</h3><div class="id mono" id="detail-id"></div></div><span class="badge" id="detail-status"></span></div>
+        <div class="detail-facts">
+          <div class="fact"><div class="key">影响服务</div><div class="chips val" id="detail-services"></div></div>
+          <div class="fact"><div class="key">原始告警</div><div class="val tabular" id="detail-alert-count">—</div></div>
+          <div class="fact"><div class="key">首次发现 · 北京时间</div><div class="val tabular" id="detail-opened">—</div></div>
+          <div class="fact"><div class="key">恢复确认 · 北京时间</div><div class="val tabular" id="detail-resolved">—</div></div>
+        </div>
+        <hr class="rule">
+        <div class="report-toolbar"><label for="report-version">诊断版本<select id="report-version" class="select"><option>等待报告</option></select></label><span class="badge" id="analysis-mode">—</span></div>
+        <div class="empty" id="report-empty"><strong>正在准备初步报告</strong><span>报告生成后会自动更新。</span></div>
+        <div id="report-content" hidden>
+          <div class="summary" id="report-summary"></div>
+          <div id="observation-section" hidden><div class="subhead"><h3>观测事实</h3></div><ul class="observations" id="report-observations"></ul></div>
+          <div id="statistics-section" hidden><div class="subhead"><h3>服务观测统计</h3></div><div class="table-wrap"><table><thead><tr><th>服务</th><th>请求样本</th><th>5xx</th><th>错误率</th></tr></thead><tbody id="report-service-stats"></tbody></table></div></div>
+          <section class="rca-panel" id="rca-section" aria-labelledby="rca-title">
+            <div class="subhead"><h3 id="rca-title">服务依赖与根因候选</h3><span class="badge" id="rca-status">等待报告</span></div>
+            <p class="small muted" id="rca-empty">该报告尚无RCA版本结果。</p>
+            <div id="rca-content" hidden>
+              <p class="small" id="rca-summary"></p><p class="small muted">分析版本：<span id="rca-version"></span></p>
+              <div id="rca-roles"></div>
+              <p class="rca-direction">箭头表示调用方 → 被调用方；故障影响可能沿相反方向传播。实线由父子span支持，虚线仅表示声明的调用关系；调用关系不等于已证实的因果关系。</p>
+              <div class="rca-graph" id="rca-graph"></div><p class="small muted" id="rca-graph-count"></p>
+              <div id="rca-candidates"></div><div id="rca-uncertainties"></div>
+            </div>
+          </section>
+          <div class="subhead"><h3>候选原因与验证步骤</h3><span class="small muted">候选原因仍需验证</span></div>
+          <div id="report-hypotheses"></div>
+          <div id="missing-section" hidden><div class="subhead"><h3>待补充证据</h3></div><ul class="observations" id="report-missing"></ul></div>
+          <div class="subhead"><h3>证据快照</h3><span class="small muted" id="report-created"></span></div>
+          <div class="coverage" id="report-coverage"></div>
+          <p class="evidence-note" id="report-coverage-note"></p>
+          <details id="evidence-pages"><summary>分页读取该版本证据</summary>
+            <p class="small muted">每页最多 200 条。筛选使用 UTC 毫秒时间戳；切换版本后重新读取。</p>
+            <div class="report-toolbar"><input id="evidence-service" class="select" placeholder="服务（可选）" aria-label="证据服务"><select id="evidence-type" class="select" aria-label="证据类型"><option value="">全部类型</option><option>request</option><option>span</option><option>log</option><option>host</option></select><input id="evidence-event" class="select" placeholder="事件 ID（可选）" aria-label="证据事件 ID"><input id="evidence-start" type="number" class="select" placeholder="开始 UTC ms" aria-label="开始时间"><input id="evidence-end" type="number" class="select" placeholder="结束 UTC ms" aria-label="结束时间"><button id="evidence-load" class="button" type="button">查询第一页</button><button id="evidence-next" class="button" type="button" disabled>下一页</button></div>
+            <p id="evidence-page-status" class="small" role="status"></p><pre id="evidence-page-json"></pre>
+          </details>
+          <details><summary>报告版本比较</summary><button class="button" id="compare-report" type="button">与上一版本比较</button><pre id="report-diff"></pre><p class="small muted">界面保留最近 500 个版本；完整历史可通过 /incidents/{id}/report-history 分页查询。</p></details>
+          <div class="audit"><div class="audit-row"><span class="small">快照 SHA-256</span><button class="button" id="verify" type="button">校验快照</button></div><div class="audit-hash" id="report-hash"></div><div id="verification" class="verification" role="status" hidden></div></div>
+          <details><summary>查看该版本的原始 JSON</summary><pre id="report-json"></pre></details>
+        </div>
+        <details id="alerts-details"><summary id="alerts-title">关联窗口告警</summary><div id="correlated-alerts"></div></details>
+        <details><summary>事件通知记录</summary><div class="notifications" id="notifications"></div><p class="small muted">这里是持久化通知记录；不代表已经通过邮件或其他渠道发送。</p></details>
+      </div>
+    </section>
+  </div>
+  <section class="section controls" aria-labelledby="control-title">
+    <div class="section-head"><div><h2 id="control-title">模拟故障控制</h2><p>仅作用于模拟支付服务；点击后才会执行。</p></div><span class="badge">可逆实验</span></div>
+    <div class="control-body"><p class="control-copy">启动模拟服务后可注入故障。错误与延迟默认持续 30 秒，也可以立即清除；事件恢复需要健康样本确认。</p><div class="control-actions"><button class="button danger" data-fault="error" type="button">注入支付 503</button><button class="button" data-fault="latency" type="button">注入 1.5 秒延迟</button><button class="button primary" data-fault="none" type="button">清除支付故障</button></div></div>
+    <div class="message" id="fault-message" role="status" hidden></div>
+  </section>
+  <footer class="footer"><span>页面显示后端实际数据 · 可见时每 5 秒刷新</span><span id="last-updated">尚未同步</span></footer>
+</main>
+<dialog class="evidence-modal" id="evidence-dialog"><div class="section-head"><h2>原始证据</h2><button class="button" id="close-evidence" type="button">关闭</button></div><div class="dialog-body"><p class="small muted" id="evidence-id"></p><pre id="evidence-json"></pre></div></dialog>
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const state = {incidents: [], selectedId: null, reportId: null, report: null, versions: [], detail: null, notifications: [], refreshing: false, detailRequest: 0, reportRequest: 0};
+  const statusNames = {open:'故障中', recovering:'恢复中', resolved:'已恢复'};
+  const stageNames = {preliminary:'初步报告', enriched:'补证报告', resolved:'恢复报告'};
+  const confidenceNames = {low:'低', medium:'中', high:'高'};
+  const clock = new Intl.DateTimeFormat('zh-CN', {timeZone:'Asia/Shanghai', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false});
+  const shortClock = new Intl.DateTimeFormat('zh-CN', {timeZone:'Asia/Shanghai', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false});
+  const formatTime = value => Number.isFinite(Number(value)) && Number(value) > 0 ? clock.format(new Date(Number(value))) : '—';
+  const list = (value, key) => Array.isArray(value) ? value : Array.isArray(value && value[key]) ? value[key] : [];
+  const el = (tag, className, text) => {const node = document.createElement(tag); if(className) node.className=className; if(text !== undefined) node.textContent=String(text); return node;};
+  const text = (id, value) => {$(id).textContent = value == null ? '—' : String(value);};
+  const number = value => Number.isFinite(Number(value)) ? Number(value).toLocaleString('zh-CN') : '—';
+  const badge = (status) => el('span', 'badge ' + (Object.hasOwn(statusNames,status) ? status : ''), statusNames[status] || status || '未知');
+  async function api(path, options={}) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8000);
+    try {
+      const response = await fetch(path, {...options, signal:controller.signal, headers:{Accept:'application/json', ...(options.body ? {'Content-Type':'application/json'} : {}), ...(options.headers || {})}});
+      let payload; try {payload = await response.json();} catch {payload = null;}
+      if(!response.ok) {const error = new Error(typeof payload?.detail === 'string' ? payload.detail : `请求失败（HTTP ${response.status}）`); error.status=response.status; throw error;}
+      return payload;
+    } finally {clearTimeout(timer);}
+  }
+  function connection(ok, message) {
+    const holder=$('connection'); holder.replaceChildren(el('i', 'dot '+(ok?'ok':'bad')), el('span','',message));
+  }
+  function modeLabel(health) {
+    const mode = String(health.execution_mode || '').toLowerCase();
+    if(!mode) return '后端模式未声明';
+    if(mode.includes('local') || mode.includes('demo') || mode.includes('http')) return '本地 HTTP 演示';
+    if(mode.includes('kafka')) return 'Kafka 运行配置';
+    return String(health.execution_mode);
+  }
+  function serviceData(payload) {
+    const raw = payload?.services || payload || {};
+    if(Array.isArray(raw)) return Object.fromEntries(raw.map(v=>[v.service || v.name,v]));
+    return raw;
+  }
+  function renderServices(payload) {
+    const services = serviceData(payload);
+    ['gateway','order','inventory','payment'].forEach(name => {
+      const holder=$('service-'+name), data=services[name];
+      const dot=holder.querySelector('.dot'), label=holder.querySelector('.service-state');
+      holder.classList.remove('bad'); dot.className='dot';
+      if(!data || data.status === 'unknown') {label.textContent='健康状态未知'; return;}
+      const available = data.status === 'ok' || data.status === 'healthy' || data.healthy === true;
+      if(available) {dot.classList.add('ok'); label.textContent='进程可用';}
+      else {dot.classList.add('bad'); holder.classList.add('bad'); label.textContent=data.status === 'unreachable' ? '暂时无法连接' : '健康检查异常';}
+      if(data.telemetry_failed > 0) label.textContent += ` · 遥测失败 ${data.telemetry_failed}`;
+    });
+  }
+  function renderIncidents() {
+    const rows=$('incident-rows'); rows.replaceChildren();
+    $('incident-table-wrap').hidden = !state.incidents.length;
+    $('incident-empty').hidden = !!state.incidents.length;
+    text('incident-badge', state.incidents.length ? `${state.incidents.length} 条记录` : '暂无事件');
+    state.incidents.forEach(incident => {
+      const tr=el('tr',incident.incident_id===state.selectedId?'selected':'');
+      const first=el('td');
+      const button=el('button','incident-link',incident.candidate_service || incident.root_anchor || '待确认服务');
+      button.type='button'; button.setAttribute('aria-pressed',String(incident.incident_id===state.selectedId));
+      button.append(el('span','mono',String(incident.incident_id || '').slice(0,12)));
+      button.addEventListener('click',()=>selectIncident(incident.incident_id)); first.append(button);
+      const status=el('td'); status.append(badge(incident.status));
+      tr.append(first,status,el('td','tabular',incident.alert_count ?? (incident.alert_ids || []).length),el('td','tabular muted',formatTime(incident.updated_at)));
+      rows.append(tr);
+    });
+  }
+  function incidentFacts(incident) {
+    text('detail-candidate',`${incident.candidate_service || incident.root_anchor || '待确认服务'} · 优先检查`);
+    text('detail-id',incident.incident_id);
+    $('detail-status').className='badge '+(Object.hasOwn(statusNames,incident.status)?incident.status:'');
+    text('detail-status',statusNames[incident.status] || incident.status);
+    text('detail-alert-count',`${incident.alert_count ?? (incident.alert_ids || []).length} 条窗口告警`);
+    text('detail-opened',formatTime(incident.opened_at)); text('detail-resolved',formatTime(incident.resolved_at));
+    const services=$('detail-services'); services.replaceChildren();
+    (incident.services || []).forEach(service=>services.append(el('span','badge',service)));
+    if(!services.children.length) services.append(el('span','muted','待确认'));
+  }
+  function renderNotifications() {
+    const holder=$('notifications'); holder.replaceChildren();
+    const notices=state.notifications.filter(n=>n.incident_id===state.selectedId);
+    if(!notices.length) {holder.append(el('p','small muted','当前没有通知记录。')); return;}
+    notices.forEach(notice=>{
+      const row=el('div','notification');
+      row.append(el('time','tabular',formatTime(notice.created_at || notice.timestamp)),el('span','',notice.kind==='resolved'?'恢复通知已记录':notice.kind==='opened'?'首次故障通知已记录':notice.kind || '状态通知'));
+      holder.append(row);
+    });
+  }
+  async function selectIncident(id, preserveReport=false) {
+    if(!id) return;
+    const requestId=++state.detailRequest;
+    const changed=id!==state.selectedId;
+    state.selectedId=id; state.detail=null;
+    if(changed || !preserveReport) {state.reportRequest+=1; state.reportId=null; state.report=null; $('report-content').hidden=true; $('report-empty').hidden=false;}
+    $('detail-empty').hidden=true; $('detail').hidden=false;
+    renderIncidents();
+    const current=state.incidents.find(i=>i.incident_id===id); if(current) incidentFacts(current);
+    try {
+      const [incident,payload]=await Promise.all([api('/incidents/'+encodeURIComponent(id)),api('/incidents/'+encodeURIComponent(id)+'/reports')]);
+      if(requestId!==state.detailRequest) return;
+      state.detail=incident; incidentFacts(incident); renderNotifications();
+      const versions=list(payload,'reports').slice().sort((a,b)=>(b.version||0)-(a.version||0));
+      const previouslyLatest=state.versions[0]?.report_id;
+      const wasLatest=!state.reportId || state.reportId===previouslyLatest;
+      state.versions=versions;
+      const picker=$('report-version'); picker.replaceChildren();
+      if(!versions.length) {
+        picker.append(el('option','','等待报告')); picker.disabled=true;
+        $('report-content').hidden=true; $('report-empty').hidden=false; text('analysis-mode','等待诊断');
+      } else {
+        picker.disabled=false;
+        versions.forEach(v=>{const option=el('option','',`v${v.version ?? '?'} · ${stageNames[v.stage] || v.stage || '报告'} · ${formatTime(v.created_at)}`);option.value=v.report_id;picker.append(option);});
+        const retained=preserveReport&&!wasLatest&&versions.some(v=>v.report_id===state.reportId);
+        picker.value=retained?state.reportId:versions[0].report_id;
+        if(picker.value!==state.reportId || !state.report) await selectReport(picker.value);
+      }
+      loadCorrelatedAlerts(incident,requestId);
+    } catch(error) {
+      if(requestId===state.detailRequest) {text('report-summary',`事件详情暂时不可用：${error.message}`);renderRca({});$('report-content').hidden=false;$('report-empty').hidden=true;}
+    }
+  }
+  async function loadCorrelatedAlerts(incident,requestId) {
+    const holder=$('correlated-alerts');
+    text('alerts-title',`关联窗口告警（${incident.alert_count ?? (incident.alert_ids || []).length}）`);
+    try {
+      let alerts=Array.isArray(incident.alerts)?incident.alerts:null;
+      if(!alerts) {
+        const payload=await api('/alerts?limit=500');
+        const ids=new Set(incident.alert_ids || (incident.first_alert_id?[incident.first_alert_id]:[]));
+        alerts=list(payload,'alerts').filter(a=>ids.has(a.alert_id));
+      }
+      if(requestId!==state.detailRequest) return;
+      holder.replaceChildren();
+      if(!alerts.length) {holder.append(el('p','small muted','完整原始告警请通过 API 查询。'));return;}
+      const pre=el('pre'); pre.textContent=JSON.stringify(alerts,null,2);holder.append(pre);
+    } catch {if(requestId===state.detailRequest) {holder.replaceChildren(el('p','small muted','关联告警暂时无法读取。'));}}
+  }
+  function appendList(holder,values) {
+    holder.replaceChildren();
+    (values || []).forEach(value=>holder.append(el('li','',typeof value==='string'?value:JSON.stringify(value))));
+  }
+  function showEvidence(ref, report=state.report) {
+    const record=(report?.snapshot?.records || []).find(row=>(row.event || row).event_id===ref);
+    text('evidence-id',ref);
+    text('evidence-json',record?JSON.stringify(record,null,2):'该引用未在当前快照中找到。');
+    const dialog=$('evidence-dialog'); if(typeof dialog.showModal==='function') dialog.showModal(); else dialog.setAttribute('open','');
+  }
+  const rcaArray = value => Array.isArray(value) ? value : [];
+  const rcaText = value => typeof value==='string' ? value : '';
+  const rcaServices = value => rcaArray(value).filter(v=>typeof v==='string' && v.length>0);
+  function rcaEvidenceGroup(title, values, report) {
+    const refs=rcaServices(values), group=el('div','refs');
+    const available=new Set(rcaArray(report.snapshot?.records).map(row=>(row.event || row).event_id));
+    group.append(el('span','small muted',title+'：'));
+    if(!refs.length) group.append(el('span','small muted','无'));
+    refs.slice(0,20).forEach(ref=>{
+      if(!available.has(ref)) {group.append(el('span','small muted',ref+'（不在本报告快照中）'));return;}
+      const button=el('button','ref-button',ref);button.type='button';
+      button.setAttribute('aria-label','查看本报告证据 '+ref);
+      button.addEventListener('click',()=>showEvidence(ref,report));group.append(button);
+    });
+    if(refs.length>20)group.append(el('span','small muted',`仅显示前20个引用，共${refs.length}个；完整列表见原始JSON。`));
+    return group;
+  }
+  function rcaItems(section, title, values, limit=12) {
+    const rows=rcaArray(values);if(!rows.length)return;
+    section.append(el('p','small rca-label',title));
+    const ul=el('ul','observations');rows.slice(0,limit).forEach(value=>ul.append(el('li','',typeof value==='string'?value:JSON.stringify(value))));section.append(ul);
+    if(rows.length>limit)section.append(el('p','small muted',`仅显示前${limit}项，共${rows.length}项。`));
+  }
+  function rcaGraph(rca) {
+    const holder=$('rca-graph');holder.replaceChildren();
+    const graph=rca.graph || {}, rawNodes=rcaArray(graph.nodes), rawEdges=rcaArray(graph.edges);
+    const nodes=[], seen=new Set();
+    rawNodes.slice(0,30).forEach(node=>{const service=rcaText(node?.service);if(service && !seen.has(service)){nodes.push(service);seen.add(service);}});
+    const edges=rawEdges.slice(0,60).filter(edge=>edge && seen.has(edge.caller) && seen.has(edge.callee) && ['parent_span','declared_only'].includes(edge.basis));
+    const omitted=nodes.length<rawNodes.length || edges.length<rawEdges.length;
+    text('rca-graph-count',`显示${nodes.length}/${rawNodes.length}个节点、${edges.length}/${rawEdges.length}条边${omitted?'；图示已截断或省略不完整项，完整数据见原始JSON。':'。'}`);
+    $('rca-graph-count').className='small '+(omitted?'rca-warning':'muted');
+    if(!nodes.length) {holder.append(el('p','small muted','当前报告没有可绘制的服务依赖节点。'));return;}
+    // Bounded topological layers; cycles remain in a final layer, not invented as roots.
+    const levels=new Map(), remaining=new Set(nodes), layerEdges=edges.filter(e=>e.caller!==e.callee);
+    let level=0;
+    while(remaining.size && level<30) {
+      const ready=[...remaining].filter(service=>!layerEdges.some(e=>e.callee===service && remaining.has(e.caller)));
+      if(!ready.length) {remaining.forEach(service=>levels.set(service,level));break;}
+      ready.forEach(service=>{levels.set(service,level);remaining.delete(service);});level+=1;
+    }
+    const positions=new Map();let row=0;
+    [...new Set(levels.values())].sort((a,b)=>a-b).forEach(depth=>{
+      const services=nodes.filter(service=>levels.get(service)===depth);
+      services.forEach((service,index)=>positions.set(service,{x:28+(index%4)*173,y:28+(row+Math.floor(index/4))*100}));
+      row+=Math.ceil(services.length/4);
+    });
+    const svgEl=(tag,attrs={},value)=>{const node=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.entries(attrs).forEach(([key,val])=>node.setAttribute(key,String(val)));if(value!==undefined)node.textContent=String(value);return node;};
+    const svg=svgEl('svg',{viewBox:`0 0 720 ${Math.max(140,row*100+28)}`,role:'img','aria-label':'报告内服务依赖图，箭头从调用方指向被调用方'});
+    const defs=svgEl('defs'),marker=svgEl('marker',{id:'rca-call-arrow',viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:6,markerHeight:6,orient:'auto-start-reverse'});
+    marker.append(svgEl('path',{d:'M 0 0 L 10 5 L 0 10 z',fill:'var(--muted)'}));defs.append(marker);svg.append(defs);
+    edges.forEach(edge=>{
+      const start=positions.get(edge.caller),end=positions.get(edge.callee);
+      let d;
+      if(edge.caller===edge.callee)d=`M ${start.x+134} ${start.y+15} C ${start.x+170} ${start.y-12}, ${start.x+170} ${start.y+75}, ${start.x+134} ${start.y+46}`;
+      else if(start.y===end.y)d=`M ${start.x+70} ${start.y+62} C ${start.x+70} ${start.y+88}, ${end.x+70} ${end.y+88}, ${end.x+70} ${end.y+62}`;
+      else {const sx=start.x+70,sy=start.y+62,ex=end.x+70,ey=end.y;d=`M ${sx} ${sy} C ${sx} ${(sy+ey)/2}, ${ex} ${(sy+ey)/2}, ${ex} ${ey}`;}
+      const path=svgEl('path',{d,class:edge.basis==='declared_only'?'rca-edge rca-edge-declared':'rca-edge','marker-end':'url(#rca-call-arrow)'});
+      path.append(svgEl('title',{},`${edge.caller} → ${edge.callee}；${edge.basis==='declared_only'?'仅声明调用，缺少已配对父子span':'父子span支持'}；证据 ${rcaServices(edge.evidence_ids).join(', ') || '未列出'}`));svg.append(path);
+    });
+    const direct=new Set(rcaServices(rca.direct_anomalous_services)), affected=new Set(rcaServices(rca.affected_services));
+    const candidates=new Set(rcaArray(rca.candidates).map(candidate=>candidate?.service).filter(v=>typeof v==='string'));
+    nodes.forEach(service=>{
+      const {x,y}=positions.get(service), group=svgEl('g');
+      const labels=[candidates.has(service)?'候选':'',direct.has(service)?'直接异常':'',affected.has(service)?'受影响':''].filter(Boolean);
+      group.append(svgEl('rect',{x,y,width:140,height:62,rx:7,class:'rca-node'+(direct.has(service)?' rca-node-direct':'')+(candidates.has(service)?' rca-node-candidate':'')}));
+      group.append(svgEl('title',{},service+'；'+(labels.join('、') || '已观测服务')));
+      group.append(svgEl('text',{x:x+10,y:y+25,class:'rca-node-name'},service.length>18?service.slice(0,17)+'…':service));
+      group.append(svgEl('text',{x:x+10,y:y+47,class:'rca-node-role'},labels.join(' · ') || '已观测服务'));svg.append(group);
+    });
+    holder.append(svg);
+  }
+  function renderRca(report) {
+    const rca=report.rca, available=!!rca && typeof rca==='object' && !Array.isArray(rca);
+    $('rca-content').hidden=!available;$('rca-empty').hidden=available;
+    text('rca-status',available?(rca.status==='unknown'?'无法确定':rca.status==='candidates'?'待验证候选':rca.status || '状态未声明'):'无该版本结果');
+    const candidatesHolder=$('rca-candidates'), graph=$('rca-graph');candidatesHolder.replaceChildren();graph.replaceChildren();
+    if(!available) {text('rca-empty','该报告尚无RCA版本结果；可查看下方原有诊断与证据。');return;}
+    text('rca-summary',rca.summary || '该版本未提供RCA摘要。');
+    text('rca-version',rca.rca_version || '版本未声明');
+    const roles=$('rca-roles');roles.replaceChildren();
+    [['直接异常服务',rca.direct_anomalous_services],['候选根因服务',rcaArray(rca.candidates).map(c=>c?.service)],['受影响服务',rca.affected_services]].forEach(([label,services])=>{
+      const group=el('div','rca-role-group');group.append(el('span','small muted',label+'：'));
+      const names=[...new Set(rcaServices(services))];names.slice(0,30).forEach(name=>group.append(el('span','badge',name)));
+      if(!names.length)group.append(el('span','small muted','未确定'));
+      if(names.length>30)group.append(el('span','small muted',`仅显示前30项，共${names.length}项`));roles.append(group);
+    });
+    rcaGraph(rca);
+    const candidates=rcaArray(rca.candidates);
+    candidates.slice(0,10).forEach((candidate,index)=>{
+      if(!candidate || typeof candidate!=='object')return;
+      const card=el('article','rca-candidate'),heading=el('div','chips');
+      const rank=Number.isFinite(candidate.rank)?candidate.rank:index+1;
+      heading.append(el('strong','small',`#${rank} ${rcaText(candidate.service) || '服务未声明'}`));
+      heading.append(el('span','badge',`判断等级：${confidenceNames[candidate.confidence] || rcaText(candidate.confidence) || '未声明'}`));
+      card.append(heading,el('p','small muted',`排序评分：${Number.isFinite(candidate.score)?candidate.score.toFixed(2):'未提供'}；评分不是概率，也不代表根因已被证实。`));
+      const impacted=rcaServices(candidate.affected_services);if(impacted.length)card.append(el('p','small','关联受影响服务：'+impacted.slice(0,30).join('、')+(impacted.length>30?'（仅前30项）':'')));
+      rcaItems(card,'判断依据',candidate.reasoning);rcaItems(card,'不确定性',candidate.uncertainties);rcaItems(card,'建议验证步骤',candidate.verification_steps);
+      card.append(rcaEvidenceGroup('支持证据',candidate.supporting_evidence_ids,report),rcaEvidenceGroup('反对证据',candidate.against_evidence_ids,report));
+      const cases=rcaArray(candidate.historical_case_matches), models=rcaArray(candidate.model_hypotheses);
+      if(cases.length || models.length) {
+        const details=el('details');details.append(el('summary','',`分析来源：${cases.length}个历史案例匹配 / ${models.length}条模型候选`));
+        details.append(el('p','small muted','历史案例与模型候选用于辅助验证，不能替代本次故障证据。'));
+        if(cases.length)details.append(el('pre','',JSON.stringify(cases.slice(0,5),null,2)));
+        if(models.length)details.append(el('pre','',JSON.stringify(models.slice(0,5),null,2)));
+        if(cases.length>5 || models.length>5)details.append(el('p','small muted','来源详情各最多显示5项，完整数据见报告原始JSON。'));
+        card.append(details);
+      }
+      candidatesHolder.append(card);
+    });
+    if(!candidatesHolder.children.length)candidatesHolder.append(el('p','small muted','当前证据不足以确定候选根因。'));
+    if(candidates.length>10)candidatesHolder.append(el('p','small muted',`仅显示前10个候选，共${candidates.length}个；完整列表见原始JSON。`));
+    const uncertainties=$('rca-uncertainties');uncertainties.replaceChildren();rcaItems(uncertainties,'整体不确定性',rca.uncertainties);
+  }
+  function verificationMessage(result) {
+    const snapshot=result.snapshot_sha256_valid===true;
+    const rcaKeys=['rca_sha256_valid','rca_evidence_references_valid','rca_evidence_set_valid'];
+    const rcaPresent=rcaKeys.some(key=>result[key]!==null && result[key]!==undefined);
+    const rcaValid=rcaPresent && rcaKeys.every(key=>result[key]===true);
+    const ok=snapshot && (!rcaPresent || rcaValid);
+    let message=snapshot?'快照哈希校验通过。':'快照校验未通过，请检查报告数据。';
+    if(rcaPresent)message+=rcaValid?' RCA哈希、证据引用与证据集校验通过。':' RCA完整性校验未全部通过，请检查哈希、证据引用和证据集。';
+    else message+=' 此版本未提供RCA完整性校验结果。';
+    message+=' 校验用于检查一致性，不是外部数字签名或根因正确性证明。';
+    return {ok,message};
+  }
+  function renderReport(report) {
+    $('report-empty').hidden=true; $('report-content').hidden=false;
+    const analysis=report.analysis || {}, audit=report.audit || {}, snapshot=report.snapshot || {};
+    text('analysis-mode',audit.analysis_mode==='llm-assisted'?'模型辅助诊断':audit.analysis_mode==='heuristic'?'规则分析':audit.analysis_mode || '方式未声明');
+    text('report-summary',analysis.summary || '报告尚未提供诊断摘要。');
+    renderRca(report);
+    const observations=Array.isArray(analysis.observed_facts)?analysis.observed_facts:Array.isArray(report.observations)?report.observations:Array.isArray(analysis.observations)?analysis.observations:[];
+    $('observation-section').hidden=!observations.length; appendList($('report-observations'),observations);
+    const serviceRows=report.observations?.services || [];
+    $('statistics-section').hidden=!serviceRows.length;
+    const serviceStats=$('report-service-stats');serviceStats.replaceChildren();
+    serviceRows.forEach(row=>{const tr=el('tr');tr.append(el('td','',row.service),el('td','tabular',number(row.sample_count)),el('td','tabular',number(row.error_count)),el('td','tabular',Number.isFinite(row.error_rate)?(row.error_rate*100).toFixed(1)+'%':'—'));serviceStats.append(tr);});
+    const missing=report.missing_evidence || analysis.missing_evidence || [];
+    $('missing-section').hidden=!missing.length; appendList($('report-missing'),missing);
+    const hypotheses=$('report-hypotheses'); hypotheses.replaceChildren();
+    (analysis.hypotheses || []).forEach(h=>{
+      const section=el('div','hypothesis');
+      const head=el('div','chips');head.append(el('strong','small',h.service || '待确认服务'),el('span','badge',`判断等级：${confidenceNames[h.confidence] || h.confidence || '未声明'}`));
+      section.append(head,el('p','cause',h.cause || '尚无候选原因'));
+      const steps=el('ol');(h.verification_steps || []).forEach(step=>steps.append(el('li','',step)));if(steps.children.length)section.append(steps);
+      [['支持证据',h.supporting_evidence_ids],['反向证据',h.against_evidence_ids]].forEach(([title,refs])=>{
+        if(!(refs || []).length)return;
+        const group=el('div','refs');group.append(el('span','small muted',title+'：'));
+        refs.forEach(ref=>{const b=el('button','ref-button',String(ref).slice(0,14)+'…');b.type='button';b.setAttribute('aria-label','查看证据 '+ref);b.addEventListener('click',()=>showEvidence(ref));group.append(b);});section.append(group);
+      });
+      hypotheses.append(section);
+    });
+    if(!hypotheses.children.length)hypotheses.append(el('p','small muted','当前证据尚不足以提出候选原因。'));
+    const coverage=snapshot.coverage || {};
+    const records=snapshot.records || [];
+    const traces=new Set(records.map(row=>(row.event || row).trace_id).filter(Boolean));
+    const cov=$('report-coverage');cov.replaceChildren(el('span','',`${number(records.length)} 条证据`),el('span','',`${number(traces.size)} 条链路`),el('span','',coverage.truncated===true?'已触发数量上限':coverage.truncated===false?'未触发数量上限':'未提供截断状态'));
+    const full=snapshot.full_evidence;
+    text('report-coverage-note',full?`已保存完整查询证据 ${number(full.total_count)} 条，分析使用 ${number(records.length)} 条${coverage.truncated?'（分析未覆盖全部证据）':''}。跨主题数据是否到齐仍未知。证据集：${full.set_id}`:'历史报告只有原快照，完整证据数量未知。');
+    state.evidenceCursor=null;state.evidenceQuery=null;state.evidenceRequest=(state.evidenceRequest||0)+1;
+    $('evidence-next').disabled=true; $('evidence-load').disabled=false;
+    text('evidence-page-status','');text('evidence-page-json','');text('report-diff','');
+    text('report-created',formatTime(report.created_at));
+    text('report-hash',audit.snapshot_sha256 || '该报告未提供快照哈希');
+    text('report-json',JSON.stringify(report,null,2));
+    $('verification').hidden=true; $('verify').disabled=!audit.snapshot_sha256;
+  }
+  async function selectReport(id) {
+    if(!id)return;
+    const requestId=++state.reportRequest;state.reportId=id;
+    try {const report=await api('/report-versions/'+encodeURIComponent(id));if(requestId!==state.reportRequest)return;state.report=report;renderReport(report);}
+    catch(error) {if(requestId===state.reportRequest) {text('report-summary','报告读取失败：'+error.message);renderRca({});$('report-empty').hidden=true;$('report-content').hidden=false;}}
+  }
+  async function refresh() {
+    if(state.refreshing)return;
+    state.refreshing=true;$('refresh').disabled=true;
+    try {
+      const [health,payload,serviceResult,noticeResult]=await Promise.all([api('/health'),api('/incidents?limit=100'),api('/services').catch(()=>null),api('/notifications').catch(()=>null)]);
+      state.incidents=list(payload,'incidents');state.notifications=list(noticeResult,'notifications');
+      const storage=health.storage || {};
+      text('metric-events',number(storage.events));
+      text('metric-incidents',number(storage.incidents ?? state.incidents.length));
+      text('incident-count-note',storage.incidents===undefined?'当前列表内的聚合事件':'聚合后的故障记录');
+      text('metric-open',number(storage.open_incidents ?? state.incidents.filter(i=>i.status!=='resolved').length));
+      text('execution-mode',modeLabel(health));renderServices(serviceResult);renderIncidents();
+      connection(true,'后端已连接');$('global-error').hidden=true;
+      text('last-updated',`最近同步 ${shortClock.format(new Date())} · 北京时间`);
+      if(state.incidents.length) {
+        const selected=state.incidents.some(i=>i.incident_id===state.selectedId)?state.selectedId:state.incidents[0].incident_id;
+        await selectIncident(selected,true);
+      } else {state.selectedId=null;$('detail').hidden=true;$('detail-empty').hidden=false;}
+    } catch(error) {
+      connection(false,'后端连接异常');text('global-error',`无法同步数据：${error.name==='AbortError'?'请求超时':error.message}。请检查 API 服务是否启动。`);$('global-error').hidden=false;
+    } finally {state.refreshing=false;$('refresh').disabled=false;}
+  }
+  $('refresh').addEventListener('click',refresh);
+  $('report-version').addEventListener('change',event=>selectReport(event.target.value));
+  $('verify').addEventListener('click',async()=>{
+    const id=state.reportId;if(!id)return;
+    const holder=$('verification');holder.hidden=false;holder.className='verification';holder.textContent='正在校验…';$('verify').disabled=true;
+    try {const result=await api('/report-versions/'+encodeURIComponent(id)+'/verify');if(state.reportId!==id)return;const verified=verificationMessage(result);holder.className='verification '+(verified.ok?'ok':'error');holder.textContent=verified.message;}
+    catch(error){if(state.reportId===id){holder.className='verification error';holder.textContent=error.status===404?'当前后端未提供该版本的校验接口。':'校验请求失败：'+error.message;}}
+    finally{if(state.reportId===id)$('verify').disabled=false;}
+  });
+  async function loadEvidencePage(first) {
+    const reportId=state.reportId;if(!reportId)return;
+    const request=state.evidenceRequest=(state.evidenceRequest||0)+1;
+    if(first){const query=new URLSearchParams({page_size:'200'});[['service','evidence-service'],['event_type','evidence-type'],['event_id','evidence-event'],['start','evidence-start'],['end','evidence-end']].forEach(([key,id])=>{const value=$(id).value.trim();if(value)query.set(key,value);});state.evidenceQuery=query;state.evidenceCursor=null;}
+    if(!state.evidenceQuery)return;
+    const query=new URLSearchParams(state.evidenceQuery);if(state.evidenceCursor)query.set('cursor',state.evidenceCursor);
+    $('evidence-load').disabled=true;$('evidence-next').disabled=true;
+    try {const page=await api('/report-versions/'+encodeURIComponent(reportId)+'/evidence?'+query);if(request!==state.evidenceRequest||reportId!==state.reportId)return;
+      state.evidenceCursor=page.next_cursor;text('evidence-page-status',`本页 ${page.records.length} 条；筛选结果 ${page.filtered_count} 条；完整集 ${page.total_count??'未知'} 条。${page.next_cursor?'还有下一页。':'已到末页。'}`);text('evidence-page-json',JSON.stringify(page.records,null,2));
+    } catch(error){if(request===state.evidenceRequest){state.evidenceCursor=null;text('evidence-page-status','读取失败：'+error.message);}}
+    finally{if(request===state.evidenceRequest){$('evidence-load').disabled=false;$('evidence-next').disabled=!state.evidenceCursor;}}
+  }
+  $('evidence-load').addEventListener('click',()=>loadEvidencePage(true));
+  $('evidence-next').addEventListener('click',()=>loadEvidencePage(false));
+  $('compare-report').addEventListener('click',async()=>{const id=state.reportId;const current=state.versions.find(v=>v.report_id===id);const previous=state.versions.filter(v=>v.version<(current?.version||0)).sort((a,b)=>b.version-a.version)[0];if(!previous){text('report-diff','当前列表中没有更早版本；完整历史请使用分页接口。');return;}try{const diff=await api('/report-versions/'+encodeURIComponent(previous.report_id)+'/compare/'+encodeURIComponent(id));if(state.reportId===id)text('report-diff',JSON.stringify(diff,null,2));}catch(error){if(state.reportId===id)text('report-diff','比较失败：'+error.message);}});
+  $('close-evidence').addEventListener('click',()=>{$('evidence-dialog').close();});
+  document.querySelectorAll('[data-fault]').forEach(button=>button.addEventListener('click',async()=>{
+    const controls=[...document.querySelectorAll('[data-fault]')];controls.forEach(b=>b.disabled=true);
+    const message=$('fault-message');message.hidden=false;message.className='message';message.textContent='正在向模拟服务提交请求…';
+    const kind=button.dataset.fault;
+    const body=kind==='none'?{kind}:{kind,duration_seconds:30,...(kind==='error'?{error_rate:1}:{latency_ms:1500})};
+    try{await api('/faults/payment',{method:'POST',body:JSON.stringify(body)});message.textContent=kind==='none'?'支付故障已清除。正在等待健康样本确认恢复。':kind==='error'?'支付 503 错误已注入，持续 30 秒。告警和报告将随实际观测更新。':'支付延迟已注入，持续 30 秒。告警和报告将随实际观测更新。';await refresh();}
+    catch(error){message.className='message error';message.textContent='控制请求失败：'+error.message+'。请确认模拟服务已启动。';}
+    finally{controls.forEach(b=>b.disabled=false);}
+  }));
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
+  setInterval(()=>{if(!document.hidden)refresh();},5000);
+  refresh();
+})();
+</script>
+</body>
+</html>

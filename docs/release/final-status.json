@@ -1,0 +1,45 @@
+{
+  "delivery_integrity_status": "passed",
+  "all_prompt_gates_passed": false,
+  "stage_status": {
+    "P0": "passed_with_stated_scope_incl_nab_negative_transfer",
+    "P1": "partial_human_review_missing_api_arm_added",
+    "P2": "partial_remote_ci_docker_kind_missing",
+    "P3": "partial_real_cluster_6_faults_edge_rca_blind_public_app_blocked",
+    "P4": "partial_clean_container_unverified"
+  },
+  "artifacts": {
+    "source": "../../README.md",
+    "technical_report": "research-report.pdf",
+    "project_brief": "project-brief.pdf",
+    "video": "../../demo/aiops-five-minute.mp4",
+    "acceptance": "ACCEPTANCE.md",
+    "independent_audit": "../research/audit-final.md"
+  },
+  "delivery_ready": true,
+  "verification": "../../research/results/p4-delivery-check-02/result.json",
+  "verification_sha256": "7dc2d1df8854f8a96e8a339d2e9abf0f675f9831d796275d41ce995c5ebe85ff",
+  "measured_summary": {
+    "tests_passed": 509,
+    "tests_skipped": 10,
+    "coverage_percent": 87.93277991496254,
+    "native_steps_passed": 13,
+    "report_pages": 12,
+    "brief_pages": 1,
+    "video_seconds": 300.0,
+    "blog_chinese_characters": 4037
+  },
+  "p3_evidence": {
+    "matrix": "../../research/results/p3-cluster-matrix-01/result.json",
+    "limits": "../../research/results/p3-cluster-limits-01/result.json",
+    "ablation": "../../research/results/p3-cluster-ablation-01/result.json",
+    "edge_rca": "../../research/results/p3-edge-rca-01/result.json",
+    "smap_msl": "../../research/results/p0-smap-msl-01/result.json",
+    "public_app_attempt": "../../research/results/p3-public-app-attempt-01/result.json"
+  },
+  "p1_api_arm": "../../research/results/p1-api-deepseek-01/result.json",
+  "p0_nab": "../../research/results/p0-nab-01/result.json",
+  "p3_blockers": [
+    "public_app_replacement: environment_incompatible (5 attempts, see research/results/p3-public-app-attempt-01)"
+  ]
+}

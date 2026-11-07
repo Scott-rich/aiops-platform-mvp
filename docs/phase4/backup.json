@@ -1,0 +1,22 @@
+{
+  "original_archive_sha256": "197730191883b582ae3ef3adf3b7fbcb58aef2a21ffb4a85e0ebdb9f576b73b2",
+  "backup": "修改前源码与配置备份.zip",
+  "backed_up_files": [
+    "README.md",
+    ".env.example",
+    "docker-compose.yml",
+    "app/local_detection.py",
+    "app/rca.py",
+    "app/incidents.py",
+    "scripts/local_platform.py",
+    "scripts/native_streaming.py",
+    "tests/test_stream_operators.py",
+    "infra/submit_job.py",
+    "flink/README.md",
+    "flink/Dockerfile",
+    "flink/aggregate.py",
+    "flink/detector.py"
+  ],
+  "database_migration": false,
+  "existing_databases_modified": false
+}

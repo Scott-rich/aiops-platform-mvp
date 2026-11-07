@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-flink-env
+data:
+  KAFKA_BOOTSTRAP_SERVERS: {{ printf "%s-kafka:9092" .Release.Name | quote }}
+  FLINK_REST_URL: {{ printf "http://%s-jobmanager:8081" .Release.Name | quote }}
+  FLINK_CHECKPOINT_PATH: file:///opt/flink/checkpoints
+  FLINK_PARALLELISM: {{ .Values.flink.slots | quote }}
+  FLINK_PROPERTIES: |
+    jobmanager.rpc.address: {{ .Release.Name }}-jobmanager
+    rest.address: {{ .Release.Name }}-jobmanager
+    taskmanager.numberOfTaskSlots: {{ .Values.flink.slots }}
+    jobmanager.memory.process.size: 1024m
+    taskmanager.memory.process.size: 1536m
+    python.client.executable: /opt/pyflinkenv/bin/python
+    python.executable: /opt/pyflinkenv/bin/python
+    state.checkpoints.dir: file:///opt/flink/checkpoints
+    state.savepoints.dir: file:///opt/flink/savepoints
+    execution.checkpointing.externalized-checkpoint-retention: RETAIN_ON_CANCELLATION
+    restart-strategy.type: fixed-delay
+    restart-strategy.fixed-delay.attempts: 10
+    restart-strategy.fixed-delay.delay: 10s
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-jobmanager
+spec:
+  selector: {app: '{{ .Release.Name }}-jobmanager'}
+  ports:
+    - {name: rest, port: 8081}
+    - {name: rpc, port: 6123}
+    - {name: blob, port: 6124}
+{{- range $role := list "jobmanager" "taskmanager" }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Release.Name }}-{{ $role }}
+spec:
+  replicas: {{ if eq $role "taskmanager" }}{{ $.Values.flink.taskmanagers }}{{ else }}1{{ end }}
+  selector:
+    matchLabels: {app: '{{ $.Release.Name }}-{{ $role }}'}
+  template:
+    metadata:
+      labels: {app: '{{ $.Release.Name }}-{{ $role }}'}
+    spec:
+      containers:
+        - name: {{ $role }}
+          image: {{ $.Values.flink.image | quote }}
+          imagePullPolicy: IfNotPresent
+          args: [{{ $role }}]
+          envFrom: [{configMapRef: {name: '{{ $.Release.Name }}-flink-env'}}]
+          ports: [{containerPort: 8081}, {containerPort: 6123}, {containerPort: 6124}]
+          {{- if eq $role "jobmanager" }}
+          readinessProbe: {httpGet: {path: /overview, port: 8081}, initialDelaySeconds: 20}
+          {{- end }}
+          resources: {{ toYaml $.Values.flink.resources | nindent 12 }}
+          volumeMounts:
+            - {name: checkpoints, mountPath: /opt/flink/checkpoints, subPath: checkpoints}
+            - {name: checkpoints, mountPath: /opt/flink/savepoints, subPath: savepoints}
+      volumes:
+        - name: checkpoints
+          {{- if $.Values.flink.existingClaim }}
+          persistentVolumeClaim: {claimName: {{ $.Values.flink.existingClaim | quote }}}
+          {{- else }}
+          hostPath: {path: {{ $.Values.flink.kindSharedPath | quote }}, type: Directory}
+          {{- end }}
+{{- end }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}-submit-flink
+spec:
+  backoffLimit: 6
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: submit
+          image: {{ .Values.flink.image | quote }}
+          imagePullPolicy: IfNotPresent
+          command: [python, /opt/flink/jobs/submit_job.py]
+          envFrom: [{configMapRef: {name: '{{ .Release.Name }}-flink-env'}}]
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: '1', memory: 1Gi}

@@ -1,0 +1,11 @@
+{
+  "full": {
+    "total": 212,
+    "passed": 210,
+    "failed": 0,
+    "skipped": 2,
+    "elapsed_seconds": 35.28
+  },
+  "commands": "../../artifacts/phase3/test-commands.json",
+  "module_counts_are_subsets": true
+}

@@ -1,0 +1,90 @@
+{
+  "recorded_at_utc": "2026-10-20T07:21:35.130378+00:00",
+  "scope": "stream-source-contract-module-only; service-chain results recorded by native harness",
+  "tests": [
+    {
+      "command": "PYTHONPATH=/tmp/aiops-python-deps:. python -m unittest discover -s tests -p test_wire_contract.py -v",
+      "passed": 9,
+      "failed": 0,
+      "seconds": 0.073,
+      "kind": "pure_python"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/aiops-python-deps:. python -m unittest discover -s tests -p test_flink_accumulator.py -v",
+      "passed": 8,
+      "failed": 0,
+      "seconds": 0.015,
+      "kind": "pure_python"
+    },
+    {
+      "command": "PYTHONPATH=/tmp/aiops-python-deps:. python -m unittest discover -s tests -p test_core.py -v",
+      "passed": 11,
+      "failed": 0,
+      "seconds": 24.967,
+      "kind": "pure_python_and_mock_llm"
+    },
+    {
+      "command": "PYTHONPATH=.:flink /tmp/aiops-native-runtime/venv/bin/python -m unittest discover -s tests -p test_stream_operators.py -v",
+      "passed": 4,
+      "failed": 0,
+      "seconds": 0.004,
+      "kind": "pyflink_python_callbacks_no_cluster"
+    },
+    {
+      "command": "FLINK_HOME=/tmp/aiops-bridge-validation-htnk3dda AIOPS_SOURCE_BRIDGE_JAR=/tmp/aiops-native-runtime/aiops-kafka-source.jar AIOPS_KAFKA_CONNECTOR_JAR=/tmp/aiops-native-runtime/downloads/flink-sql-connector-kafka-3.3.0-1.20.jar PYTHONPATH=.:flink /tmp/aiops-native-runtime/venv/bin/python -m unittest discover -s tests -p test_source_bridge.py -v",
+      "passed": 3,
+      "failed": 0,
+      "seconds": 2.716,
+      "kind": "real_java_api_no_broker"
+    }
+  ],
+  "additional_checks": [
+    {
+      "check": "ECJ3.33.0 compilation against actual Flink1.20.3 libs and SQL Kafka connector3.3.0-1.20",
+      "result": "passed",
+      "output": "/tmp/aiops-native-runtime/aiops-kafka-source.jar"
+    },
+    {
+      "check": "detector execution-plan generation (execute replaced with get_execution_plan; no service launch)",
+      "result": "passed",
+      "plan_characters": 5463
+    },
+    {
+      "check": "strict UTF8 Java envelopeForRecord(byte[]) + Python DLQ retains base64 and source; valid U+FFFD remains accepted",
+      "result": "passed"
+    },
+    {
+      "check": "latest full detector execution plan + actual Java checkpoint-retention readback after enum adapter fix",
+      "result": "passed",
+      "plan_characters": 5463,
+      "retention": "RETAIN_ON_CANCELLATION"
+    }
+  ],
+  "issues_found_and_fixed": [
+    "Kafka SQL connector shades ConsumerRecord under org.apache.flink.kafka.shaded.org.apache.kafka; fixed Java import after first compile failed.",
+    "Beam worker initialization failed with missing pkg_resources under newest setuptools; pin setuptools==80.9.0 in native and Docker environments.",
+    "A validation JVM initially loaded the previously installed old bridge JAR from Flink lib before the explicit new JAR; latest 3 tests passed using an isolated FLINK_HOME classpath. Production final rerun rebuilds/copies the bridge and restarts processes.",
+    "Real native attempt02 failed because PyFlink1.20.3 ExternalizedCheckpointRetention adapter points to a removed nested Java enum; direct use of actual org.apache.flink.configuration.ExternalizedCheckpointRetention fixed this, latest plan generation read back RETAIN_ON_CANCELLATION.",
+    "Review reproduced DLQ serialization expansion beyond Kafka request size from a 600001-byte malformed record; final generic128KiB cap now retains explicit truncation, lengths, hashes, bounded prefixes and original Kafka coordinates. Three added unit cases cover escaped raw,990000-byte UTF8,600001-byte invalidUTF8/base64,large event and generic metadata."
+  ],
+  "not_established_by_this_report": [
+    "Docker build/start",
+    "real Kafka/Flink message delivery",
+    "checkpoint recovery",
+    "performance",
+    "real LLM"
+  ],
+  "compatibility": {
+    "schema_version": 1,
+    "alert_identity_unchanged": true,
+    "trace_id_optional_for_legacy": true,
+    "event_time_now_requires_integer_ms": true,
+    "future_allowance_ms": 60000,
+    "state_topology_version": 3,
+    "restore_from_v2_checkpoint_supported": false,
+    "database_migration_required": false,
+    "invalid_unicode_surrogates_rejected": true,
+    "externalized_checkpoint_retention": "RETAIN_ON_CANCELLATION",
+    "max_deadletter_serialized_bytes": 131072
+  }
+}

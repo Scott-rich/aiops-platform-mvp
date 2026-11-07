@@ -1,0 +1,184 @@
+{
+  "generated_at_utc": "2026-10-20T07:39:46.919691+00:00",
+  "delivery_scope": "existing v0.2 incremental audit, plan and phase1 streaming engineering upgrade",
+  "whole_nine_stage_project_completed": false,
+  "baseline": {
+    "tests_passed": 54,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 24.211
+  },
+  "final_regression": {
+    "executed_at_utc": "2026-10-20T07:33:50.463676+00:00",
+    "command": "AIOPS_SOURCE_BRIDGE_JAR=/tmp/aiops-native-runtime/aiops-kafka-source.jar AIOPS_KAFKA_CONNECTOR_JAR=/tmp/aiops-native-runtime/downloads/flink-sql-connector-kafka-3.3.0-1.20.jar PYTHONPATH=.:flink /tmp/aiops-native-runtime/venv/bin/python (unittest.defaultTestLoader.discover and TextTestRunner)",
+    "python": "3.11.17 (main, Oct  3 2026, 01:05:36) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "tests_run": 112,
+    "passed": 111,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "skips": [
+      {
+        "test": "test_real_stream_restore_http_and_diagnosis (integration.test_native_streaming.NativeStreamingIntegration.test_real_stream_restore_http_and_diagnosis)",
+        "reason": "real Kafka/Flink test: set RUN_NATIVE_STREAMING=1 after bootstrap_native"
+      }
+    ],
+    "duration_seconds": 23.767,
+    "successful": true,
+    "scope": "unit + in-process API + real Java connector construction; full native services acceptance stored separately"
+  },
+  "native_acceptance": {
+    "status": "passed",
+    "counts": {
+      "passed": 22,
+      "failed": 0,
+      "errors": 0,
+      "cleanup_errors": 0
+    },
+    "seconds": 137.152,
+    "configuration": {
+      "kafka": "3.9.1",
+      "flink": "1.20.3",
+      "connector": "3.3.0-1.20",
+      "partitions": 3,
+      "parallelism": 2,
+      "window_ms": 30000,
+      "slide_ms": 10000,
+      "out_of_order_ms": 5000,
+      "checkpoint_interval_ms": 10000,
+      "delivery_semantics": "Flink checkpoint exactly-once internally; Kafka sink at-least-once; ID dedup in worker"
+    },
+    "worker_stats": {
+      "events": 434,
+      "alerts": 16,
+      "reports": 0,
+      "deadletters": 15,
+      "incidents": 5,
+      "report_versions": 9,
+      "incident_notifications": 5
+    },
+    "recovery_seconds": 19.39,
+    "checkpoint_id": 3,
+    "cleanup": {
+      "errors": [],
+      "all_processes_stopped": true
+    },
+    "source_hashes_match": true
+  },
+  "local_acceptance": {
+    "status": "passed",
+    "passed": 9,
+    "failed": 0,
+    "observation_seconds": 110,
+    "including_startup_cleanup_seconds": 113.309,
+    "storage": {
+      "events": 3985,
+      "alerts": 18,
+      "reports": 0,
+      "deadletters": 0,
+      "incidents": 1,
+      "report_versions": 3,
+      "incident_notifications": 2
+    },
+    "milestones": [
+      {
+        "t": 35.37,
+        "kind": "inject"
+      },
+      {
+        "t": 36.99,
+        "kind": "incident",
+        "incident_id": "c0250ab342ca4bfd9fceb2fe7accdaf3"
+      },
+      {
+        "t": 36.99,
+        "kind": "report",
+        "stage": "preliminary",
+        "version": 1,
+        "report_id": "502d8a84-ad84-44dc-bf1a-aee94f5a9a1b"
+      },
+      {
+        "t": 36.99,
+        "kind": "opened",
+        "incident_id": "c0250ab342ca4bfd9fceb2fe7accdaf3"
+      },
+      {
+        "t": 40.1,
+        "kind": "report",
+        "stage": "enriched",
+        "version": 2,
+        "report_id": "29c1a44a-fd8f-4305-b92c-bffe53dc60f4"
+      },
+      {
+        "t": 65.38,
+        "kind": "clear"
+      },
+      {
+        "t": 86.25,
+        "kind": "resolved",
+        "incident_id": "c0250ab342ca4bfd9fceb2fe7accdaf3"
+      },
+      {
+        "t": 86.78,
+        "kind": "report",
+        "stage": "resolved",
+        "version": 3,
+        "report_id": "7fcc3f82-49f1-4405-9fdc-3d7a3464a859"
+      }
+    ],
+    "cleanup": {
+      "fault_clear_attempted": false,
+      "launcher_stopped": true,
+      "forced_kill": false
+    }
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "status": "real native core accepted; Docker deployment unverified"
+    },
+    {
+      "stage": 2,
+      "status": "existing adapter audited; not upgraded in this delivery; no real model configured/called"
+    },
+    {
+      "stage": 3,
+      "status": "existing rule correlation retained; multi-candidate RCA upgrade pending"
+    },
+    {
+      "stage": 4,
+      "status": "fixed rules retained; adaptive baseline and evaluated comparison pending"
+    },
+    {
+      "stage": 5,
+      "status": "HTTP 5xx/latency retained; event bad-input tests expanded; full ten scenarios pending"
+    },
+    {
+      "stage": 6,
+      "status": "native timing/counts recorded; performance and diagnostic-quality benchmark pending"
+    },
+    {
+      "stage": 7,
+      "status": "TaskManager restore real-tested; worker DB/commit failures unit-tested; full reliability matrix pending"
+    },
+    {
+      "stage": 8,
+      "status": "existing capped snapshots retained; pagination, immutable full evidence set and archive pending"
+    },
+    {
+      "stage": 9,
+      "status": "health/stop/retry/config docs partially hardened; unified config/migration/auth/CI pending"
+    }
+  ],
+  "real_llm_calls": 0,
+  "docker_build_and_compose_executed": false,
+  "historical_examples_unchanged": true,
+  "database_schema_changed": false,
+  "failure_runs_retained": [
+    "artifacts/native-attempt-01",
+    "artifacts/native-attempt-02",
+    "artifacts/native-attempt-03",
+    "artifacts/local-attempt-01"
+  ]
+}

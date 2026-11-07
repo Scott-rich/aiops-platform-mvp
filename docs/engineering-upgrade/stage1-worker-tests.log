@@ -1,0 +1,21 @@
+test_commit_failure_replay_is_idempotent (tests.test_worker.WorkerDurabilityTests.test_commit_failure_replay_is_idempotent) ... ok
+test_commits_after_durable_write_and_keeps_origin (tests.test_worker.WorkerDurabilityTests.test_commits_after_durable_write_and_keeps_origin) ... ok
+test_database_failure_never_commits_or_polls_next_batch (tests.test_worker.WorkerDurabilityTests.test_database_failure_never_commits_or_polls_next_batch) ... ok
+test_detector_dlq_keeps_original_and_dlq_coordinates (tests.test_worker.WorkerDurabilityTests.test_detector_dlq_keeps_original_and_dlq_coordinates) ... ok
+test_health_rejects_stale_failed_or_corrupt_state (tests.test_worker.WorkerDurabilityTests.test_health_rejects_stale_failed_or_corrupt_state) ... ok
+test_invalid_input_is_durable_before_offset_commit (tests.test_worker.WorkerDurabilityTests.test_invalid_input_is_durable_before_offset_commit) ... Rejected event topic=telemetry.metrics partition=1 offset=3 reason=ValueError
+ok
+test_poll_failure_budget_is_bounded (tests.test_worker.WorkerDurabilityTests.test_poll_failure_budget_is_bounded) ... Kafka poll failed attempt=1/2 type=ConnectionError
+Kafka poll failed attempt=2/2 type=ConnectionError
+ok
+test_tombstone_huge_body_and_wrong_topic_rejected (tests.test_worker.WorkerDurabilityTests.test_tombstone_huge_body_and_wrong_topic_rejected) ... ok
+test_active_job_skips_new_submission (tests.test_submit_job.SubmitterTests.test_active_job_skips_new_submission) ... ok
+test_duplicate_active_jobs_fail_closed (tests.test_submit_job.SubmitterTests.test_duplicate_active_jobs_fail_closed) ... ok
+test_restore_is_explicit_cli_argument_without_shell (tests.test_submit_job.SubmitterTests.test_restore_is_explicit_cli_argument_without_shell) ... ok
+test_taskmanager_readiness (tests.test_submit_job.SubmitterTests.test_taskmanager_readiness) ... ok
+test_timeout_is_finite (tests.test_submit_job.SubmitterTests.test_timeout_is_finite) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.335s
+
+OK

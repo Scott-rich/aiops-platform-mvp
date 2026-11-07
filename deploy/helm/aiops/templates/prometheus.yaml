@@ -1,0 +1,80 @@
+{{- if .Values.prometheus.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-prometheus
+data:
+  prometheus.yml: |
+    global: {scrape_interval: 5s, evaluation_interval: 5s}
+    rule_files: [/etc/prometheus/rules.yml]
+    scrape_configs:
+      - job_name: aiops
+        {{- if .Values.app.authSecret }}
+        authorization:
+          type: Bearer
+          credentials_file: /etc/aiops-auth/API_READ_TOKEN
+        {{- end }}
+        static_configs: [{targets: ['{{ .Release.Name }}-api:8000']}]
+      - job_name: spanmetrics
+        dns_sd_configs:
+          - names: ['{{ .Release.Name }}-otel.{{ .Release.Namespace }}.svc.cluster.local']
+            type: A
+            port: 8889
+  rules.yml: |
+    groups:
+      - name: boutique-threshold-baseline
+        interval: 5s
+        rules:
+          - alert: BoutiqueErrorRate
+            expr: |
+              sum by (service_name) (rate(traces_span_metrics_calls_total{status_code="STATUS_CODE_ERROR"}[30s]))
+              / clamp_min(sum by (service_name) (rate(traces_span_metrics_calls_total[30s])), 0.001) > 0.2
+            labels: {baseline: prometheus-fixed}
+          - alert: BoutiqueHighLatency
+            expr: |
+              histogram_quantile(0.95, sum by (service_name, le) (rate(traces_span_metrics_duration_milliseconds_bucket[30s]))) > 800
+            labels: {baseline: prometheus-fixed}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: '{{ .Release.Name }}-prometheus'}
+  template:
+    metadata:
+      labels: {app: '{{ .Release.Name }}-prometheus'}
+    spec:
+      containers:
+        - name: prometheus
+          image: {{ .Values.prometheus.image | quote }}
+          args: [--config.file=/etc/prometheus/prometheus.yml, --storage.tsdb.retention.time=2h]
+          ports: [{containerPort: 9090}]
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: '1', memory: 512Mi}
+          readinessProbe: {httpGet: {path: /-/ready, port: 9090}, initialDelaySeconds: 10}
+          volumeMounts:
+            - {name: config, mountPath: /etc/prometheus}
+            {{- if .Values.app.authSecret }}
+            - {name: api-read-token, mountPath: /etc/aiops-auth, readOnly: true}
+            {{- end }}
+      volumes:
+        - {name: config, configMap: {name: '{{ .Release.Name }}-prometheus'}}
+        {{- if .Values.app.authSecret }}
+        - name: api-read-token
+          secret:
+            secretName: {{ .Values.app.authSecret | quote }}
+            items: [{key: API_READ_TOKEN, path: API_READ_TOKEN}]
+        {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-prometheus
+spec:
+  selector: {app: '{{ .Release.Name }}-prometheus'}
+  ports: [{name: http, port: 9090}]
+{{- end }}

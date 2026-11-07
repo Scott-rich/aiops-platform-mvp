@@ -1,0 +1,39 @@
+app:
+  image: aiops-research:0.3.0
+  replicas: 1
+  storage: 4Gi
+  apiResources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: '1', memory: 512Mi}
+  workerResources:
+    requests: {cpu: 200m, memory: 256Mi}
+    limits: {cpu: '1', memory: 1Gi}
+  ratePerSecond: 2000
+  rateBurst: 10000
+  authSecret: ''
+kafka:
+  image: apache/kafka:3.9.1
+  replicas: 1
+  storage: 4Gi
+  resources:
+    requests: {cpu: 250m, memory: 512Mi}
+    limits: {cpu: '1', memory: 1Gi}
+flink:
+  image: aiops-flink:0.3.0
+  taskmanagers: 2
+  slots: 2
+  # All three kind nodes mount this same host directory; not a multi-host filesystem.
+  kindSharedPath: /data/flink
+  existingClaim: ''
+  resources:
+    requests: {cpu: 250m, memory: 1Gi}
+    limits: {cpu: '1', memory: 2Gi}
+otel:
+  enabled: true
+  image: otel/opentelemetry-collector-contrib:0.123.0
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: '1', memory: 512Mi}
+prometheus:
+  enabled: true
+  image: prom/prometheus:v3.3.0

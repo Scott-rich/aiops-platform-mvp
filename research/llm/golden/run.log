@@ -1,0 +1,2 @@
+2026-11-04 21:13:08,694 INFO command=/tmp/aiops-research-venv/bin/python -m scripts.research.build_golden --output /tmp/aiops-golden-03
+2026-11-04 21:13:08,707 INFO status=passed

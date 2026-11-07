@@ -1,0 +1,60 @@
+test_fault_target_and_body_are_bounded (test_api.APITests.test_fault_target_and_body_are_bounded) ... ok
+test_incident_versions_and_integrity_api (test_api.APITests.test_incident_versions_and_integrity_api) ... ok
+test_markdown_integrity_and_not_found (test_api.APITests.test_markdown_integrity_and_not_found) ... ok
+test_operational_dashboard_is_served (test_api.APITests.test_operational_dashboard_is_served) ... ok
+test_report_list_is_summary_and_detail_has_evidence (test_api.APITests.test_report_list_is_summary_and_detail_has_evidence) ... ok
+test_ingestion_and_alert_replay_dedup (test_core.EvidenceTests.test_ingestion_and_alert_replay_dedup) ... ok
+test_poison_log_and_tombstone_rejected (test_core.EvidenceTests.test_poison_log_and_tombstone_rejected) ... ok
+test_report_idempotent_immutable_and_cited (test_core.EvidenceTests.test_report_idempotent_immutable_and_cited) ... ok
+test_topic_contract_mismatch_rejected (test_core.EvidenceTests.test_topic_contract_mismatch_rejected) ... ok
+test_trace_join_and_unrelated_exclusion (test_core.EvidenceTests.test_trace_join_and_unrelated_exclusion) ... ok
+test_unknown_model_citations_fallback (test_core.EvidenceTests.test_unknown_model_citations_fallback) ... ok
+test_valid_model_references_accepted (test_core.EvidenceTests.test_valid_model_references_accepted) ... ok
+test_anomaly_threshold_and_event_dedup (test_core.WindowTests.test_anomaly_threshold_and_event_dedup) ... ok
+test_exact_error_rate_boundary (test_core.WindowTests.test_exact_error_rate_boundary) ... ok
+test_future_and_nan_rejected (test_core.WindowTests.test_future_and_nan_rejected) ... ok
+test_low_sample_and_healthy_do_not_alert (test_core.WindowTests.test_low_sample_and_healthy_do_not_alert) ... ok
+test_all_three_incidents_receive_enrichment_without_starvation (test_engine.EngineSchedulingTests.test_all_three_incidents_receive_enrichment_without_starvation) ... ok
+test_batch_validation_is_atomic (test_engine.EngineSchedulingTests.test_batch_validation_is_atomic) ... ok
+test_pending_model_job_does_not_block_a_new_initial_report (test_engine.EngineSchedulingTests.test_pending_model_job_does_not_block_a_new_initial_report) ... ok
+test_five_errors_emit_once_and_replay_dedups (test_fast_detection.FastDetectorTests.test_five_errors_emit_once_and_replay_dedups) ... ok
+test_healthy_resets_and_instances_do_not_mix (test_fast_detection.FastDetectorTests.test_healthy_resets_and_instances_do_not_mix) ... ok
+test_stale_gap_breaks_sequence (test_fast_detection.FastDetectorTests.test_stale_gap_breaks_sequence) ... ok
+test_compact_state_pickle_round_trip_and_alert_identity (test_flink_accumulator.IncrementalWindowTests.test_compact_state_pickle_round_trip_and_alert_identity) ... ok
+test_conflicting_duplicate_ids_rejected_without_partial_merge (test_flink_accumulator.IncrementalWindowTests.test_conflicting_duplicate_ids_rejected_without_partial_merge) ... ok
+test_error_rate_and_sample_floor_are_exact (test_flink_accumulator.IncrementalWindowTests.test_error_rate_and_sample_floor_are_exact) ... ok
+test_host_aggregation_and_merge_preserve_dedup (test_flink_accumulator.IncrementalWindowTests.test_host_aggregation_and_merge_preserve_dedup) ... ok
+test_overflow_report_does_not_claim_25ms_precision (test_flink_accumulator.IncrementalWindowTests.test_overflow_report_does_not_claim_25ms_precision) ... ok
+test_overlapping_merge_is_idempotent_and_order_independent (test_flink_accumulator.IncrementalWindowTests.test_overlapping_merge_is_idempotent_and_order_independent) ... ok
+test_p95_threshold_boundaries_match_exact_nearest_rank (test_flink_accumulator.IncrementalWindowTests.test_p95_threshold_boundaries_match_exact_nearest_rank) ... ok
+test_regular_bucket_upper_bound_precision_and_random_threshold_equivalence (test_flink_accumulator.IncrementalWindowTests.test_regular_bucket_upper_bound_precision_and_random_threshold_equivalence) ... ok
+test_cross_service_same_origin_needs_a_shared_trace (test_incidents.IncidentTests.test_cross_service_same_origin_needs_a_shared_trace) ... ok
+test_different_instances_do_not_merge (test_incidents.IncidentTests.test_different_instances_do_not_merge) ... ok
+test_fast_and_regular_errors_share_family_but_latency_stays_separate (test_incidents.IncidentTests.test_fast_and_regular_errors_share_family_but_latency_stays_separate) ... ok
+test_fifteen_correlated_windows_are_one_durable_incident (test_incidents.IncidentTests.test_fifteen_correlated_windows_are_one_durable_incident) ... ok
+test_genuinely_new_failure_after_resolution_opens_new_incident (test_incidents.IncidentTests.test_genuinely_new_failure_after_resolution_opens_new_incident) ... ok
+test_historic_replay_after_raw_evidence_expiry_stays_closed (test_incidents.IncidentTests.test_historic_replay_after_raw_evidence_expiry_stays_closed) ... ok
+test_late_leaf_evidence_upgrades_provisional_anchor_without_new_notification (test_incidents.IncidentTests.test_late_leaf_evidence_upgrades_provisional_anchor_without_new_notification) ... ok
+test_low_traffic_and_dense_late_burst_do_not_claim_continuous_recovery (test_incidents.IncidentTests.test_low_traffic_and_dense_late_burst_do_not_claim_continuous_recovery) ... ok
+test_recent_bad_metrics_cancel_recovery_without_waiting_for_alert (test_incidents.IncidentTests.test_recent_bad_metrics_cancel_recovery_without_waiting_for_alert) ... ok
+test_resolve_once_then_historic_alert_does_not_reopen (test_incidents.IncidentTests.test_resolve_once_then_historic_alert_does_not_reopen) ... ok
+test_resource_recovery_requires_fresh_host_samples (test_incidents.IncidentTests.test_resource_recovery_requires_fresh_host_samples) ... ok
+test_stale_or_missing_metrics_never_resolve (test_incidents.IncidentTests.test_stale_or_missing_metrics_never_resolve) ... ok
+test_unrelated_leaf_faults_do_not_merge (test_incidents.IncidentTests.test_unrelated_leaf_faults_do_not_merge) ... ok
+test_context_contains_whole_traces_and_healthy_sibling (test_reporting.ProgressiveReportTests.test_context_contains_whole_traces_and_healthy_sibling) ... ok
+test_enrichment_and_resolution_are_immutable_versions (test_reporting.ProgressiveReportTests.test_enrichment_and_resolution_are_immutable_versions) ... ok
+test_initial_is_immediate_and_never_calls_model (test_reporting.ProgressiveReportTests.test_initial_is_immediate_and_never_calls_model) ... ok
+test_missing_spans_are_visible_and_enrich_waits_for_evidence (test_reporting.ProgressiveReportTests.test_missing_spans_are_visible_and_enrich_waits_for_evidence) ... ok
+test_one_model_attempt_per_incident_even_when_forced (test_reporting.ProgressiveReportTests.test_one_model_attempt_per_incident_even_when_forced) ... ok
+test_controls_validate_and_do_not_generate_request_metrics (test_simulator.SimulatorHTTPTests.test_controls_validate_and_do_not_generate_request_metrics) ... ok
+test_four_service_trace_and_parent_links (test_simulator.SimulatorHTTPTests.test_four_service_trace_and_parent_links) ... ok
+test_injected_control_state_is_not_telemetry_evidence (test_simulator.SimulatorHTTPTests.test_injected_control_state_is_not_telemetry_evidence) ... ok
+test_leaf_latency_is_visible_in_leaf_and_gateway (test_simulator.SimulatorHTTPTests.test_leaf_latency_is_visible_in_leaf_and_gateway) ... Executing <Task pending name='Task-79' coro=<SimulatorHTTPTests.asyncSetUp() running at /workspace/scratch/599403941817/aiops-platform/tests/test_simulator.py:74> wait_for=<Future pending cb=[_chain_future.<locals>._call_check_cancel() at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/futures.py:389, Task.task_wakeup()] created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py:448> cb=[_run_until_complete_cb() at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py:181] created at /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py:100> took 0.132 seconds
+ok
+test_payment_error_propagates_and_reset_restores (test_simulator.SimulatorHTTPTests.test_payment_error_propagates_and_reset_restores) ... ok
+test_http_envelope_success_and_failure_counts (test_simulator.TelemetryHTTPTests.test_http_envelope_success_and_failure_counts) ... ok
+
+----------------------------------------------------------------------
+Ran 54 tests in 24.211s
+
+OK

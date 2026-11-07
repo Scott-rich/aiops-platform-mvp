@@ -1,0 +1,4 @@
+reportlab==4.4.9
+Pillow==13.0.0
+fonttools==4.61.1
+charset-normalizer==3.5.2

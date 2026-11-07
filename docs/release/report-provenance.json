@@ -1,0 +1,20 @@
+{
+  "generator_sha256": "10b4521ab698d7ba2870adf8d43b6d4ba61733b390c6ee21e92c297201a19ae0",
+  "font_sha256": "54e00a71488fea5e8d8aa1ac03699ccc8e43bb925f6abd9ee15183372b47a42e",
+  "inputs": {
+    "research/results/p0-smd-03/result.json": "5946697b2ed23a6e815617744271105ab7747f5d17ce866c216310078b1ee751",
+    "research/results/p0-psm-03/result.json": "a80614d8af0d2f7f3e0db3694958e1885f16463548de48178c9ff6748482587c",
+    "research/results/p1-05b-01/result.json": "5de3bbfca784a809bb2fc99bc2e63339b94c6728cd821bb9bff9911348550881",
+    "research/results/p1-15b-01/result.json": "a1673368399ddda55aa4c93d66175c7c3a160e8b8eff4e78c91de99d841c9f04",
+    "research/results/p2-quality-final-03/result.json": "32182b031c30bd458be8a03db29a7d32b2cd549e426aa9185f80504e9cac33b0",
+    "research/results/p2-quality-counts-01/result.json": "c5c5bff0b4e6bfffd061d163fff3667b002b8b16a9048f6957b3edc873ef15ce",
+    "research/results/p2-quality-final-03/tests.log": "36f3968be86d3041647d258ffc29d9a03a7d1ae38288ce6daaf6eba8383c9d1d",
+    "research/results/p1-05b-correction-02/result.json": "46c6efe5b911bb8f92161c0f66d9aacab0be5e45a21c02be66d88a453a8aee37",
+    "research/results/p1-15b-correction-02/result.json": "7e4c92295633c12f912310a4a5a9607ad2f049e2be80d79ece0327519f1cf2de",
+    "docs/research/reference-audit/result.json": "8498d294283e82cb8d311c887aa83c958bd65358adc8af6e978d2aa592b6f069",
+    "research/results/p1-comparison-01/model-tradeoff.png": "bcca47f85018230f95112586f8ca2347697b72108fad4030913c23bbe0ffee8b",
+    "research/results/p1-comparison-01/risk-coverage.png": "ca1a5b12802802857e88720deaed406271fead470d199666a711ba7df784d7e3",
+    "research/results/p1-comparison-01/evidence.png": "c693003f165fbe784a74fb9a695e7e9ee1b6a42a0a0920edde0a3bba939979ee",
+    "research/results/p1-comparison-01/injection.png": "ba5a63ae8b72b4e1f40d18b358eb6787f82bb507ae1087b4eba85a92c9144b91"
+  }
+}

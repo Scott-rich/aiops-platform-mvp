@@ -1,0 +1,21 @@
+{
+  "total": 256,
+  "passed": 246,
+  "failed": 0,
+  "skipped": 10,
+  "seconds": 17.531,
+  "command": "/tmp/aiops-phase5-venv/bin/python -m unittest discover -s tests -v",
+  "log": "artifacts/phase5/full-regression-final.log",
+  "skip_details": [
+    "test_real_stream_restore_http_and_diagnosis (integration.test_native_streaming.NativeStreamingIntegration.test_real_stream_restore_http_and_diagnosis) ... skipped 'real Kafka/Flink test: set RUN_NATIVE_STREAMING=1 after bootstrap_native'",
+    "test_configured_model_on_archived_actual_evidence (integration.test_real_llm.RealModelTests.test_configured_model_on_archived_actual_evidence) ... skipped 'opt-in real model integration; use scripts.verify_llm for retained artifacts'",
+    "test_invalid_utf8_keeps_original_bytes_and_legitimate_replacement_character (test_source_bridge.SourceBridgeTests.test_invalid_utf8_keeps_original_bytes_and_legitimate_replacement_character) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+    "test_java_timestamp_guard_matches_python_metric_contract (test_source_bridge.SourceBridgeTests.test_java_timestamp_guard_matches_python_metric_contract) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+    "test_source_schema_and_partition_watermark_construct_with_real_api (test_source_bridge.SourceBridgeTests.test_source_schema_and_partition_watermark_construct_with_real_api) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+    "test_keyed_window_global_state_reused (test_stream_operators.AdaptiveOperatorTests.test_keyed_window_global_state_reused) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+    "test_cleanup_reclaims_capacity_and_clears_timer (test_stream_operators.StreamOperatorTests.test_cleanup_reclaims_capacity_and_clears_timer) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+    "test_configuration_rejects_non_numeric_and_out_of_range (test_stream_operators.StreamOperatorTests.test_configuration_rejects_non_numeric_and_out_of_range) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+    "test_duplicate_conflict_and_bounded_capacity (test_stream_operators.StreamOperatorTests.test_duplicate_conflict_and_bounded_capacity) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+    "test_parser_poison_values_all_reach_dlq_with_coordinates (test_stream_operators.StreamOperatorTests.test_parser_poison_values_all_reach_dlq_with_coordinates) ... skipped 'optional PyFlink 1.20 runtime not installed'"
+  ]
+}

@@ -1,0 +1,28 @@
+test_local_mode_explicitly_does_not_probe_distributed_runtime (tests.test_readiness.ReadinessTests.test_local_mode_explicitly_does_not_probe_distributed_runtime) ... ok
+test_ready_requires_each_dependency_and_fresh_worker (tests.test_readiness.ReadinessTests.test_ready_requires_each_dependency_and_fresh_worker) ... ok
+test_fault_target_and_body_are_bounded (tests.test_api.APITests.test_fault_target_and_body_are_bounded) ... ok
+test_incident_versions_and_integrity_api (tests.test_api.APITests.test_incident_versions_and_integrity_api) ... ok
+test_markdown_integrity_and_not_found (tests.test_api.APITests.test_markdown_integrity_and_not_found) ... ok
+test_operational_dashboard_is_served (tests.test_api.APITests.test_operational_dashboard_is_served) ... ok
+test_report_list_is_summary_and_detail_has_evidence (tests.test_api.APITests.test_report_list_is_summary_and_detail_has_evidence) ... ok
+test_commit_failure_replay_is_idempotent (tests.test_worker.WorkerDurabilityTests.test_commit_failure_replay_is_idempotent) ... ok
+test_commits_after_durable_write_and_keeps_origin (tests.test_worker.WorkerDurabilityTests.test_commits_after_durable_write_and_keeps_origin) ... ok
+test_database_failure_never_commits_or_polls_next_batch (tests.test_worker.WorkerDurabilityTests.test_database_failure_never_commits_or_polls_next_batch) ... ok
+test_detector_dlq_keeps_original_and_dlq_coordinates (tests.test_worker.WorkerDurabilityTests.test_detector_dlq_keeps_original_and_dlq_coordinates) ... ok
+test_health_rejects_stale_failed_or_corrupt_state (tests.test_worker.WorkerDurabilityTests.test_health_rejects_stale_failed_or_corrupt_state) ... ok
+test_invalid_input_is_durable_before_offset_commit (tests.test_worker.WorkerDurabilityTests.test_invalid_input_is_durable_before_offset_commit) ... Rejected event topic=telemetry.metrics partition=1 offset=3 reason=ValueError
+ok
+test_poll_failure_budget_is_bounded (tests.test_worker.WorkerDurabilityTests.test_poll_failure_budget_is_bounded) ... Kafka poll failed attempt=1/2 type=ConnectionError
+Kafka poll failed attempt=2/2 type=ConnectionError
+ok
+test_tombstone_huge_body_and_wrong_topic_rejected (tests.test_worker.WorkerDurabilityTests.test_tombstone_huge_body_and_wrong_topic_rejected) ... ok
+test_active_job_skips_new_submission (tests.test_submit_job.SubmitterTests.test_active_job_skips_new_submission) ... ok
+test_duplicate_active_jobs_fail_closed (tests.test_submit_job.SubmitterTests.test_duplicate_active_jobs_fail_closed) ... ok
+test_restore_is_explicit_cli_argument_without_shell (tests.test_submit_job.SubmitterTests.test_restore_is_explicit_cli_argument_without_shell) ... ok
+test_taskmanager_readiness (tests.test_submit_job.SubmitterTests.test_taskmanager_readiness) ... ok
+test_timeout_is_finite (tests.test_submit_job.SubmitterTests.test_timeout_is_finite) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.960s
+
+OK

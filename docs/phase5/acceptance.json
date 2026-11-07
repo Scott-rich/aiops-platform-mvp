@@ -1,0 +1,174 @@
+{
+  "phase": 5,
+  "status": "implemented_and_verified_in_isolated_local_environment",
+  "overall_platform_accepted": false,
+  "created_at": "2026-10-23T09:50:53.484834+08:00",
+  "regression": {
+    "total": 256,
+    "passed": 246,
+    "failed": 0,
+    "skipped": 10,
+    "seconds": 17.531,
+    "command": "/tmp/aiops-phase5-venv/bin/python -m unittest discover -s tests -v",
+    "log": "artifacts/phase5/full-regression-final.log",
+    "skip_details": [
+      "test_real_stream_restore_http_and_diagnosis (integration.test_native_streaming.NativeStreamingIntegration.test_real_stream_restore_http_and_diagnosis) ... skipped 'real Kafka/Flink test: set RUN_NATIVE_STREAMING=1 after bootstrap_native'",
+      "test_configured_model_on_archived_actual_evidence (integration.test_real_llm.RealModelTests.test_configured_model_on_archived_actual_evidence) ... skipped 'opt-in real model integration; use scripts.verify_llm for retained artifacts'",
+      "test_invalid_utf8_keeps_original_bytes_and_legitimate_replacement_character (test_source_bridge.SourceBridgeTests.test_invalid_utf8_keeps_original_bytes_and_legitimate_replacement_character) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+      "test_java_timestamp_guard_matches_python_metric_contract (test_source_bridge.SourceBridgeTests.test_java_timestamp_guard_matches_python_metric_contract) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+      "test_source_schema_and_partition_watermark_construct_with_real_api (test_source_bridge.SourceBridgeTests.test_source_schema_and_partition_watermark_construct_with_real_api) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+      "test_keyed_window_global_state_reused (test_stream_operators.AdaptiveOperatorTests.test_keyed_window_global_state_reused) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+      "test_cleanup_reclaims_capacity_and_clears_timer (test_stream_operators.StreamOperatorTests.test_cleanup_reclaims_capacity_and_clears_timer) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+      "test_configuration_rejects_non_numeric_and_out_of_range (test_stream_operators.StreamOperatorTests.test_configuration_rejects_non_numeric_and_out_of_range) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+      "test_duplicate_conflict_and_bounded_capacity (test_stream_operators.StreamOperatorTests.test_duplicate_conflict_and_bounded_capacity) ... skipped 'optional PyFlink 1.20 runtime not installed'",
+      "test_parser_poison_values_all_reach_dlq_with_coordinates (test_stream_operators.StreamOperatorTests.test_parser_poison_values_all_reach_dlq_with_coordinates) ... skipped 'optional PyFlink 1.20 runtime not installed'"
+    ]
+  },
+  "scenarios": {
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "assertions": 46,
+    "result": "artifacts/phase5/final-scenarios/completed.json"
+  },
+  "kafka": {
+    "actual_broker": true,
+    "flink_engine": false,
+    "checks": [
+      {
+        "name": "paused_consumer_builds_real_lag",
+        "passed": true,
+        "lag_records": 64,
+        "end_offset": 64
+      },
+      {
+        "name": "resume_catches_up",
+        "passed": true,
+        "received": 64,
+        "lag_after": 0,
+        "recovery_seconds": 0.5665978810002343,
+        "min_consumption_delay_ms": 492,
+        "max_consumption_delay_ms": 601
+      },
+      {
+        "name": "worker_unique_and_quarantine",
+        "passed": true,
+        "stats": {
+          "events": 55,
+          "alerts": 0,
+          "reports": 0,
+          "deadletters": 7,
+          "incidents": 0,
+          "report_versions": 0,
+          "incident_notifications": 0
+        },
+        "worker_counts": {
+          "telemetry_received": 58,
+          "deadletters_received": 6,
+          "alerts_received": 0
+        }
+      },
+      {
+        "name": "shared_stream_parser_and_dedup",
+        "passed": true,
+        "invalid": 6,
+        "unique": 55,
+        "conflicts": 1,
+        "service_groups": [
+          "phase5-backlog",
+          "phase5-input"
+        ]
+      },
+      {
+        "name": "committed_durable_offset",
+        "passed": true,
+        "committed": 64,
+        "end": 64
+      }
+    ],
+    "result": "artifacts/phase5/final-scenarios/kafka/result.json"
+  },
+  "recovery_compatibility": {
+    "passed": 12,
+    "failed": 0,
+    "result": "artifacts/phase5/local-recovery/optimized-run.json"
+  },
+  "safety_checks": [
+    {
+      "name": "default-pressure-off",
+      "passed": true,
+      "exit_code": 2,
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 1,
+        "blocked": 0
+      }
+    },
+    {
+      "name": "missing-kafka",
+      "passed": true,
+      "exit_code": 2,
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "blocked": 1
+      }
+    },
+    {
+      "name": "SIGTERM-cancels-fault-and-cleans-processes",
+      "passed": true,
+      "exit_code": 1,
+      "cleanup": {
+        "errors": [],
+        "all_processes_stopped": true,
+        "proxy_tasks_remaining": 0,
+        "processes": [
+          {
+            "name": "api",
+            "pid": 38,
+            "exit_code": -15
+          },
+          {
+            "name": "payment",
+            "pid": 41,
+            "exit_code": -15
+          },
+          {
+            "name": "inventory",
+            "pid": 43,
+            "exit_code": -15
+          },
+          {
+            "name": "order",
+            "pid": 45,
+            "exit_code": -15
+          },
+          {
+            "name": "gateway",
+            "pid": 47,
+            "exit_code": -15
+          }
+        ]
+      }
+    }
+  ],
+  "model_calls": 0,
+  "database_migrations": 0,
+  "docker_runtime_verified": false,
+  "unverified": [
+    "Flink runtime not rerun in phase5; retained phase4 results are historical",
+    "Docker/Compose actual deployment",
+    "real LLM diagnosis still not accepted from phase2",
+    "production throughput and high availability",
+    "resource-pressure-triggered service degradation; worker resource use only",
+    "packet loss; this phase implements network delay option"
+  ],
+  "known_issues": [
+    "Prior SQLite corruption cause remains unresolved; no historical databases modified",
+    "Forced SIGKILL/power loss can leave audit start records without end records",
+    "Service-control token does not authenticate the top-level platform API; retain loopback-only exposure"
+  ],
+  "next_phase": "6: rate-sweep throughput/e2e-latency/resources/Kafka-lag/detection/RCA/LLM cost measurements"
+}

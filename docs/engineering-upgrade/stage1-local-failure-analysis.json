@@ -1,0 +1,49 @@
+{
+  "scope": "failed actual local HTTP run; no Kafka/Flink/LLM",
+  "exit_code": 1,
+  "checks_passed": 8,
+  "checks_failed": 1,
+  "error_type": "TimeoutError",
+  "error_log": "/tmp/aiops-v2-verification-kf7n_p39/inventory.log",
+  "error_log_last_write_utc": "2026-10-20T07:17:33.979000+00:00",
+  "error_time_source": "log file mtime; original line has no embedded timestamp",
+  "error_approx_elapsed_seconds": 38.417,
+  "first_alert_received_elapsed_seconds": 39.267,
+  "first_report_created_elapsed_seconds": 40.003,
+  "related_slow_inventory_events": [
+    {
+      "event_id": "a8d9a26b7573474fab31d5f5e54ce6e7",
+      "trace_id": "4e2efc32e98441c2bf4061e835f2b482",
+      "event_type": "log",
+      "event_time": 1792480650915,
+      "ingested_at": 1792480654088,
+      "observed_ingest_delay_ms": 3173
+    },
+    {
+      "event_id": "adaf7c56ba5d481ea2bc9077a510f926",
+      "trace_id": "a34daf16c39b49bda63ef0ea5dff9749",
+      "event_type": "log",
+      "event_time": 1792480650926,
+      "ingested_at": 1792480654173,
+      "observed_ingest_delay_ms": 3247
+    },
+    {
+      "event_id": "8d7541e92fa94f7dbe48482e7e752678",
+      "trace_id": "a34daf16c39b49bda63ef0ea5dff9749",
+      "event_type": "span",
+      "event_time": 1792480650926,
+      "ingested_at": 1792480654130,
+      "observed_ingest_delay_ms": 3204
+    }
+  ],
+  "conclusion": "HTTP telemetry timeout occurred after startup and before first alert/report creation. Original evidence does not distinguish SQLite/ingest lock delay, thread scheduling, or shared resource contention. Concurrent native JVM load is an unproven hypothesis, not an attributed root cause.",
+  "ports_released": {
+    "19000": true,
+    "19181": true,
+    "19182": true,
+    "19183": true,
+    "19184": true
+  },
+  "retained_database": "/tmp/aiops-v2-verification-kf7n_p39/aiops.sqlite3",
+  "final_source_validation": "12 unit tests cover final source; this 110-second process started before final readiness/cleanup/markdown refinements. A separate final-source real run is pending root execution."
+}

@@ -1,0 +1,13 @@
+{
+  "created_at_utc": "2026-10-20T09:40:05.078316+00:00",
+  "backup": "backups/phase2-code-before-phase3.zip",
+  "sha256": "d2f71e158f326027840f9399548911d46ee498c3c4fac5f34d6cd6b9de96b48f",
+  "phase2_real_model_accepted": false,
+  "phase2_latest_full_tests": {
+    "passed": 162,
+    "failed": 0,
+    "skipped": 2,
+    "log": "artifacts/phase2-continuation/full-regression.log"
+  },
+  "user_authorized_phase3_before_phase2_acceptance": true
+}

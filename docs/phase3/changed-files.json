@@ -1,0 +1,35 @@
+{
+  "modified": [
+    "README.md",
+    "app/api.py",
+    "app/diagnosis.py",
+    "app/reporting.py",
+    "app/static/index.html",
+    "docs/phase2/模型接入与验证指南.md",
+    "docs/phase2/算力与推理加速.md",
+    "infra/NATIVE_TESTING.md",
+    "scripts/native_streaming.py",
+    "scripts/verify_optimized.py",
+    "tests/test_llm_phase2.py"
+  ],
+  "added": [
+    "app/rca.py",
+    "app/rca_integrity.py",
+    "docs/phase2/继续修复记录.md",
+    "docs/phase3/acceptance.json",
+    "docs/phase3/baseline.json",
+    "docs/phase3/changed-source-files.json",
+    "docs/phase3/test-summary.json",
+    "docs/phase3/根因分析架构与验证指南.md",
+    "docs/phase3/现状与实施计划.md",
+    "docs/phase3/第三阶段验收报告.md",
+    "docs/phase3/部署与复现.md",
+    "scripts/evaluate_rca.py",
+    "tests/rca_scenarios.py",
+    "tests/test_rca.py",
+    "tests/test_rca_evaluation.py",
+    "tests/test_rca_reporting.py",
+    "tests/test_rca_ui.py"
+  ],
+  "deleted": []
+}

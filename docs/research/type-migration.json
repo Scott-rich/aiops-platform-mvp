@@ -1,0 +1,188 @@
+[
+  {
+    "file": "app/storage.py",
+    "functions": 22,
+    "arguments": 31,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/rca_integrity.py",
+    "functions": 4,
+    "arguments": 6,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/api_runtime.py",
+    "functions": 9,
+    "arguments": 12,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/readiness.py",
+    "functions": 3,
+    "arguments": 1,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/llm_client.py",
+    "functions": 11,
+    "arguments": 19,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/evidence.py",
+    "functions": 20,
+    "arguments": 31,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/runtime_support.py",
+    "functions": 2,
+    "arguments": 1,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/detection_state.py",
+    "functions": 3,
+    "arguments": 4,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/detection_policy.py",
+    "functions": 1,
+    "arguments": 1,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/engine.py",
+    "functions": 5,
+    "arguments": 6,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/evidence_api.py",
+    "functions": 12,
+    "arguments": 8,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/evidence_archive.py",
+    "functions": 9,
+    "arguments": 23,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/runtime_logging.py",
+    "functions": 4,
+    "arguments": 5,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/model_grounding.py",
+    "functions": 10,
+    "arguments": 21,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/diagnosis.py",
+    "functions": 9,
+    "arguments": 19,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/local_api.py",
+    "functions": 3,
+    "arguments": 1,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/runtime_config.py",
+    "functions": 2,
+    "arguments": 7,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/fast_detection.py",
+    "functions": 2,
+    "arguments": 3,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/api.py",
+    "functions": 25,
+    "arguments": 4,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/contracts.py",
+    "functions": 1,
+    "arguments": 1,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/reporting.py",
+    "functions": 12,
+    "arguments": 24,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/diagnostic_context.py",
+    "functions": 9,
+    "arguments": 18,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/retrieval.py",
+    "functions": 2,
+    "arguments": 5,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/rca.py",
+    "functions": 6,
+    "arguments": 16,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/linux_agent.py",
+    "functions": 3,
+    "arguments": 0,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/incidents.py",
+    "functions": 16,
+    "arguments": 37,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/llm_config.py",
+    "functions": 6,
+    "arguments": 11,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/model_budget.py",
+    "functions": 9,
+    "arguments": 18,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/analysis_schema.py",
+    "functions": 3,
+    "arguments": 4,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/local_detection.py",
+    "functions": 4,
+    "arguments": 3,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  },
+  {
+    "file": "app/worker.py",
+    "functions": 10,
+    "arguments": 28,
+    "strategy": "Explicit Any for existing dynamic JSON boundaries; no ignores; not a structural typing claim."
+  }
+]

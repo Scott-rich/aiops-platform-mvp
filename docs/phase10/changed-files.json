@@ -1,0 +1,29 @@
+{
+  "modified": [
+    "app/local_api.py",
+    "app/api.py",
+    "app/llm_config.py",
+    "app/worker.py",
+    "simulator/telemetry.py",
+    "scripts/local_platform.py",
+    "scripts/verify_evidence.py",
+    "scripts/preflight.py",
+    "tests/test_storage_lock.py",
+    "tests/test_simulator.py",
+    "docker-compose.yml",
+    ".env.example",
+    ".github/workflows/tests.yml",
+    "README.md"
+  ],
+  "new_source_files": [
+    "app/api_runtime.py",
+    "app/runtime_config.py",
+    "app/runtime_logging.py",
+    "scripts/acceptance.py",
+    "scripts/test_suite.py",
+    "scripts/verify_launcher.py",
+    "scripts/verify_runtime_http.py",
+    "tests/test_acceptance_runner.py",
+    "tests/test_phase10_runtime.py"
+  ]
+}

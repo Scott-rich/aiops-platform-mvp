@@ -1,0 +1,36 @@
+# 数据库保护与本轮失败记录
+
+## 实际发现
+
+`artifacts/phase2/native-regression/result.json` 是失败运行，不是通过报告：16项流处理检查通过，报告环节发生1个执行错误。TaskManager checkpoint恢复完成；随后API/worker读取SQLite报 `SQLITE_CORRUPT`，API返回500、worker停止且未提交失败批次。
+
+测试已停止全部子进程。原数据库保留于该目录的 `app-data/`；一致停机后的原始字节副本在 `native-database-forensics-attempt-02/`。只读检查确认损坏，不运行REINDEX、VACUUM、重建或删除原数据。首次取证误用了旧目录名，空目录的失败检查也单独保留；第二次才读取正确的app-data目录。
+
+只读查询能读取events、alerts、deadletters等表，incidents、incident_notifications、report_versions读取报损坏。不能由部分可读表推断数据完整，也未验证这份损坏数据库能否完全恢复。它是本次隔离测试数据，没有覆盖用户历史数据。
+
+SQLite运行版本为3.53.1。官方资料说明损坏原因有多种，且已知WAL-reset缺陷在3.51.3及以后版本已修复；**没有证据把本次损坏归因于那个旧缺陷**。参考：[SQLite损坏原因](https://www.sqlite.org/howtocorrupt.html)、[WAL与修复版本](https://www.sqlite.org/wal.html#walresetbug)。
+
+## 复现与保护的边界
+
+使用相同Python/SQLite、4个独立进程、2个写入者和2个读取者、频繁创建/关闭Store连接的探针，在改动前后都通过，均保留300条写入且integrity_check为ok。原始结果为 `sqlite-probe-before-lock/` 和 `sqlite-probe-after-lock/`。所以尚未复现触发条件，不能宣称已确定根因或证明彻底修复。
+
+探针源文件在 `artifacts/phase2/sqlite-concurrency-probe.py`，可从项目根目录用新的输出目录重复：
+
+```bash
+PYTHONPATH=. python artifacts/phase2/sqlite-concurrency-probe.py artifacts/my-sqlite-probe
+python -m unittest tests.test_storage_lock -v
+```
+
+新增的保守保护是：Store使用filelock 4.2.4，在独立的 `aiops.sqlite3.access.lock` 文件上加操作系统锁；平台的连接创建、SQL操作、提交和关闭均串行，模型在线备份也遵守同一把锁。锁保留在磁盘，释放由操作系统锁管理，不自行删除正在使用的锁文件。不静默退回软锁，等待上限30秒。所有平台进程必须运行新代码；直接使用sqlite3连接的外部程序不受这把应用锁约束。
+
+此策略没有修改已有表、journal模式或数据路径，会减少读写并发；吞吐影响未做专项性能测量。它是一种研发环境保守策略，不能作为跨主机共享SQLite或生产HA方案。当前仅支持同机本地文件系统上的数据目录，不能通过共享一个SQLite文件来扩展多主机worker。
+
+同时修复新模型备份路径中的连接释放：sqlite3连接的with语句只提交/回滚，不会关闭连接，现在明确关闭源连接与目标连接后再发布备份文件。数据库锁不可用或损坏时，API返回503和固定 `storage_unavailable` 错误，不把损坏文件替换为空数据库，不回显SQL或原始错误正文。
+
+新增4项测试覆盖嵌套连接、忙等待与释放后恢复、多进程160条提交及完整性、真实损坏文件返回503并保留原字节。回归和实际Kafka/Flink复测结果以本阶段验收JSON为准；一次成功不能证明长期不会再损坏。
+
+## 兼容升级
+
+改动前代码/依赖另备份在 `backups/phase2-before-storage-serialization.zip`，哈希见 `backup.json`。不做数据库迁移或自动修复。部署更新时先停止旧API/worker；数据库可读时用SQLite在线backup API备份，无法读取时停掉全部写入者后连同DB/WAL/SHM保全现场，再人工决定恢复。不要在运行中替换、复制覆盖或删除DB/WAL/SHM/锁文件。
+
+数据库故障恢复、定期备份/恢复演练、损坏预警与完整性巡检仍需后续阶段验证。对于本次已确认但根因未明的损坏，验收报告会持续列为可靠性风险，不用后一次成功抹去。

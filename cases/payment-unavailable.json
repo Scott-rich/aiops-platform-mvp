@@ -1,0 +1,9 @@
+{
+  "case_id": "EXAMPLE-002", "version": 1, "source": "curated-example-not-production-history",
+  "title": "支付服务不可用导致上游错误传播", "services": ["payment", "order", "gateway"],
+  "rule_ids": ["high_error_rate"], "keywords": ["payment", "unavailable", "returned"],
+  "symptoms": "支付返回503，订单与网关观察到502。",
+  "root_cause": "示例故障为支付服务暂时不可用；当前故障内部原因仍需日志与变更证据验证。",
+  "remediation": ["检查支付服务健康度及依赖", "验证调用方超时和熔断策略"],
+  "verification": ["检查关联trace的错误起点", "故障恢复后复测所有调用链服务"]
+}

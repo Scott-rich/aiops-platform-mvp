@@ -1,0 +1,16 @@
+.git
+.env
+data
+data-local
+__pycache__
+**/__pycache__
+*.zip
+.venv
+examples/*.sqlite3*
+artifacts
+backups
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx

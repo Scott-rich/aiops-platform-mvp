@@ -1,0 +1,82 @@
+[
+  {
+    "path": ".env.example",
+    "change": "modified",
+    "sha256": "27197d07f4d3b569af904bfe059c874f6e45b9fa5bd4f52e48a3de27486a9e18"
+  },
+  {
+    "path": "README.md",
+    "change": "modified",
+    "sha256": "d010c756a71170b0a5ee67525b13c487884736453d65e9026d8749515bfe18db"
+  },
+  {
+    "path": "app/api.py",
+    "change": "modified",
+    "sha256": "a3e7b632cdbe0664a9521c5de6ef4705ecb239faa9f2c9da91fb8460ec3d0fbd"
+  },
+  {
+    "path": "docker-compose.yml",
+    "change": "modified",
+    "sha256": "b85167e4406f9f1da59cfcc8e53f10a2a7eed105ecebf00108847e227e4f66ac"
+  },
+  {
+    "path": "scripts/bootstrap_fault_kafka.py",
+    "change": "added",
+    "sha256": "5b52a7c2bc00260e4e73f23dec0b63f3f470ad6fcf225788ca120b90bcc73906"
+  },
+  {
+    "path": "scripts/local_platform.py",
+    "change": "modified",
+    "sha256": "861d498611222cb6f340edec9605cd5be3c76854697cd74bafe0a5d1176a688f"
+  },
+  {
+    "path": "scripts/verify_fault_kafka.py",
+    "change": "added",
+    "sha256": "999ac988e7e3d50e544a5821e5e2243fdeafdabb404b38cb097b713657d6ad6e"
+  },
+  {
+    "path": "scripts/verify_faults.py",
+    "change": "added",
+    "sha256": "72b24c6011cbe906e83262ec8bfc4fa803c61ddcc13aa9c6f54efeb08fb40cb7"
+  },
+  {
+    "path": "simulator/README.md",
+    "change": "modified",
+    "sha256": "d2131e21642348318417033741983e57aa47ea55ebb8a9996eecc9fd9aa12a5b"
+  },
+  {
+    "path": "simulator/faults.py",
+    "change": "modified",
+    "sha256": "b2b6d3091f853d4739829a047bd6e078f8a0a399a463320a84a73a5053d923f1"
+  },
+  {
+    "path": "simulator/network.py",
+    "change": "added",
+    "sha256": "cecdc7c05bdf838b390faccf634e595cfc16473ee48cc5ff0b89b739ce7b30c4"
+  },
+  {
+    "path": "simulator/pressure.py",
+    "change": "added",
+    "sha256": "c4d46fa5c792eaf84611b943535dbb98d2b7b6555f43fbc04fd2d31c86f1e48d"
+  },
+  {
+    "path": "simulator/requirements.txt",
+    "change": "modified",
+    "sha256": "e544dc2ab1e70c731a5b4cbfab5b0fc9fc43ff3dbd7dbd77b0fe98c3fba7cd80"
+  },
+  {
+    "path": "simulator/scenarios.py",
+    "change": "added",
+    "sha256": "25e8071316cb1618b34f66ba568d3765c77de8b54f69c865aa037c713343a793"
+  },
+  {
+    "path": "simulator/service.py",
+    "change": "modified",
+    "sha256": "6ce925dd229e65dfd9e82410604385df16bed43ba8b487be684a31cdc5ffad48"
+  },
+  {
+    "path": "tests/test_fault_injection.py",
+    "change": "added",
+    "sha256": "a9ea002056c75ddcc0bfead43d3f58ea3636e91c773aa6646b84918fdf1f148d"
+  }
+]

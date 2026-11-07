@@ -1,0 +1,9 @@
+test_apache_grouped_checksum_and_wrong_bytes (tests.test_native_tooling.NativeToolingTests.test_apache_grouped_checksum_and_wrong_bytes) ... ok
+test_failure_check_is_not_disabled_by_optimized_python (tests.test_native_tooling.NativeToolingTests.test_failure_check_is_not_disabled_by_optimized_python) ... ok
+test_fixture_is_explicit_v1_without_injection_label (tests.test_native_tooling.NativeToolingTests.test_fixture_is_explicit_v1_without_injection_label) ... ok
+test_real_stream_restore_http_and_diagnosis (tests.integration.test_native_streaming.NativeStreamingIntegration.test_real_stream_restore_http_and_diagnosis) ... skipped 'real Kafka/Flink test: set RUN_NATIVE_STREAMING=1 after bootstrap_native'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.009s
+
+OK (skipped=1)

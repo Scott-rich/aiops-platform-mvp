@@ -1,0 +1,92 @@
+[
+  {
+    "file": ".env.example",
+    "before_sha256": "27197d07f4d3b569af904bfe059c874f6e45b9fa5bd4f52e48a3de27486a9e18",
+    "after_sha256": "99c35d6ba1b19b18c2d3c50f0839d1070eb72fde428a92690f44b955c41120e5",
+    "change": "modified"
+  },
+  {
+    "file": "README.md",
+    "before_sha256": "741483fd177e639aba80ff307243ce078776ca953e8d0dc4cf2a2f2bda960f31",
+    "after_sha256": "46eaae56aada024546c51dbd5ba7146956462bf5bba757a930fc16dbeb3356c4",
+    "change": "modified"
+  },
+  {
+    "file": "app/engine.py",
+    "before_sha256": "77231063be70bf6f7d25a40c1628616614e2c172e293dff6f55271b01246c224",
+    "after_sha256": "2440de1e2493e18927f5bdeb3f6612b7e2f6c30ddd8b17c6489c5f16ca9c6ded",
+    "change": "modified"
+  },
+  {
+    "file": "app/incidents.py",
+    "before_sha256": "e6c343efebdce78f1236756fbd0060b68fb8aa712d5d0e5c627e4ff342a9b7f5",
+    "after_sha256": "afecb73565f59d65bf1adb1f8cfbbfe61187ee9391814a4fb8b21eb368d93357",
+    "change": "modified"
+  },
+  {
+    "file": "app/local_api.py",
+    "before_sha256": "4bedadfbc2b3bcae222158d11e3c1f9efb4e9c703bc12bba86a44bf848d5e07b",
+    "after_sha256": "bec71fe36814c1d819c2859cc28c3fdf59834cfcc94bf2fc99886a52c7c602b7",
+    "change": "modified"
+  },
+  {
+    "file": "app/storage.py",
+    "before_sha256": "15922dea12e909a988a65dc6dad28c6ff88d97e296e935f4e48b6d0acf72b408",
+    "after_sha256": "a5268f377716b094a8dc811e40e45a0ace61613e7c2d72a17c6f4e37e8587be6",
+    "change": "modified"
+  },
+  {
+    "file": "app/worker.py",
+    "before_sha256": "329db3c6ac78daa7953824263ee0e162a16acf21abe1eaff4e4bc68e0a18b8c2",
+    "after_sha256": "68c4991daaf63001b43d5d0e234e369ba13510d5b6414125cc6fb91087e4f269",
+    "change": "modified"
+  },
+  {
+    "file": "docker-compose.yml",
+    "before_sha256": "b85167e4406f9f1da59cfcc8e53f10a2a7eed105ecebf00108847e227e4f66ac",
+    "after_sha256": "fc1749b12fd849cfcdc303ff0022cf27cdf2efbb66e0460bfad17f412996696a",
+    "change": "modified"
+  },
+  {
+    "file": "scripts/verify_reliability.py",
+    "before_sha256": null,
+    "after_sha256": "2b4fea11eddd31e4c30eb7f6d47b0a940a1703ae082c3befbc07c36856374bcf",
+    "change": "added"
+  },
+  {
+    "file": "scripts/verify_storage_upgrade.py",
+    "before_sha256": null,
+    "after_sha256": "5cf0d4f8e16cd7a0fbcb16aa0edc483026bf133f3bd1200a035bbcf1f4405b72",
+    "change": "added"
+  },
+  {
+    "file": "tests/test_adaptive_detection.py",
+    "before_sha256": "1be8af390e08a9afa09ae294bf8e1a32bdda8bdbe5aaa381c541e4e01fbdad24",
+    "after_sha256": "1a72013b93759c80caf0c5cc79f92fb628e7b1b056d8f332eb155f8e1f5c4fe8",
+    "change": "modified"
+  },
+  {
+    "file": "tests/test_reliability.py",
+    "before_sha256": null,
+    "after_sha256": "f8c2192cf78780d0ec027490f54a8072a3c98e82805fdcd5c6814752c309da64",
+    "change": "added"
+  },
+  {
+    "file": "tests/test_reliability_tools.py",
+    "before_sha256": null,
+    "after_sha256": "f4cb40fc3ac404d8f1e4c24430772355ce847d879bf0f1c385ddf39373f8f586",
+    "change": "added"
+  },
+  {
+    "file": "tests/test_storage_idempotency.py",
+    "before_sha256": "0bd6046f023a60c723c45676f5e7bd80f4b46d0ce98ce65139fabfc069dccf3f",
+    "after_sha256": "b0d6311da356a81ddd3439f1451bfa14d19927760a22546cd2440cd26f4e15e7",
+    "change": "modified"
+  },
+  {
+    "file": "tests/test_worker.py",
+    "before_sha256": "1546bcc02d8d26605ba86a72f78f1127a5f1c4e16f2eb03ad8ad09a5f61af74b",
+    "after_sha256": "75ca1336e9d06e476433d01ae0c65db1dd0a15c4fe102e6e6203a551005c2c15",
+    "change": "modified"
+  }
+]

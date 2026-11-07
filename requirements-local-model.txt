@@ -1,0 +1,7 @@
+# Optional source build: use scripts.bootstrap_local_model for isolated setup.
+llama-cpp-python==0.3.19
+# This runtime serves inference only; platform dependencies are requirements.txt.
+fastapi==0.115.12
+uvicorn==0.34.2
+httpx==0.28.1
+pydantic==2.14.1

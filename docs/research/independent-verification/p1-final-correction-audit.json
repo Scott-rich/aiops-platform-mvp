@@ -1,0 +1,38 @@
+{
+  "status": "independently_verified_no_model_calls",
+  "models": [
+    {
+      "model": "05b",
+      "correction_sha256": "46c6efe5b911bb8f92161c0f66d9aacab0be5e45a21c02be66d88a453a8aee37",
+      "corrected_rows_exact": 60,
+      "all_summary_ci_exact": true,
+      "risk_curve_points_exact": 1,
+      "selected_cases": [],
+      "selected_families": [],
+      "pooled_reference_counts": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "model": "15b",
+      "correction_sha256": "7e4c92295633c12f912310a4a5a9607ad2f049e2be80d79ece0327519f1cf2de",
+      "corrected_rows_exact": 60,
+      "all_summary_ci_exact": true,
+      "risk_curve_points_exact": 9,
+      "selected_cases": [
+        "resource-03",
+        "resource-08"
+      ],
+      "selected_families": [
+        "resource"
+      ],
+      "pooled_reference_counts": [
+        0.0,
+        48.0
+      ]
+    }
+  ],
+  "comparison_result_sha256": "423ce3e6254d44087828ab5553643af4552040b977495fa71d34f7c9392ebe4e",
+  "comparison_inputs_and_metrics_exact": true
+}

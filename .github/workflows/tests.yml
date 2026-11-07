@@ -1,0 +1,42 @@
+name: Research quality gates
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12']
+    env:
+      CMAKE_ARGS: -DGGML_CUDA=OFF -DGGML_NATIVE=OFF
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.6.0
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements-lock.txt
+      - run: python -m pip check
+      - run: python -m ruff check app research scripts/research
+      - run: python -m ruff format --check app research scripts/research
+      - run: python -m mypy
+      - run: python -m coverage run -m pytest tests research/tests -q
+      - run: python -m coverage report && python -m coverage xml -o artifacts/coverage.xml
+      - run: python -m scripts.acceptance --output artifacts/ci-acceptance
+      - run: make demo PYTHON=python OUTPUT=artifacts/ci-demo
+      - uses: actions/upload-artifact@v4.6.2
+        if: always()
+        with:
+          name: evidence-python-${{ matrix.python }}
+          path: artifacts/
+  image:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    # This optional image job cannot make the mandatory code gates pass.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - run: docker build --tag aiops-research:ci .
+      - run: docker run --rm --entrypoint python aiops-research:ci -m pip check

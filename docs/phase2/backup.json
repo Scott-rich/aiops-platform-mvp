@@ -1,0 +1,13 @@
+{
+  "at_utc": "2026-10-20T07:46:34.448296+00:00",
+  "sha256": "de698d0636823a4a4f2a9d9f990f2bc858060d8091f18d5b9ad4a0ae0ad24128",
+  "file": "backups/aiops-platform-stage1-before-stage2.zip",
+  "library_version": 3,
+  "schema_migration_policy": "backup existing SQLite before additive schema change",
+  "before_storage_serialization": {
+    "file": "backups/phase2-before-storage-serialization.zip",
+    "sha256": "e3c52d7059b57fc58fe0d0ec594b58aff2e1948c99a92679bd5dd0d4c98c51e4",
+    "data_format_changed": false,
+    "failed_database_preserved": "artifacts/phase2/native-database-forensics-attempt-02/aiops.sqlite3"
+  }
+}

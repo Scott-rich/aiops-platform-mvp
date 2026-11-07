@@ -1,0 +1,481 @@
+{
+  "delivery": "aiops-platform-mvp-phase10-fixed",
+  "status": "verified_native_research_delivery_with_explicit_environment_limits",
+  "full_acceptance": false,
+  "supported_runtime": "Python 3.11 and 3.12; native integration runtime Python 3.11",
+  "gates": {
+    "local": "passed",
+    "native": "passed",
+    "model": "passed",
+    "reliability": "passed",
+    "faults": "passed",
+    "http_benchmark": "passed",
+    "kafka_benchmark": "passed",
+    "flink_benchmark": "passed",
+    "docker": "blocked_not_executed"
+  },
+  "unit": {
+    "status": "passed",
+    "tests_run": 464,
+    "passed": 454,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 10,
+    "expected_failures": 0,
+    "unexpected_successes": 0,
+    "skip_details": [
+      {
+        "test": "test_real_stream_restore_http_and_diagnosis (integration.test_native_streaming.NativeStreamingIntegration.test_real_stream_restore_http_and_diagnosis)",
+        "reason": "real Kafka/Flink test: set RUN_NATIVE_STREAMING=1 after bootstrap_native"
+      },
+      {
+        "test": "test_configured_model_on_archived_actual_evidence (integration.test_real_llm.RealModelTests.test_configured_model_on_archived_actual_evidence)",
+        "reason": "opt-in real model integration; use scripts.verify_llm for retained artifacts"
+      },
+      {
+        "test": "test_invalid_utf8_keeps_original_bytes_and_legitimate_replacement_character (test_source_bridge.SourceBridgeTests.test_invalid_utf8_keeps_original_bytes_and_legitimate_replacement_character)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      },
+      {
+        "test": "test_java_timestamp_guard_matches_python_metric_contract (test_source_bridge.SourceBridgeTests.test_java_timestamp_guard_matches_python_metric_contract)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      },
+      {
+        "test": "test_source_schema_and_partition_watermark_construct_with_real_api (test_source_bridge.SourceBridgeTests.test_source_schema_and_partition_watermark_construct_with_real_api)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      },
+      {
+        "test": "test_keyed_window_global_state_reused (test_stream_operators.AdaptiveOperatorTests.test_keyed_window_global_state_reused)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      },
+      {
+        "test": "test_cleanup_reclaims_capacity_and_clears_timer (test_stream_operators.StreamOperatorTests.test_cleanup_reclaims_capacity_and_clears_timer)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      },
+      {
+        "test": "test_configuration_rejects_non_numeric_and_out_of_range (test_stream_operators.StreamOperatorTests.test_configuration_rejects_non_numeric_and_out_of_range)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      },
+      {
+        "test": "test_duplicate_conflict_and_bounded_capacity (test_stream_operators.StreamOperatorTests.test_duplicate_conflict_and_bounded_capacity)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      },
+      {
+        "test": "test_parser_poison_values_all_reach_dlq_with_coordinates (test_stream_operators.StreamOperatorTests.test_parser_poison_values_all_reach_dlq_with_coordinates)",
+        "reason": "optional PyFlink 1.20 runtime not installed"
+      }
+    ],
+    "elapsed_seconds": 68.4341366430017,
+    "python": "3.11.17 (main, Oct 21 2026, 17:46:53) [Clang 23.1.3 ]",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39"
+  },
+  "steps": [
+    {
+      "name": "unit",
+      "status": "passed",
+      "detail": "454 通过，0 失败，0 错误，10 跳过",
+      "checks": 0,
+      "passed_checks": 0,
+      "seconds": 68.66310076900118,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.test_suite",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/unit"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "runtime-http",
+      "status": "passed",
+      "detail": "14/14 检查通过",
+      "checks": 14,
+      "passed_checks": 14,
+      "seconds": 1.1196789009991335,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.verify_runtime_http",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/runtime-http"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "launcher",
+      "status": "passed",
+      "detail": "10/10 检查通过",
+      "checks": 10,
+      "passed_checks": 10,
+      "seconds": 2.133723958999326,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.verify_launcher",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/launcher"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "evidence",
+      "status": "passed",
+      "detail": "19/19 检查通过",
+      "checks": 19,
+      "passed_checks": 19,
+      "seconds": 24.663661621001665,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.verify_evidence",
+        "--legacy-source",
+        "/workspace/scratch/3fa2499b629d/repair/aiops-platform/artifacts/phase7/reliability-05/data/aiops.sqlite3",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/evidence"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "detection",
+      "status": "passed",
+      "detail": "同一合成数据集 2716 个标记指标决策；固定/动态对照完成",
+      "checks": 0,
+      "passed_checks": 0,
+      "seconds": 0.9728738569974666,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.evaluate_detection",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/detection"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "rca",
+      "status": "passed",
+      "detail": "12 个标记场景；根因Top-1 8/8",
+      "checks": 0,
+      "passed_checks": 0,
+      "seconds": 0.3276365940000687,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.evaluate_rca",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/rca"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "benchmark-http",
+      "status": "passed",
+      "detail": "15/15 检查通过",
+      "checks": 15,
+      "passed_checks": 15,
+      "seconds": 17.822011263000604,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.benchmark_platform",
+        "--component",
+        "http",
+        "--business-rates",
+        "2,5",
+        "--ingest-rates",
+        "20,60",
+        "--duration",
+        "2",
+        "--repeats",
+        "1",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/benchmark-http"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "native",
+      "status": "passed",
+      "detail": "25/25 检查通过",
+      "checks": 25,
+      "passed_checks": 25,
+      "seconds": 120.29775015699852,
+      "command": [
+        "/tmp/aiops-phase10-native/venv/bin/python",
+        "-m",
+        "scripts.native_streaming",
+        "--runtime-dir",
+        "/tmp/aiops-phase10-native",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/native"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "reliability",
+      "status": "passed",
+      "detail": "23/23 检查通过",
+      "checks": 23,
+      "passed_checks": 23,
+      "seconds": 83.63267003800138,
+      "command": [
+        "/tmp/aiops-phase10-native/venv/bin/python",
+        "-m",
+        "scripts.verify_reliability",
+        "--kafka-home",
+        "/tmp/aiops-phase10-native/kafka_2.13-3.9.1",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/reliability"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "faults",
+      "status": "passed",
+      "detail": "46/46 检查通过",
+      "checks": 46,
+      "passed_checks": 46,
+      "seconds": 28.517150595998828,
+      "command": [
+        "/tmp/aiops-phase10-native/venv/bin/python",
+        "-m",
+        "scripts.verify_faults",
+        "--scenario",
+        "all",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/faults",
+        "--kafka-home",
+        "/tmp/aiops-phase10-native/kafka_2.13-3.9.1",
+        "--allow-resource-pressure"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "benchmark-kafka",
+      "status": "passed",
+      "detail": "6/6 检查通过",
+      "checks": 6,
+      "passed_checks": 6,
+      "seconds": 19.568837025999528,
+      "command": [
+        "/tmp/aiops-phase10-native/venv/bin/python",
+        "-m",
+        "scripts.benchmark_platform",
+        "--component",
+        "kafka",
+        "--kafka-home",
+        "/tmp/aiops-phase10-native/kafka_2.13-3.9.1",
+        "--kafka-rates",
+        "50,150,300",
+        "--duration",
+        "3",
+        "--repeats",
+        "1",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/benchmark-kafka"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "flink-benchmark",
+      "status": "passed",
+      "detail": "14/14 检查通过",
+      "checks": 14,
+      "passed_checks": 14,
+      "seconds": 84.43155863199718,
+      "command": [
+        "/tmp/aiops-phase10-native/venv/bin/python",
+        "-m",
+        "scripts.benchmark_flink",
+        "--runtime-dir",
+        "/tmp/aiops-phase10-native",
+        "--rates",
+        "20,60,120",
+        "--duration",
+        "3",
+        "--repeats",
+        "1",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/flink-benchmark"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "model",
+      "status": "passed",
+      "detail": "10/10 检查通过",
+      "checks": 10,
+      "passed_checks": 10,
+      "seconds": 86.42209431000083,
+      "command": [
+        "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+        "-m",
+        "scripts.verify_llm",
+        "--output",
+        "/tmp/aiops-3fa2499b-final-01/model",
+        "--evidence-report",
+        "/tmp/aiops-3fa2499b-final-01/native/actual-http-report.json",
+        "--local-model-file",
+        "/tmp/aiops-phase10-model/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+        "--model-python",
+        "/tmp/aiops-phase10-model/venv/bin/python"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "healthy_real_model": {
+    "status": "passed",
+    "check_counts": {
+      "passed": 11,
+      "failed": 0
+    },
+    "diagnosis_status": "unknown",
+    "seconds": 124.144
+  },
+  "fault_real_model": {
+    "status": "passed",
+    "candidate_services": [
+      "payment"
+    ],
+    "seconds": 77.152,
+    "check_counts": {
+      "passed": 10,
+      "failed": 0
+    }
+  },
+  "original_regression_probes": {
+    "kind": "unchanged_original_acceptance_probe_retest",
+    "started_at": "2026-11-04T07:48:39.245334+00:00",
+    "finished_at": "2026-11-04T07:48:40.588496+00:00",
+    "source": "/workspace/scratch/3fa2499b629d/repair/aiops-platform",
+    "runtime": {
+      "python": "3.11.17 (main, Oct 21 2026, 17:46:53) [Clang 23.1.3 ]",
+      "executable": "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+      "sqlite_version": "3.53.1"
+    },
+    "assertions_unchanged": true,
+    "source_changed": false,
+    "changed_source_files": [],
+    "limits": [
+      "LLM tests use synthetic outputs, not real inference",
+      "No Kafka/Flink services or resource pressure launched",
+      "These regression cases do not measure performance or diagnostic accuracy"
+    ],
+    "suites": [
+      {
+        "suite": "streaming",
+        "command": [
+          "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+          "/workspace/scratch/3fa2499b629d/repair/results/original-probes-final/streaming/probe.py"
+        ],
+        "cwd": "/workspace/scratch/3fa2499b629d/repair/aiops-platform",
+        "env": {
+          "PYTHONPATH": "/workspace/scratch/3fa2499b629d/repair/aiops-platform"
+        },
+        "exit_code": 0,
+        "wall_seconds": 1.2799644299993815,
+        "result_file": "/workspace/scratch/3fa2499b629d/repair/results/original-probes-final/streaming/result.json",
+        "result_sha256": "3e2c375957301419b14e9b45b34089aed7ef55e262553fbb95d93f2bf2dd74ed",
+        "tests_run": 3,
+        "passed": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "llm",
+        "command": [
+          "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+          "/workspace/scratch/3fa2499b629d/repair/results/original-probes-final/llm/probe_llm_semantics.py"
+        ],
+        "cwd": "/workspace/scratch/3fa2499b629d/repair/aiops-platform",
+        "env": {
+          "PYTHONPATH": "/workspace/scratch/3fa2499b629d/repair/aiops-platform"
+        },
+        "exit_code": 0,
+        "wall_seconds": 0.51905946700208,
+        "result_file": "/workspace/scratch/3fa2499b629d/repair/results/original-probes-final/llm/semantic-probes.json",
+        "result_sha256": "084645ee38dbb9b87e0e5201c48f1dfebfc7322499ccd801eec7e171eabc4ee3",
+        "tests_run": 7,
+        "passed": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "suite": "engineering",
+        "command": [
+          "/workspace/scratch/3fa2499b629d/repair/clean-install/venv/bin/python",
+          "/workspace/scratch/3fa2499b629d/repair/results/original-probes-final/engineering/test_acceptance_guards.py"
+        ],
+        "cwd": "/workspace/scratch/3fa2499b629d/repair/aiops-platform",
+        "env": {
+          "PYTHONPATH": "/workspace/scratch/3fa2499b629d/repair/aiops-platform"
+        },
+        "exit_code": 0,
+        "wall_seconds": 0.5179742680011259,
+        "result_file": "/workspace/scratch/3fa2499b629d/repair/results/original-probes-final/engineering/guard-result.json",
+        "result_sha256": "a16d56e91e4a023ec31dace4be4dbc8fab278c2215a992f297bd68ecc533b232",
+        "tests_run": 10,
+        "passed": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "totals": {
+      "tests_run": 20,
+      "passed": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "status": "passed"
+  },
+  "native_optional_tests": {
+    "status": "passed",
+    "tests_run": 8,
+    "passed": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0,
+    "duration_seconds": 1.5614904789981665,
+    "skip_details": [],
+    "started_at": "2026-11-04T08:05:48.181330+00:00",
+    "completed_at": "2026-11-04T08:05:49.905304+00:00",
+    "exit_code": 0,
+    "source_modified": false,
+    "source_directory": "/workspace/scratch/3fa2499b629d/repair/aiops-platform",
+    "python": "/tmp/aiops-phase10-native/venv/bin/python",
+    "modules": [
+      "tests.test_source_bridge",
+      "tests.test_stream_operators"
+    ],
+    "scope": "real Java/PyFlink connector construction and Python callback unit tests; no Kafka broker or Flink cluster launched",
+    "log_sha256": "2432888a5df34da653e5b651f0b8b3f6fb50fc4a3e424df2003c5617d981a570",
+    "source_sha256": {
+      "tests/test_source_bridge.py": "73b22ca54c331d993740788d112d0048478ce698f98220d6f05aaa8c93ada47d",
+      "tests/test_stream_operators.py": "b19d16814e4b1f15154d83822fc5e8b99ca2477ec46a57fb8d700c0bab0417ab",
+      "flink/detector.py": "fa3639549eed2e0808a804e31839bfe0f7237762b8d3f9a2d851d6b600628799",
+      "flink/stream_support.py": "d8f9aea093ab1beed7fa32f1b4fb806ee805895e0d09a223c853d07f3b7d9c37",
+      "wire_contract.py": "0fdc1be1d985806d483d85d5f6c91b16bc18147ac44efdbb0396c4fbf04d3f0c"
+    },
+    "source_bridge_sha256": "7931b0eee0717540eb81bd84304d703c34b2706dfb31d3c3553c3a9c0bb0337d",
+    "connector_sha256": "1086f3eee73d727e234860fcd03adafc0d76f2fc70a25d39c36427693fff749d"
+  },
+  "final_source_unchanged": true,
+  "result_files_unchanged": true,
+  "final_result_sha256": "fd7d2da7a7cb6867ec86860683f027645e9eb45c518f59da1237e546209be73c",
+  "limitations": [
+    "Docker deployment not executed: no Docker/Podman/socket, rootless namespace probe denied.",
+    "Active SQLite databases must be on a local volume outside file synchronization. Inotify captured external replacement of live WAL/SHM in the shared workspace. Both Python 3.11 and 3.12 passed evidence tests in /tmp; completed outputs were archived after shutdown.",
+    "Native single-machine tests do not certify multi-node HA, production security or long-term capacity.",
+    "Synthetic detection/RCA labels are not production accuracy estimates.",
+    "Model output is grounded candidate-service observations; internal causal mechanism remains unknown, confidence capped low.",
+    "No provider price configured: monetary cost is null; tokens and elapsed time are measured.",
+    "Short Flink bursts, explicit tail watermark and directly owned PID resource scope are retained in raw JSON/CSV."
+  ]
+}

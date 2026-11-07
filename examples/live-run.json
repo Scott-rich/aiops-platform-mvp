@@ -1,0 +1,1468 @@
+{
+  "summary": {
+    "run_id": "e1886e3e33aa4141a427686c5ecf24ff",
+    "started_at": 1792466623091,
+    "duration_seconds": 110,
+    "mode": "actual-local-tcp-http + shared-python-rules; no Kafka/Flink/LLM",
+    "phases": [
+      {
+        "name": "healthy",
+        "start_s": 0,
+        "end_s": 35
+      },
+      {
+        "name": "fault",
+        "start_s": 35,
+        "end_s": 65
+      },
+      {
+        "name": "recovery",
+        "start_s": 65,
+        "end_s": 110
+      }
+    ],
+    "event_count": 3970,
+    "trace_count": 329,
+    "alert_count": 15,
+    "report_count": 1,
+    "http_counts": {
+      "200": 239,
+      "502": 90
+    },
+    "service_health": {
+      "gateway": {
+        "status": "ok",
+        "service": "gateway",
+        "telemetry_mode": "http",
+        "telemetry_sent": 987,
+        "telemetry_failed": 0
+      },
+      "order": {
+        "status": "ok",
+        "service": "order",
+        "telemetry_mode": "http",
+        "telemetry_sent": 987,
+        "telemetry_failed": 0
+      },
+      "inventory": {
+        "status": "ok",
+        "service": "inventory",
+        "telemetry_mode": "http",
+        "telemetry_sent": 987,
+        "telemetry_failed": 0
+      },
+      "payment": {
+        "status": "ok",
+        "service": "payment",
+        "telemetry_mode": "http",
+        "telemetry_sent": 987,
+        "telemetry_failed": 0
+      }
+    },
+    "watermark_delay_seconds": 5,
+    "window_seconds": 30,
+    "slide_seconds": 10,
+    "report_policy": "first gateway alert only; local demonstration orchestration"
+  },
+  "frames": [
+    {
+      "t": 0.0,
+      "phase": "healthy",
+      "services": {
+        "gateway": {
+          "count": 0,
+          "error_rate": 0.0,
+          "p95_ms": 0
+        },
+        "order": {
+          "count": 0,
+          "error_rate": 0.0,
+          "p95_ms": 0
+        },
+        "inventory": {
+          "count": 0,
+          "error_rate": 0.0,
+          "p95_ms": 0
+        },
+        "payment": {
+          "count": 0,
+          "error_rate": 0.0,
+          "p95_ms": 0
+        }
+      },
+      "events_count": 1,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 100,
+        "memory_percent": 8.53
+      }
+    },
+    {
+      "t": 5.04,
+      "phase": "healthy",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 156.12
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 115.94
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.58
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.82
+        }
+      },
+      "events_count": 182,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 2.87,
+        "memory_percent": 8.76
+      }
+    },
+    {
+      "t": 10.1,
+      "phase": "healthy",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 176.89
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 127.38
+        },
+        "inventory": {
+          "count": 14,
+          "error_rate": 0.0,
+          "p95_ms": 30.81
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 27.63
+        }
+      },
+      "events_count": 363,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 12.05,
+        "memory_percent": 9.34
+      }
+    },
+    {
+      "t": 15.15,
+      "phase": "healthy",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 185.29
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 140.43
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.9
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.64
+        }
+      },
+      "events_count": 547,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 10.43,
+        "memory_percent": 9.26
+      }
+    },
+    {
+      "t": 20.21,
+      "phase": "healthy",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 157.69
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 113.47
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 31.42
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 26.68
+        }
+      },
+      "events_count": 736,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 4.63,
+        "memory_percent": 8.72
+      }
+    },
+    {
+      "t": 25.0,
+      "phase": "healthy",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 152.36
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 115.71
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 28.79
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.56
+        }
+      },
+      "events_count": 906,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 4.28,
+        "memory_percent": 8.75
+      }
+    },
+    {
+      "t": 30.04,
+      "phase": "healthy",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 152.84
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 111.62
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.7
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.58
+        }
+      },
+      "events_count": 1087,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 2.48,
+        "memory_percent": 8.73
+      }
+    },
+    {
+      "t": 35.09,
+      "phase": "fault",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 157.2
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 105.67
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 28.63
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 28.52
+        }
+      },
+      "events_count": 1268,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 2.36,
+        "memory_percent": 8.77
+      }
+    },
+    {
+      "t": 40.14,
+      "phase": "fault",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 136.72
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 101.12
+        },
+        "inventory": {
+          "count": 14,
+          "error_rate": 0.0,
+          "p95_ms": 28.72
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 0.48
+        }
+      },
+      "events_count": 1449,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 3.52,
+        "memory_percent": 8.68
+      }
+    },
+    {
+      "t": 45.19,
+      "phase": "fault",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 170.82
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 107.64
+        },
+        "inventory": {
+          "count": 14,
+          "error_rate": 0.0,
+          "p95_ms": 29.72
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 0.46
+        }
+      },
+      "events_count": 1630,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 2.54,
+        "memory_percent": 8.63
+      }
+    },
+    {
+      "t": 50.25,
+      "phase": "fault",
+      "services": {
+        "gateway": {
+          "count": 14,
+          "error_rate": 1.0,
+          "p95_ms": 139.91
+        },
+        "order": {
+          "count": 14,
+          "error_rate": 1.0,
+          "p95_ms": 93.4
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.87
+        },
+        "payment": {
+          "count": 14,
+          "error_rate": 1.0,
+          "p95_ms": 2.64
+        }
+      },
+      "events_count": 1814,
+      "alerts_count": 0,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 2.77,
+        "memory_percent": 8.64
+      }
+    },
+    {
+      "t": 55.0,
+      "phase": "fault",
+      "services": {
+        "gateway": {
+          "count": 14,
+          "error_rate": 1.0,
+          "p95_ms": 257.49
+        },
+        "order": {
+          "count": 14,
+          "error_rate": 1.0,
+          "p95_ms": 213.62
+        },
+        "inventory": {
+          "count": 14,
+          "error_rate": 0.0,
+          "p95_ms": 28.99
+        },
+        "payment": {
+          "count": 14,
+          "error_rate": 1.0,
+          "p95_ms": 0.88
+        }
+      },
+      "events_count": 1980,
+      "alerts_count": 3,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 7.73,
+        "memory_percent": 8.68
+      }
+    },
+    {
+      "t": 60.08,
+      "phase": "fault",
+      "services": {
+        "gateway": {
+          "count": 16,
+          "error_rate": 1.0,
+          "p95_ms": 236.61
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 90.71
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.71
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 2.66
+        }
+      },
+      "events_count": 2173,
+      "alerts_count": 3,
+      "reports_count": 0,
+      "host": {
+        "cpu_percent": 4.46,
+        "memory_percent": 8.68
+      }
+    },
+    {
+      "t": 65.14,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 126.82
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 91.11
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.51
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 1.0,
+          "p95_ms": 0.47
+        }
+      },
+      "events_count": 2354,
+      "alerts_count": 6,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.53,
+        "memory_percent": 8.83
+      }
+    },
+    {
+      "t": 70.19,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 161.62
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 125.52
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.55
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.98
+        }
+      },
+      "events_count": 2535,
+      "alerts_count": 6,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.65,
+        "memory_percent": 8.83
+      }
+    },
+    {
+      "t": 75.24,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 134.8
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 98.64
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 27.84
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.84
+        }
+      },
+      "events_count": 2716,
+      "alerts_count": 9,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.47,
+        "memory_percent": 8.87
+      }
+    },
+    {
+      "t": 80.05,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 160.29
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 110.03
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.68
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.94
+        }
+      },
+      "events_count": 2885,
+      "alerts_count": 9,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.57,
+        "memory_percent": 8.86
+      }
+    },
+    {
+      "t": 85.1,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 151.83
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 103.77
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.77
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.59
+        }
+      },
+      "events_count": 3067,
+      "alerts_count": 12,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.45,
+        "memory_percent": 8.97
+      }
+    },
+    {
+      "t": 90.2,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 14,
+          "error_rate": 0.0,
+          "p95_ms": 318.74
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 288.41
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 27.61
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 70.74
+        }
+      },
+      "events_count": 3255,
+      "alerts_count": 12,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 7.48,
+        "memory_percent": 8.98
+      }
+    },
+    {
+      "t": 95.13,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 254.34
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 223.6
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.76
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.71
+        }
+      },
+      "events_count": 3428,
+      "alerts_count": 15,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 6.12,
+        "memory_percent": 8.9
+      }
+    },
+    {
+      "t": 100.18,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 151.9
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 112.94
+        },
+        "inventory": {
+          "count": 14,
+          "error_rate": 0.0,
+          "p95_ms": 30.64
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.62
+        }
+      },
+      "events_count": 3609,
+      "alerts_count": 15,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.8,
+        "memory_percent": 8.95
+      }
+    },
+    {
+      "t": 105.23,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 153.43
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 111.82
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 24.79
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 30.74
+        }
+      },
+      "events_count": 3798,
+      "alerts_count": 15,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.64,
+        "memory_percent": 8.98
+      }
+    },
+    {
+      "t": 110,
+      "phase": "recovery",
+      "services": {
+        "gateway": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 175.92
+        },
+        "order": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 133.88
+        },
+        "inventory": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.83
+        },
+        "payment": {
+          "count": 15,
+          "error_rate": 0.0,
+          "p95_ms": 29.61
+        }
+      },
+      "events_count": 3970,
+      "alerts_count": 15,
+      "reports_count": 1,
+      "host": {
+        "cpu_percent": 2.64,
+        "memory_percent": 8.98
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "t": 0,
+      "kind": "start",
+      "label": "四个HTTP服务就绪，健康流量开始"
+    },
+    {
+      "t": 35.09,
+      "kind": "fault",
+      "label": "注入支付服务503错误"
+    },
+    {
+      "t": 52.03,
+      "kind": "alert",
+      "service": "gateway",
+      "label": "gateway 错误率窗口告警",
+      "alert_id": "04733120e7b751baf7bc1e87"
+    },
+    {
+      "t": 52.03,
+      "kind": "alert",
+      "service": "order",
+      "label": "order 错误率窗口告警",
+      "alert_id": "992be51d3f07517ad096cda0"
+    },
+    {
+      "t": 52.03,
+      "kind": "alert",
+      "service": "payment",
+      "label": "payment 错误率窗口告警",
+      "alert_id": "23322a62a58a6581a4fa230f"
+    },
+    {
+      "t": 60.34,
+      "kind": "report",
+      "label": "证据诊断报告生成",
+      "report_id": "59985833-2dd0-4ae0-9bd7-dccc087ecf4c"
+    },
+    {
+      "t": 62.1,
+      "kind": "alert",
+      "service": "gateway",
+      "label": "gateway 错误率窗口告警",
+      "alert_id": "96b8101fb8743ba626434cd5"
+    },
+    {
+      "t": 62.1,
+      "kind": "alert",
+      "service": "order",
+      "label": "order 错误率窗口告警",
+      "alert_id": "005df361595b7b5a989c83a1"
+    },
+    {
+      "t": 62.1,
+      "kind": "alert",
+      "service": "payment",
+      "label": "payment 错误率窗口告警",
+      "alert_id": "2c6676d536cab97e3891b408"
+    },
+    {
+      "t": 65.14,
+      "kind": "recovery",
+      "label": "清除故障，继续健康请求"
+    },
+    {
+      "t": 72.21,
+      "kind": "alert",
+      "service": "gateway",
+      "label": "gateway 错误率窗口告警",
+      "alert_id": "2b5d7838a3b6926fbbfddb71"
+    },
+    {
+      "t": 72.21,
+      "kind": "alert",
+      "service": "order",
+      "label": "order 错误率窗口告警",
+      "alert_id": "7d953a0ee96f2756cc56353d"
+    },
+    {
+      "t": 72.21,
+      "kind": "alert",
+      "service": "payment",
+      "label": "payment 错误率窗口告警",
+      "alert_id": "610688737d7640a5919b77b1"
+    },
+    {
+      "t": 82.32,
+      "kind": "alert",
+      "service": "gateway",
+      "label": "gateway 错误率窗口告警",
+      "alert_id": "f941efcf63eb5141fc117c69"
+    },
+    {
+      "t": 82.32,
+      "kind": "alert",
+      "service": "order",
+      "label": "order 错误率窗口告警",
+      "alert_id": "4bd04f3ed772c7e19de3530c"
+    },
+    {
+      "t": 82.32,
+      "kind": "alert",
+      "service": "payment",
+      "label": "payment 错误率窗口告警",
+      "alert_id": "5bae5c289e89b58366adc4e4"
+    },
+    {
+      "t": 92.22,
+      "kind": "alert",
+      "service": "gateway",
+      "label": "gateway 错误率窗口告警",
+      "alert_id": "59a1a5f7549cf85b5c3de90c"
+    },
+    {
+      "t": 92.22,
+      "kind": "alert",
+      "service": "order",
+      "label": "order 错误率窗口告警",
+      "alert_id": "c19b396b6b453999357f193d"
+    },
+    {
+      "t": 92.22,
+      "kind": "alert",
+      "service": "payment",
+      "label": "payment 错误率窗口告警",
+      "alert_id": "9ca99c5e863fc9e297417c3e"
+    }
+  ],
+  "report": {
+    "report_id": "59985833-2dd0-4ae0-9bd7-dccc087ecf4c",
+    "created_s": 60.34,
+    "candidate": "payment",
+    "analysis_mode": "heuristic",
+    "evidence_count": 1428,
+    "coverage": {
+      "all_topics_complete": "unknown; independent Kafka topics have no shared watermark",
+      "latest_service_metric_time": 1792466674683,
+      "metric_time_reached_window_end": true,
+      "range_candidate_count": 1442,
+      "related": 1428,
+      "scanned": 1442,
+      "selected": 1428,
+      "truncated": false
+    },
+    "hash_valid": true,
+    "snapshot_sha256": "f89591c8d76d79f223e31439ecf479f2b42abcb717d819c2be3249ea9714b655",
+    "example_trace": {
+      "trace_id": "2b1091d2b8544e1ebd264873bbc7b73e",
+      "spans": [
+        {
+          "service": "inventory",
+          "status_code": 200,
+          "latency_ms": 9.563,
+          "span_id": "1edabe8b57f64ed4",
+          "parent_span_id": "91b7f74070c64f5e"
+        },
+        {
+          "service": "payment",
+          "status_code": 503,
+          "latency_ms": 0.274,
+          "span_id": "4b64d206627b443d",
+          "parent_span_id": "91b7f74070c64f5e"
+        },
+        {
+          "service": "order",
+          "status_code": 502,
+          "latency_ms": 49.024,
+          "span_id": "91b7f74070c64f5e",
+          "parent_span_id": "89d2004d3e654066"
+        },
+        {
+          "service": "gateway",
+          "status_code": 502,
+          "latency_ms": 76.067,
+          "span_id": "89d2004d3e654066",
+          "parent_span_id": null
+        }
+      ]
+    }
+  },
+  "phase_statistics": {
+    "healthy": {
+      "gateway": {
+        "count": 105,
+        "error_rate": 0.0,
+        "p95_ms": 163.0
+      },
+      "order": {
+        "count": 105,
+        "error_rate": 0.0,
+        "p95_ms": 122.23
+      },
+      "inventory": {
+        "count": 105,
+        "error_rate": 0.0,
+        "p95_ms": 29.79
+      },
+      "payment": {
+        "count": 105,
+        "error_rate": 0.0,
+        "p95_ms": 30.21
+      }
+    },
+    "fault": {
+      "gateway": {
+        "count": 89,
+        "error_rate": 1.0,
+        "p95_ms": 150.7
+      },
+      "order": {
+        "count": 89,
+        "error_rate": 1.0,
+        "p95_ms": 102.25
+      },
+      "inventory": {
+        "count": 89,
+        "error_rate": 0.0,
+        "p95_ms": 29.72
+      },
+      "payment": {
+        "count": 89,
+        "error_rate": 1.0,
+        "p95_ms": 0.79
+      }
+    },
+    "recovery": {
+      "gateway": {
+        "count": 135,
+        "error_rate": 0.007407407407407408,
+        "p95_ms": 175.99
+      },
+      "order": {
+        "count": 135,
+        "error_rate": 0.007407407407407408,
+        "p95_ms": 133.88
+      },
+      "inventory": {
+        "count": 135,
+        "error_rate": 0.0,
+        "p95_ms": 29.55
+      },
+      "payment": {
+        "count": 135,
+        "error_rate": 0.007407407407407408,
+        "p95_ms": 30.59
+      }
+    }
+  },
+  "evaluated_windows": [
+    {
+      "service": "gateway",
+      "start": 1792466600000,
+      "end": 1792466630000,
+      "sample_count": 21,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 12.13
+    },
+    {
+      "service": "order",
+      "start": 1792466600000,
+      "end": 1792466630000,
+      "sample_count": 21,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 12.13
+    },
+    {
+      "service": "inventory",
+      "start": 1792466600000,
+      "end": 1792466630000,
+      "sample_count": 21,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 12.13
+    },
+    {
+      "service": "payment",
+      "start": 1792466600000,
+      "end": 1792466630000,
+      "sample_count": 21,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 12.13
+    },
+    {
+      "service": "gateway",
+      "start": 1792466610000,
+      "end": 1792466640000,
+      "sample_count": 51,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 22.23
+    },
+    {
+      "service": "order",
+      "start": 1792466610000,
+      "end": 1792466640000,
+      "sample_count": 51,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 22.23
+    },
+    {
+      "service": "inventory",
+      "start": 1792466610000,
+      "end": 1792466640000,
+      "sample_count": 51,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 22.23
+    },
+    {
+      "service": "payment",
+      "start": 1792466610000,
+      "end": 1792466640000,
+      "sample_count": 51,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 22.23
+    },
+    {
+      "service": "gateway",
+      "start": 1792466620000,
+      "end": 1792466650000,
+      "sample_count": 81,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 32.31
+    },
+    {
+      "service": "order",
+      "start": 1792466620000,
+      "end": 1792466650000,
+      "sample_count": 81,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 32.31
+    },
+    {
+      "service": "inventory",
+      "start": 1792466620000,
+      "end": 1792466650000,
+      "sample_count": 81,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 32.31
+    },
+    {
+      "service": "payment",
+      "start": 1792466620000,
+      "end": 1792466650000,
+      "sample_count": 81,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 32.31
+    },
+    {
+      "service": "gateway",
+      "start": 1792466630000,
+      "end": 1792466660000,
+      "sample_count": 90,
+      "error_rate": 0.06666666666666667,
+      "rule_ids": [],
+      "evaluated_at_s": 42.42
+    },
+    {
+      "service": "order",
+      "start": 1792466630000,
+      "end": 1792466660000,
+      "sample_count": 90,
+      "error_rate": 0.06666666666666667,
+      "rule_ids": [],
+      "evaluated_at_s": 42.42
+    },
+    {
+      "service": "inventory",
+      "start": 1792466630000,
+      "end": 1792466660000,
+      "sample_count": 90,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 42.42
+    },
+    {
+      "service": "payment",
+      "start": 1792466630000,
+      "end": 1792466660000,
+      "sample_count": 90,
+      "error_rate": 0.06666666666666667,
+      "rule_ids": [],
+      "evaluated_at_s": 42.42
+    },
+    {
+      "service": "gateway",
+      "start": 1792466640000,
+      "end": 1792466670000,
+      "sample_count": 89,
+      "error_rate": 0.39325842696629215,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 52.03
+    },
+    {
+      "service": "order",
+      "start": 1792466640000,
+      "end": 1792466670000,
+      "sample_count": 89,
+      "error_rate": 0.39325842696629215,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 52.03
+    },
+    {
+      "service": "inventory",
+      "start": 1792466640000,
+      "end": 1792466670000,
+      "sample_count": 90,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 52.03
+    },
+    {
+      "service": "payment",
+      "start": 1792466640000,
+      "end": 1792466670000,
+      "sample_count": 90,
+      "error_rate": 0.4,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 52.03
+    },
+    {
+      "service": "gateway",
+      "start": 1792466650000,
+      "end": 1792466680000,
+      "sample_count": 89,
+      "error_rate": 0.7303370786516854,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 62.1
+    },
+    {
+      "service": "order",
+      "start": 1792466650000,
+      "end": 1792466680000,
+      "sample_count": 89,
+      "error_rate": 0.7303370786516854,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 62.1
+    },
+    {
+      "service": "inventory",
+      "start": 1792466650000,
+      "end": 1792466680000,
+      "sample_count": 89,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 62.1
+    },
+    {
+      "service": "payment",
+      "start": 1792466650000,
+      "end": 1792466680000,
+      "sample_count": 89,
+      "error_rate": 0.7303370786516854,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 62.1
+    },
+    {
+      "service": "gateway",
+      "start": 1792466660000,
+      "end": 1792466690000,
+      "sample_count": 89,
+      "error_rate": 0.9438202247191011,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 72.21
+    },
+    {
+      "service": "order",
+      "start": 1792466660000,
+      "end": 1792466690000,
+      "sample_count": 89,
+      "error_rate": 0.9438202247191011,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 72.21
+    },
+    {
+      "service": "inventory",
+      "start": 1792466660000,
+      "end": 1792466690000,
+      "sample_count": 89,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 72.21
+    },
+    {
+      "service": "payment",
+      "start": 1792466660000,
+      "end": 1792466690000,
+      "sample_count": 89,
+      "error_rate": 0.9438202247191011,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 72.21
+    },
+    {
+      "service": "gateway",
+      "start": 1792466670000,
+      "end": 1792466700000,
+      "sample_count": 90,
+      "error_rate": 0.6111111111111112,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 82.32
+    },
+    {
+      "service": "order",
+      "start": 1792466670000,
+      "end": 1792466700000,
+      "sample_count": 90,
+      "error_rate": 0.6111111111111112,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 82.32
+    },
+    {
+      "service": "inventory",
+      "start": 1792466670000,
+      "end": 1792466700000,
+      "sample_count": 89,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 82.32
+    },
+    {
+      "service": "payment",
+      "start": 1792466670000,
+      "end": 1792466700000,
+      "sample_count": 89,
+      "error_rate": 0.6067415730337079,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 82.32
+    },
+    {
+      "service": "gateway",
+      "start": 1792466680000,
+      "end": 1792466710000,
+      "sample_count": 90,
+      "error_rate": 0.2777777777777778,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 92.22
+    },
+    {
+      "service": "order",
+      "start": 1792466680000,
+      "end": 1792466710000,
+      "sample_count": 90,
+      "error_rate": 0.2777777777777778,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 92.22
+    },
+    {
+      "service": "inventory",
+      "start": 1792466680000,
+      "end": 1792466710000,
+      "sample_count": 90,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 92.22
+    },
+    {
+      "service": "payment",
+      "start": 1792466680000,
+      "end": 1792466710000,
+      "sample_count": 90,
+      "error_rate": 0.2777777777777778,
+      "rule_ids": [
+        "high_error_rate"
+      ],
+      "evaluated_at_s": 92.22
+    },
+    {
+      "service": "gateway",
+      "start": 1792466690000,
+      "end": 1792466720000,
+      "sample_count": 90,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 102.2
+    },
+    {
+      "service": "order",
+      "start": 1792466690000,
+      "end": 1792466720000,
+      "sample_count": 90,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 102.2
+    },
+    {
+      "service": "inventory",
+      "start": 1792466690000,
+      "end": 1792466720000,
+      "sample_count": 90,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 102.2
+    },
+    {
+      "service": "payment",
+      "start": 1792466690000,
+      "end": 1792466720000,
+      "sample_count": 90,
+      "error_rate": 0.0,
+      "rule_ids": [],
+      "evaluated_at_s": 102.2
+    }
+  ]
+}

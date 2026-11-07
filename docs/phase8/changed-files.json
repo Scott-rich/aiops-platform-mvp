@@ -1,0 +1,92 @@
+[
+  {
+    "path": ".env.example",
+    "change": "modified",
+    "before_sha256": "99c35d6ba1b19b18c2d3c50f0839d1070eb72fde428a92690f44b955c41120e5",
+    "after_sha256": "dc893367479147521ceec246be4d44206948e2d3a798991a33fa090d2ef6d1b6"
+  },
+  {
+    "path": "README.md",
+    "change": "modified",
+    "before_sha256": "46eaae56aada024546c51dbd5ba7146956462bf5bba757a930fc16dbeb3356c4",
+    "after_sha256": "c060c116915974cae99fe16de59023cc48edce383ace972d10ebf5ad85f477be"
+  },
+  {
+    "path": "app/api.py",
+    "change": "modified",
+    "before_sha256": "a3e7b632cdbe0664a9521c5de6ef4705ecb239faa9f2c9da91fb8460ec3d0fbd",
+    "after_sha256": "63acc181d97e95052de7b1e0ce34c71995bb54a5c9a5f48c2521e9591ec452fc"
+  },
+  {
+    "path": "app/diagnosis.py",
+    "change": "modified",
+    "before_sha256": "ee8f8e9ea60a0bb63a49f43f9cd853833eb61e249f393596052c2f1beac0fc3e",
+    "after_sha256": "df6a62eca8346c274f59bce3ed7f8e7bbfe68acb049bcb66b74e9022f6758511"
+  },
+  {
+    "path": "app/evidence.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "80b8f58db9dfa4a9b739b0062cfc65681ab8d783911742d1f80f36eea66f4616"
+  },
+  {
+    "path": "app/evidence_api.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "50feb1a8b9c5ced74b8843f478310ca1430f2c8f5d3056e5ac8ad7093c88aca5"
+  },
+  {
+    "path": "app/evidence_archive.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "4b4045ab6299a38f637d593df89e0c68904705bf511870db62bed88e12d33056"
+  },
+  {
+    "path": "app/reporting.py",
+    "change": "modified",
+    "before_sha256": "e5a23bcf07e3429093c648211b457433021a42bdaf9b4d40af4d5336590b42a3",
+    "after_sha256": "04a0e5c2c637c441e10d97d53e07c540cb8b2f7b8d8b5eb5b4dd483b0abfeaa9"
+  },
+  {
+    "path": "app/static/index.html",
+    "change": "modified",
+    "before_sha256": "43b9e53b4b07d9b2dc9aa978c668349a5e98be3b10b153f5e73ada12d20d5b3a",
+    "after_sha256": "6f12f1ceb06cf77780fc700048b8ea24481d837290f1f3f2adfb5a1dfcd3af14"
+  },
+  {
+    "path": "app/storage.py",
+    "change": "modified",
+    "before_sha256": "a5268f377716b094a8dc811e40e45a0ace61613e7c2d72a17c6f4e37e8587be6",
+    "after_sha256": "6aa3b5e873142f93099bb296b20afe821757cba7efc7b4593aa8f1857be1d2ac"
+  },
+  {
+    "path": "docker-compose.yml",
+    "change": "modified",
+    "before_sha256": "fc1749b12fd849cfcdc303ff0022cf27cdf2efbb66e0460bfad17f412996696a",
+    "after_sha256": "318598cfa1b4ef12838c2107216fc7eb20c945461e528c4ad7951d762a968683"
+  },
+  {
+    "path": "scripts/evidence_admin.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "8e49e106e48b0feeee7a1c522396977acb23838d1bbb9172b8405e5db729ae2e"
+  },
+  {
+    "path": "scripts/verify_evidence.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "83657a6724bc6a50125c5a4e35a882d30008222d2fb17e3c6196bd26d4d1a96c"
+  },
+  {
+    "path": "tests/test_evidence_phase8.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "1fcff6217fc7f4408444eb58840823552faa519cf72696ab9b8c7d42944a2154"
+  },
+  {
+    "path": "tests/test_reliability.py",
+    "change": "modified",
+    "before_sha256": "f8c2192cf78780d0ec027490f54a8072a3c98e82805fdcd5c6814752c309da64",
+    "after_sha256": "df72070e6156c83fcdf564032304fbfc5db64aa29e0e5a6ad01aec31cac70c46"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "command": "PYTHONPATH=/tmp/aiops-python-deps:. python -m unittest discover -s tests -v",
+  "exit_code": 0,
+  "test_count": 54,
+  "duration_seconds": 24.211,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "executed_at_utc": "2026-10-20T07:10:19.866207+00:00",
+  "log_path": "/workspace/scratch/599403941817/upgrade-audit/baseline-tests.log"
+}

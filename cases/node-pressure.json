@@ -1,0 +1,9 @@
+{
+  "case_id": "EXAMPLE-003", "version": 1, "source": "curated-example-not-production-history",
+  "title": "Linux节点资源压力", "services": ["linux-node"],
+  "rule_ids": ["high_cpu", "high_memory"], "keywords": ["memory", "cpu"],
+  "symptoms": "节点CPU或内存持续高于阈值。",
+  "root_cause": "仅凭节点利用率不能判定进程或服务根因。",
+  "remediation": ["采集进程和cgroup资源指标", "核对负载与近期部署"],
+  "verification": ["用pidstat或top核实进程耗用", "区分主机资源与容器配额"]
+}

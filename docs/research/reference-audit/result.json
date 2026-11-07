@@ -1,0 +1,187 @@
+{
+  "config": {
+    "urls": [
+      [
+        "smd",
+        "https://github.com/NetManAIOps/OmniAnomaly"
+      ],
+      [
+        "psm",
+        "https://github.com/eBay/RANSynCoders"
+      ],
+      [
+        "pa",
+        "https://arxiv.org/abs/2109.05257"
+      ],
+      [
+        "spot",
+        "https://www.kdd.org/kdd2017/papers/view/anomaly-detection-in-streams-with-extreme-value-theory"
+      ],
+      [
+        "iforest",
+        "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf"
+      ],
+      [
+        "selective",
+        "https://jmlr.org/papers/v11/el-yaniv10a.html"
+      ],
+      [
+        "calibration",
+        "https://proceedings.mlr.press/v70/guo17a.html"
+      ],
+      [
+        "injection",
+        "https://arxiv.org/abs/2302.12173"
+      ],
+      [
+        "agentdojo",
+        "https://arxiv.org/abs/2406.13352"
+      ],
+      [
+        "openrca",
+        "https://github.com/microsoft/OpenRCA"
+      ],
+      [
+        "aiopslab",
+        "https://github.com/microsoft/AIOpsLab"
+      ],
+      [
+        "itbench",
+        "https://github.com/itbench-hub/ITBench"
+      ],
+      [
+        "boutique",
+        "https://github.com/GoogleCloudPlatform/microservices-demo"
+      ],
+      [
+        "chaos",
+        "https://chaos-mesh.org/docs/"
+      ]
+    ]
+  },
+  "seeds": [],
+  "command": "python verify_references.py",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39"
+  },
+  "source_sha256": "c946031cf9256886eedea6d5a74b2524164cc2f1af23957553b7c350cf1812ca",
+  "metrics": {
+    "accessible": 14,
+    "total": 14
+  },
+  "references": [
+    {
+      "id": "smd",
+      "url": "https://github.com/NetManAIOps/OmniAnomaly",
+      "http_status": 200,
+      "bytes": 259893,
+      "sha256": "8861daea08ab116a8f988f6888809a56c6afdc22557a6ddd1b3d1602507e435e",
+      "retrieved_at": "2026-11-04T11:51:01.225578+00:00"
+    },
+    {
+      "id": "psm",
+      "url": "https://github.com/eBay/RANSynCoders",
+      "http_status": 200,
+      "bytes": 256914,
+      "sha256": "9f54257c2d0b13dd341c5aafad40acdd0fc0f33343a304ca22e0d0be611618b0",
+      "retrieved_at": "2026-11-04T11:51:01.233960+00:00"
+    },
+    {
+      "id": "pa",
+      "url": "https://arxiv.org/abs/2109.05257",
+      "http_status": 200,
+      "bytes": 42420,
+      "sha256": "e1ba6dce92f37b5cb91415a497e0918696d394f276ddb8e27a640c5338386664",
+      "retrieved_at": "2026-11-04T11:51:00.932255+00:00"
+    },
+    {
+      "id": "spot",
+      "url": "https://www.kdd.org/kdd2017/papers/view/anomaly-detection-in-streams-with-extreme-value-theory",
+      "http_status": 200,
+      "bytes": 24897,
+      "sha256": "aad51b35722a7aeb2d5407e84147a2ef2067963f115b67d5c38ce7ce9842f279",
+      "retrieved_at": "2026-11-04T11:51:01.650444+00:00"
+    },
+    {
+      "id": "iforest",
+      "url": "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf",
+      "http_status": 200,
+      "bytes": 258040,
+      "sha256": "188a224c40786174ae6c9037d4a64e2ead1bf5bd1eb6da6334b42d3271021862",
+      "retrieved_at": "2026-11-04T11:51:06.972819+00:00"
+    },
+    {
+      "id": "selective",
+      "url": "https://jmlr.org/papers/v11/el-yaniv10a.html",
+      "http_status": 200,
+      "bytes": 5370,
+      "sha256": "60215f9232dbe3882eab38b436e8cde3b1dad8a6c9158d70b9d371b067095e67",
+      "retrieved_at": "2026-11-04T11:51:03.943075+00:00"
+    },
+    {
+      "id": "calibration",
+      "url": "https://proceedings.mlr.press/v70/guo17a.html",
+      "http_status": 200,
+      "bytes": 14452,
+      "sha256": "3b4d7ca0ab60cd88e263f0fe342e033947aed43c68988e91485f2a5318a30cf9",
+      "retrieved_at": "2026-11-04T11:51:03.990606+00:00"
+    },
+    {
+      "id": "injection",
+      "url": "https://arxiv.org/abs/2302.12173",
+      "http_status": 200,
+      "bytes": 44313,
+      "sha256": "dbdf0bb45f06b2afe28c0eea8bae8ba3557df7171cb971749416baede9ab30d5",
+      "retrieved_at": "2026-11-04T11:51:03.714106+00:00"
+    },
+    {
+      "id": "agentdojo",
+      "url": "https://arxiv.org/abs/2406.13352",
+      "http_status": 200,
+      "bytes": 43591,
+      "sha256": "8f3ec7c99e354e60393b8e7e9496ec4e0251d39fcb2678f4b21b0b0e60d04750",
+      "retrieved_at": "2026-11-04T11:51:05.934201+00:00"
+    },
+    {
+      "id": "openrca",
+      "url": "https://github.com/microsoft/OpenRCA",
+      "http_status": 200,
+      "bytes": 304629,
+      "sha256": "ae180a9d1eb410556b7f7ecde16f605eca241c888fb5137bcd6fe5fe980ed24e",
+      "retrieved_at": "2026-11-04T11:51:07.028888+00:00"
+    },
+    {
+      "id": "aiopslab",
+      "url": "https://github.com/microsoft/AIOpsLab",
+      "http_status": 200,
+      "bytes": 425082,
+      "sha256": "62294f4947b991dab588e16f25b77465d1ad8ea44edbd718ac63275482aa76be",
+      "retrieved_at": "2026-11-04T11:51:07.115354+00:00"
+    },
+    {
+      "id": "itbench",
+      "url": "https://github.com/itbench-hub/ITBench",
+      "http_status": 200,
+      "bytes": 347192,
+      "sha256": "4a4f204958e0715b0b9f4b868b17fc78a3247e9d4251e9ea78aa78e5b46d1428",
+      "retrieved_at": "2026-11-04T11:51:06.954019+00:00"
+    },
+    {
+      "id": "boutique",
+      "url": "https://github.com/GoogleCloudPlatform/microservices-demo",
+      "http_status": 200,
+      "bytes": 309884,
+      "sha256": "cdb8fea88c8569f1feae44e222b3cac2625f368ecfc2ea711f164b88c033b33f",
+      "retrieved_at": "2026-11-04T11:51:09.958334+00:00"
+    },
+    {
+      "id": "chaos",
+      "url": "https://chaos-mesh.org/docs/",
+      "http_status": 200,
+      "bytes": 43365,
+      "sha256": "e53b685b1de49a3a7e4485e8e24d81b3c6b5680240d70ae7a73ffeb6bb23ac08",
+      "retrieved_at": "2026-11-04T11:51:09.883554+00:00"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "repository": "GoogleCloudPlatform/microservices-demo",
+  "tag": "v0.10.4",
+  "commit": "474d0f2eb73d97525234995a40d7781b7923a07d",
+  "url": "https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/474d0f2eb73d97525234995a40d7781b7923a07d/release/kubernetes-manifests.yaml",
+  "sha256": "5350d99b2ff5652fa25408155c7399aa7c0b81a3028311bd571bced5cdb565f5",
+  "license": "Apache-2.0",
+  "note": "Upstream deployment manifest, fetched unchanged; patches in kustomization.yaml"
+}

@@ -1,0 +1,24 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: Ruff format (locked local environment)
+        entry: python -m ruff format
+        language: system
+        types: [python]
+        files: ^(app|research|scripts/research)/
+      - id: ruff-check
+        name: Ruff check
+        entry: python -m ruff check --fix
+        language: system
+        types: [python]
+        files: ^(app|research|scripts/research)/
+      - id: mypy
+        name: Typed core
+        entry: python -m mypy
+        language: system
+        pass_filenames: false
+      - id: maximum-file-size
+        name: Reject files larger than 5 MiB
+        entry: python scripts/research/check_file_size.py
+        language: system

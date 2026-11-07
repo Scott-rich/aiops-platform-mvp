@@ -1,0 +1,386 @@
+{
+  "stage": 2,
+  "status": "partially_implemented_real_model_acceptance_failed",
+  "performed_at_utc": "2026-10-20T09:30:09.866591+00:00",
+  "unit_regression": {
+    "total": 156,
+    "passed": 154,
+    "failed": 0,
+    "skipped": 2,
+    "elapsed_seconds": 30.125,
+    "log": "artifacts/phase2/full-regression-final-v4.log"
+  },
+  "phase2_module_tests": {
+    "total": 43,
+    "passed": 43,
+    "failed": 0,
+    "skipped": 0,
+    "elapsed_seconds": 2.837,
+    "log": "artifacts/phase2/module-tests-final-v6.log"
+  },
+  "real_model": {
+    "status": "failed",
+    "checks": {
+      "passed": 3,
+      "failed": 1
+    },
+    "failure_code": "output_truncated",
+    "fallback_mode": "heuristic",
+    "execution_kind": "real_local_cpu_model",
+    "model": {
+      "model": "qwen2.5-1.5b-instruct-q4_k_m",
+      "file_sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+      "bytes": 1117320736,
+      "threads": 4,
+      "context_size": 8192,
+      "quantization": "Q4_K_M",
+      "gpu_layers": 0
+    },
+    "diagnosis_status": null,
+    "candidate_services": [],
+    "elapsed_seconds": 324.347,
+    "usage": {
+      "prompt_tokens": 3910,
+      "completion_tokens": 1200,
+      "total_tokens": 5110
+    },
+    "estimated_cost": null,
+    "calls_reserved": 1,
+    "evidence_set_id": "evidence-bc2b535f1ad77ef8d0681f6380e06d6101a8e62b39889362a6bce7e6447aed25",
+    "selected_records": 3,
+    "selected_event_types": [
+      "span"
+    ],
+    "evidence_source": {
+      "path": "/workspace/scratch/599403941817/aiops-platform/artifacts/native-attempt-04/actual-http-report.json",
+      "file_sha256": "4fdd26a68914a773c4069408200f79d88057a3b1467bd7c7a635e4dfafc0a9a2",
+      "snapshot_sha256": "49747c6793f50fc7843a1534c4980b9816903beef7177cfd6fd3513b7ff9820d",
+      "records": 120,
+      "provenance_transports": [
+        "kafka"
+      ]
+    },
+    "prompt_version": "evidence-first-v2.2",
+    "result": "artifacts/phase2/real-local-attempt-12/result.json",
+    "accepted_diagnosis": false,
+    "success_cache_restart_checked_in_real_run": false
+  },
+  "native_regression": {
+    "status": "passed",
+    "checks": {
+      "passed": 22,
+      "failed": 0,
+      "errors": 0,
+      "cleanup_errors": 0
+    },
+    "elapsed_seconds": 110.063,
+    "recovery_seconds": 17.96,
+    "result": "artifacts/phase2/native-regression-attempt-02/result.json"
+  },
+  "local_http_regression": {
+    "status": "passed",
+    "checks": {
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "elapsed_seconds": 112.724,
+    "result": "artifacts/phase2/local-regression-attempt-03/optimized-run.json"
+  },
+  "real_attempt_history": [
+    {
+      "path": "artifacts/phase2/real-local-attempt-01/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 0,
+        "failed": 0
+      },
+      "failure_code": null,
+      "elapsed_seconds": 1.858,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": 3
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-02/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "provider_http_error",
+      "elapsed_seconds": 4.811,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-03/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "request_timeout",
+      "elapsed_seconds": 200.638,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": true,
+        "exit_code": -9
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-04/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "diagnosis_schema_invalid",
+      "elapsed_seconds": 105.927,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-05/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "request_timeout",
+      "elapsed_seconds": 200.083,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": true,
+        "exit_code": -9
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-06/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "request_timeout",
+      "elapsed_seconds": 199.506,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": true,
+        "exit_code": -9
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-07/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "output_truncated",
+      "elapsed_seconds": 159.35,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-08/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "request_timeout",
+      "elapsed_seconds": 199.145,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-09/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "contradictory_or_duplicate_evidence_reference",
+      "elapsed_seconds": 184.072,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-10/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "request_timeout",
+      "elapsed_seconds": 318.233,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-11/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "contradictory_or_duplicate_evidence_reference",
+      "elapsed_seconds": 328.138,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-local-attempt-12/result.json",
+      "status": "failed",
+      "checks": {
+        "passed": 3,
+        "failed": 1
+      },
+      "failure_code": "output_truncated",
+      "elapsed_seconds": 331.065,
+      "cleanup": {
+        "model_started": true,
+        "model_stopped": true,
+        "forced_kill": false,
+        "exit_code": -15
+      }
+    },
+    {
+      "path": "artifacts/phase2/real-unconfigured/result.json",
+      "status": "blocked",
+      "checks": {
+        "passed": 0,
+        "failed": 0
+      },
+      "failure_code": null,
+      "elapsed_seconds": 0.0,
+      "cleanup": {
+        "model_started": false,
+        "model_stopped": true,
+        "forced_kill": false
+      }
+    }
+  ],
+  "static_checks": {
+    "yaml_parsed": true,
+    "compose_runtime_executed": false,
+    "dependency_names_exist": true,
+    "all_published_ports_loopback": true,
+    "docker_available": false,
+    "note": "Static parsing does not certify image build or Compose deployment"
+  },
+  "sensitive_config_check": {
+    "files_scanned": 124,
+    "known_secret_pattern_files": [],
+    "env_file_present": false,
+    "limitations": "Heuristic code/config scan; not a complete proof of no secrets. No candidate value is printed."
+  },
+  "external_dependencies": [
+    "Optional external OpenAI-compatible service OR verified local GGUF CPU runtime",
+    "Fresh bootstrap requires network, uv and build tools",
+    "Native Kafka/Flink regression requires Java 17 and optional PyFlink runtime"
+  ],
+  "not_verified": [
+    "Docker/Compose runtime",
+    "Commercial/cloud model providers and billing",
+    "RCA accuracy or calibrated probabilities",
+    "Clean-machine repeat of the new optional bootstrap script (existing source build + cached script check recorded)",
+    "Full broker/DB fault recovery, evidence pagination/archive, adaptive baselines, production authentication and HA"
+  ],
+  "next_stage": "Finish stage 2: use a stronger configured model, pass structured real diagnosis and restart/cache checks; then stage 3 RCA",
+  "prior_parallel_http_failure": {
+    "status": "failed",
+    "checks": {
+      "ui_http_200": true,
+      "ui_content_valid": true,
+      "one_availability_incident": false,
+      "incident_resolved": false,
+      "one_open_record": false,
+      "one_recovery_record": true,
+      "preliminary_enriched_resolved": true,
+      "all_hashes_and_references_valid": true,
+      "telemetry_failures_zero": false
+    },
+    "elapsed_seconds": 115.753,
+    "root_cause_confirmed": false,
+    "result": "artifacts/phase2/local-regression/optimized-run.json"
+  },
+  "database_reliability_issue": {
+    "root_cause_confirmed": false,
+    "prior_native_result": "artifacts/phase2/native-regression/result.json",
+    "prior_checks_passed": 16,
+    "prior_execution_errors": 1,
+    "corruption_confirmed": true,
+    "mitigation": "serialize platform database sessions including close/checkpoint; explicitly close backup connections; return HTTP 503 on storage errors",
+    "not_proven": "does not establish original cause or eliminate future corruption",
+    "details": "docs/phase2/数据库保护与本轮失败记录.md"
+  },
+  "storage_integrity": {
+    "scope": "post-cleanup final HTTP backup and native runtime databases; original corrupted attempt preserved separately",
+    "checks": [
+      {
+        "path": "artifacts/phase2/local-regression-attempt-03/runtime/aiops.sqlite3",
+        "integrity_check": [
+          "ok"
+        ],
+        "passed": true
+      },
+      {
+        "path": "artifacts/phase2/native-regression-attempt-02/app-data/aiops.sqlite3",
+        "integrity_check": [
+          "ok"
+        ],
+        "passed": true
+      },
+      {
+        "path": "artifacts/phase2/real-local-attempt-12/data/aiops.sqlite3",
+        "integrity_check": [
+          "ok"
+        ],
+        "passed": true
+      },
+      {
+        "path": "artifacts/phase2/real-local-attempt-12/data/backups/before-model-budget-v2-5ccf7cca019e4656878f1d1e88abde72.sqlite3",
+        "integrity_check": [
+          "ok"
+        ],
+        "passed": true
+      }
+    ]
+  }
+}

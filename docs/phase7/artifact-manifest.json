@@ -1,0 +1,1010 @@
+{
+  "created_at_utc": "2026-10-23T02:51:28.876778+00:00",
+  "files": [
+    {
+      "path": "artifacts/phase7/acceptance.json",
+      "bytes": 6643,
+      "sha256": "e873885ecd71e1391f469e683ecabbf936670fb6ba642a02ad223caacdcbd8fe"
+    },
+    {
+      "path": "artifacts/phase7/accepted-tests-python311-pyflink.log",
+      "bytes": 49870,
+      "sha256": "5f80f748805f2c8b00c341a74580612848addfb5a5b41e9abb75aed0f6d43509"
+    },
+    {
+      "path": "artifacts/phase7/accepted-tests-python312.log",
+      "bytes": 49631,
+      "sha256": "cb8d3fc581985f7151ae9d9cd4c082a344aaeaed78578ccaa8af8d83527bea00"
+    },
+    {
+      "path": "artifacts/phase7/baseline-tests.log",
+      "bytes": 44819,
+      "sha256": "eb01ff723b3c8500fa9a3a2ec6b019798365fb3c01ff48077a2612744c08f0e1"
+    },
+    {
+      "path": "artifacts/phase7/config-check.json",
+      "bytes": 116,
+      "sha256": "1615c56358b64bed6488f964c68d51b33d7bbc4776f65279dd227b5c4e962697"
+    },
+    {
+      "path": "artifacts/phase7/final-tests-python311-pyflink.log",
+      "bytes": 49204,
+      "sha256": "02ca9facd7576e1235bdf31134640b8acead4e14971935091d038e74af769c15"
+    },
+    {
+      "path": "artifacts/phase7/final-tests-python312.log",
+      "bytes": 48965,
+      "sha256": "450f35ac3d0b0c1ccd4dda7783430bb6348455e35164dccb2619543ac9ccbd82"
+    },
+    {
+      "path": "artifacts/phase7/flink-bootstrap.json",
+      "bytes": 114,
+      "sha256": "ea61e64f1563c5e1233707818dbdfb90e12c2a1fafbd3ce741bca48ae121bd24"
+    },
+    {
+      "path": "artifacts/phase7/flink-bootstrap.log",
+      "bytes": 3661,
+      "sha256": "e77657e24e23576ea526f8168d034feffecdd4ad4239a17a282cf52abfbff3eb"
+    },
+    {
+      "path": "artifacts/phase7/flink-console.log",
+      "bytes": 1965,
+      "sha256": "3bd2b6f7b0ec476e8b05342f80a83a2dd7ffd80d264a2b8bdd2fff16d3a06ed1"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/actual-http-report.json",
+      "bytes": 438153,
+      "sha256": "8710d03263b132f89e15fd5cac9d43c3a0e29ba1b4ebf8923b2d7c64ff0436b3"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/app-data/aiops.sqlite3",
+      "bytes": 1630208,
+      "sha256": "3715d31ca7392f41cb14d2eaf5a57589097cd477edcd008bd37f4c3b1f5bc0c5"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/app-data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/app-data/worker-health.json",
+      "bytes": 47,
+      "sha256": "a71e6c9649bc8766742cf80ebd58ca35506ad344330ba8dc71cacb7ad10a6f00"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/checkpoints/8921afbae86f4762422c072903f9805f/chk-6/_metadata",
+      "bytes": 36376,
+      "sha256": "2db01d8ce3e7ed415e7b8cadaa5752f202824bb07d9adb1424aae7c14b173795"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/checkpoints/8921afbae86f4762422c072903f9805f/chk-6/a331f4bd-09e2-4d3c-b35a-73842e42802f",
+      "bytes": 32502,
+      "sha256": "2a565ca060448156e9239e21cd2bd43c2d970f1274665fa74d0bf7b37a7a2e64"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/checkpoints/8921afbae86f4762422c072903f9805f/chk-6/e471d337-a71c-4c9e-946f-5a5ea5c13adf",
+      "bytes": 28580,
+      "sha256": "2eab6c20bfbf155f14bf54e6e0fb8e64a8558e637184353a74d27b2589b22a30"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/checkpoints/8921afbae86f4762422c072903f9805f/chk-6/f8ee5a6d-eb10-4002-bebe-ca7677d9ccef",
+      "bytes": 34251,
+      "sha256": "c283370f91b9b4d29b0a88d3cb23c12a0f038c2589ecc4bfd94affd8ff34a484"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/dependency-freeze.txt",
+      "bytes": 955,
+      "sha256": "f8684ca432e31f043244a7bb9950c4fa9c34c1c8ac57c81fbcb1f1c3a6646176"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-aiops-native-7aaabcac-standalonesession.pid",
+      "bytes": 4,
+      "sha256": "0604941b3ba24abd729c2af8f13b4d19a2c29296cf4a8d9a1f0f803ecba323ca"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-aiops-native-7aaabcac-taskexecutor.pid",
+      "bytes": 5,
+      "sha256": "b6899661828d50335325d289b9cedccdb3dbcbf5b64f094e14896c734bd9c39b"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/config.yaml",
+      "bytes": 1988,
+      "sha256": "cd6b3b2f37d0990f175ea81b62f2adfee900bc111e9ca19d468e26baee485e7b"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/log4j-cli.properties",
+      "bytes": 2940,
+      "sha256": "260fcb6ce9d64bd13d1a61a1c289a8c08fde8e120195f65bd44c700ead26fec3"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/log4j-console.properties",
+      "bytes": 3207,
+      "sha256": "b7dc50b135582c1eeec73b09c436771b480df6272cc60e7735091c7f33fcc5bb"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/log4j-session.properties",
+      "bytes": 2064,
+      "sha256": "6457fddcf168fbdf7dd1b87654085ba1ec54e1e4082bf2a6909e818c9567b335"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/log4j.properties",
+      "bytes": 2731,
+      "sha256": "f8a3618cbce139422959a2ab24c8dd85994241b7a869d9da2fd25072879e914a"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/logback-console.xml",
+      "bytes": 2884,
+      "sha256": "050f31bf1fb33b9341174ef9adab7b77352a0e0f31704b8b04bb2a0f80095c10"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/logback-session.xml",
+      "bytes": 1569,
+      "sha256": "6153ae3364ed7d592908b59778243ef77244d5495f132a185f9289ba5bf4a633"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/logback.xml",
+      "bytes": 2333,
+      "sha256": "28599a2c4e07e9fdfc4448e6d0cb68937086fc94e83c208bb01b450d13365f3b"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/masters",
+      "bytes": 15,
+      "sha256": "9bc22cf0f97b2f670e8139ea6d5bff785f30e3cada4f76db3740540899cbcf33"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/workers",
+      "bytes": 10,
+      "sha256": "d906aecb61d076a967d9ffe8821c7b04b063f72df9d9e35b33ef36b1c0d98f16"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/flink-conf/zoo.cfg",
+      "bytes": 1434,
+      "sha256": "0a0bdeda425d0ae491a45e841d0a0a249353c0a24a54dca4b46e3973d1bd8919"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/kafka.properties",
+      "bytes": 680,
+      "sha256": "532c15fc65ff80bd7809151dcf503407f3804a8025ced401b3c48a4785bee786"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/api.log",
+      "bytes": 1113,
+      "sha256": "4409a07bf7ba3073d9eb47f8ea3157e53fc927fcf674dfd9ce35b1f0cdb5655c"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/build-source-bridge.log",
+      "bytes": 48,
+      "sha256": "041df204075ad9c1b188ebe5ef34a057a9f7e489b5d2556223371a5f05e28f00"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/flink-aiops-native-7aaabcac-client-090d0b03692d.log",
+      "bytes": 25323,
+      "sha256": "ecbf8e9a6b222347f1e4b523a052d62baa889ad4a3272e920589b8d8b8b5a701"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/flink-aiops-native-7aaabcac-standalonesession-0-090d0b03692d.log",
+      "bytes": 112368,
+      "sha256": "22a3741224e99a546b974f464092c3418dc18f68a7f811ba980a17731695d7b0"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/flink-aiops-native-7aaabcac-taskexecutor-0-090d0b03692d.log",
+      "bytes": 217499,
+      "sha256": "bdd564c4afc827f62575efc95ef6275b7a93deb561031b2750add360a8219286"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/flink-aiops-native-7aaabcac-taskexecutor-0-090d0b03692d.log.1",
+      "bytes": 208824,
+      "sha256": "18d50a6930fa61401ac3c4efb0aa3d59b16272b138ad2d215a825f6a4f14526c"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/gateway.log",
+      "bytes": 2369,
+      "sha256": "9b5ebbd52f08eb0c92f54bcfe77672a075eb81f743ec95f31ad167acc8f97772"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/inventory.log",
+      "bytes": 2144,
+      "sha256": "44bd539002a895ae16d940d043ffacebfdfc013dc7d3c4f219febfa253c9cd95"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/jobmanager.log",
+      "bytes": 112442,
+      "sha256": "9b8515918c957206e6285d44fa34f1d45dcc533472263911831cd7ce1fd6241e"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/kafka-format.log",
+      "bytes": 102,
+      "sha256": "40d3785874458b599b4f7f70b782dd4ccdcf7587549656f3e9af811548523704"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/kafka.log",
+      "bytes": 184954,
+      "sha256": "912982c23549dce54c8ef2162f00fe6ad8ee74340aca8a1ad16a3ed09248bc49"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/order.log",
+      "bytes": 2369,
+      "sha256": "853ceb8ce38db2512746027fd601e959c47e4997124e0d275ec2a44d4d782514"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/payment.log",
+      "bytes": 2685,
+      "sha256": "6ffe36d456b041bd176809e69d8efc97f07b898129112d854543981a1b4af728"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/submit-job.log",
+      "bytes": 777,
+      "sha256": "19c052684f54e53cd349b79650ae892d386298a16f7edaa260aa1415629ddbe7"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/taskmanager-restarted.log",
+      "bytes": 217806,
+      "sha256": "94713171e7deb552d478fc57c665e7d1e8b5486d107d141975250055d033be7d"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/taskmanager.log",
+      "bytes": 209131,
+      "sha256": "c2d3d0029514e2e14c4ab7d75e11c6ad913742cc1d36ca3b6f63ebff9fd04efe"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/logs/worker.log",
+      "bytes": 9800,
+      "sha256": "11811794dd7d8932b41688bf6fc1f23978e009c9f5ba9de9924b031d53b52501"
+    },
+    {
+      "path": "artifacts/phase7/flink-final/result.json",
+      "bytes": 2144241,
+      "sha256": "a4a68c54054ac247545eb44390596f6e81da2b4e7e5cf7c1626d5c59fdcc8324"
+    },
+    {
+      "path": "artifacts/phase7/flink-final-console.log",
+      "bytes": 1970,
+      "sha256": "08df9544001974085e780ac1f445ce7db5fd5516045415274bf7822f9ee6b2ff"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/actual-http-report.json",
+      "bytes": 438132,
+      "sha256": "7ed10f96936c5f7b8703fa33be991f8a66fc2e426ef798baf2f2b037e5bcdbe6"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/app-data/aiops.sqlite3",
+      "bytes": 1630208,
+      "sha256": "f0771a11aa65b2aaca84bd42f3aa8cdadc1c33ca8e5bc02c50a5707eab993787"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/app-data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/app-data/worker-health.json",
+      "bytes": 47,
+      "sha256": "3d09d33b9fdef79f030d24831a35a31ae22934a2f0166108d2185bcea7ea6233"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/checkpoints/b0da03b1a0b551ac649edf07e9af8fd7/chk-6/7fc29e9c-4e45-4017-b67f-d9705276fc69",
+      "bytes": 28751,
+      "sha256": "f1b7adb611aea7d83ede2ef1bf361e2a15a7c4f3acf067f92b124a184fe02857"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/checkpoints/b0da03b1a0b551ac649edf07e9af8fd7/chk-6/_metadata",
+      "bytes": 36238,
+      "sha256": "8c68ad63e6a6bc789f2462151c9714ea6f3c1a345c4fe21c66795ac4eeaa56fc"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/checkpoints/b0da03b1a0b551ac649edf07e9af8fd7/chk-6/f61290fa-2221-4859-9e7a-380e80f49b4a",
+      "bytes": 32235,
+      "sha256": "d544abeec2b16b6d2bba4cfd5c5d4dd9159d36aa362980e408f6a799e4a2f5e8"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/checkpoints/b0da03b1a0b551ac649edf07e9af8fd7/chk-6/fe2d00a8-0710-4743-8590-c04e435642d2",
+      "bytes": 34251,
+      "sha256": "e65036e060c270e748e8fb0213640b6b9369e22e2601dfe1b2d61d91ab547a75"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/dependency-freeze.txt",
+      "bytes": 955,
+      "sha256": "f8684ca432e31f043244a7bb9950c4fa9c34c1c8ac57c81fbcb1f1c3a6646176"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-aiops-native-2ef1dd65-standalonesession.pid",
+      "bytes": 4,
+      "sha256": "3f615b8f72806db7c0beeebfd88616bb1947925e200b9b6ce731e1d3be8b9e53"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-aiops-native-2ef1dd65-taskexecutor.pid",
+      "bytes": 5,
+      "sha256": "9a023b1d2d5c2a5b714c640016e4d0bc3a4112c6a3353deb967a43a48ed0544f"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/config.yaml",
+      "bytes": 1976,
+      "sha256": "e88f9f5a8b2932ab484184cba5aab79bc7b423a0e119a6b66906e51f924fd6f1"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/log4j-cli.properties",
+      "bytes": 2940,
+      "sha256": "260fcb6ce9d64bd13d1a61a1c289a8c08fde8e120195f65bd44c700ead26fec3"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/log4j-console.properties",
+      "bytes": 3207,
+      "sha256": "b7dc50b135582c1eeec73b09c436771b480df6272cc60e7735091c7f33fcc5bb"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/log4j-session.properties",
+      "bytes": 2064,
+      "sha256": "6457fddcf168fbdf7dd1b87654085ba1ec54e1e4082bf2a6909e818c9567b335"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/log4j.properties",
+      "bytes": 2731,
+      "sha256": "f8a3618cbce139422959a2ab24c8dd85994241b7a869d9da2fd25072879e914a"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/logback-console.xml",
+      "bytes": 2884,
+      "sha256": "050f31bf1fb33b9341174ef9adab7b77352a0e0f31704b8b04bb2a0f80095c10"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/logback-session.xml",
+      "bytes": 1569,
+      "sha256": "6153ae3364ed7d592908b59778243ef77244d5495f132a185f9289ba5bf4a633"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/logback.xml",
+      "bytes": 2333,
+      "sha256": "28599a2c4e07e9fdfc4448e6d0cb68937086fc94e83c208bb01b450d13365f3b"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/masters",
+      "bytes": 15,
+      "sha256": "9bc22cf0f97b2f670e8139ea6d5bff785f30e3cada4f76db3740540899cbcf33"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/workers",
+      "bytes": 10,
+      "sha256": "d906aecb61d076a967d9ffe8821c7b04b063f72df9d9e35b33ef36b1c0d98f16"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/flink-conf/zoo.cfg",
+      "bytes": 1434,
+      "sha256": "0a0bdeda425d0ae491a45e841d0a0a249353c0a24a54dca4b46e3973d1bd8919"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/kafka.properties",
+      "bytes": 674,
+      "sha256": "95fea31cc8141333077898d75a940829f9f691ea84d6dc5c40c6398d9a8c270e"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/api.log",
+      "bytes": 1113,
+      "sha256": "a33f2fbe96de24fc0b509468c0c851849d9544ae6a2dd66ffe937ed026f6cfab"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/build-source-bridge.log",
+      "bytes": 48,
+      "sha256": "041df204075ad9c1b188ebe5ef34a057a9f7e489b5d2556223371a5f05e28f00"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/flink-aiops-native-2ef1dd65-client-090d0b03692d.log",
+      "bytes": 25257,
+      "sha256": "dae933f708c549732f824f0adef862865b214088a65ee11eae9a883ff77aa06b"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/flink-aiops-native-2ef1dd65-standalonesession-0-090d0b03692d.log",
+      "bytes": 112093,
+      "sha256": "140add4e4e699201150841bc02b2475192fccc24008aaf00dcaba8934358d5f6"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/flink-aiops-native-2ef1dd65-taskexecutor-0-090d0b03692d.log",
+      "bytes": 250753,
+      "sha256": "2440fa58523516e0a7f5ceb1d34d4af3665ffe72b2dc1689ef8ec5e1b3c7767d"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/flink-aiops-native-2ef1dd65-taskexecutor-0-090d0b03692d.log.1",
+      "bytes": 219472,
+      "sha256": "509b8217ca143f15023fb4215fd6477dece437883394999c5dcd9cfd546436ff"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/gateway.log",
+      "bytes": 2369,
+      "sha256": "3163eb93ab7286ea2b2474e4a2deb7537a7c0500b1facc9a272394d730744600"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/inventory.log",
+      "bytes": 2144,
+      "sha256": "16427f42c2c6c8150acf213f2ec0998fa945657736824f3f92004dccffec4bdd"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/jobmanager.log",
+      "bytes": 112167,
+      "sha256": "8fbbea9256c8c5fa95f8f1837583dfe28f0bedf57e388e9234dc9c82f5f762ed"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/kafka-format.log",
+      "bytes": 96,
+      "sha256": "3ad238069bbdc904007e4f57014009a722b4c459d98893612331e83591fe5ec4"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/kafka.log",
+      "bytes": 184420,
+      "sha256": "2f3069eec15c278222b1733eb826443d3e04b4bf976d4a68568d8c4e695e313f"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/order.log",
+      "bytes": 2369,
+      "sha256": "c5199272e671fc8daabe5e352baa156d123c157c0dd67c6eafefabb409ec6dfb"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/payment.log",
+      "bytes": 2685,
+      "sha256": "f89e2d2489fac44241c05d2e53b5eef7d4c980e5baa325e6385b39dab570d9c0"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/submit-job.log",
+      "bytes": 777,
+      "sha256": "54c932191c16630fe772cf39413d606833755f6b322447ff6bdcfd8baf32e65f"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/taskmanager-restarted.log",
+      "bytes": 251060,
+      "sha256": "08db8dfb500cbf1ffeb4d9d069fcf3da74c38a91d79f0249b368e8bbdcd93cd3"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/taskmanager.log",
+      "bytes": 219779,
+      "sha256": "b5b901d46ef9feb4d79076a78569d6cffde9650ab9f0edda1c56947541239b2a"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/logs/worker.log",
+      "bytes": 9800,
+      "sha256": "c7d8bb119a02cf050e466a3dd4a9a367860a70d265593daa170aaf3bcbd352f6"
+    },
+    {
+      "path": "artifacts/phase7/flink-native/result.json",
+      "bytes": 2144222,
+      "sha256": "3e09594ec9fa9720aab2582b0858a54a63849bacccdd63c1078c945b92197457"
+    },
+    {
+      "path": "artifacts/phase7/full-tests-python312.log",
+      "bytes": 49712,
+      "sha256": "af9b2c04c0471c508790a16dd1ee98c1036dab1ef9aef22682a3c3036b657905"
+    },
+    {
+      "path": "artifacts/phase7/legacy-upgrade/data/aiops.sqlite3",
+      "bytes": 3051520,
+      "sha256": "09bf8a968dccee683b3625cae647a840fde96c1dae40cd017ca53f8242304a77"
+    },
+    {
+      "path": "artifacts/phase7/legacy-upgrade/data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/legacy-upgrade/data/backups/before-phase7-753fba14598d4b59b8561fc4904245c3.sqlite3",
+      "bytes": 3018752,
+      "sha256": "9ef7d174c46b1096684ad8dee9aff310090762bff5e443a320791800c1c50355"
+    },
+    {
+      "path": "artifacts/phase7/legacy-upgrade/data/backups/before-phase7-753fba14598d4b59b8561fc4904245c3.sqlite3-shm",
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    {
+      "path": "artifacts/phase7/legacy-upgrade/data/backups/before-phase7-753fba14598d4b59b8561fc4904245c3.sqlite3-wal",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/legacy-upgrade/result.json",
+      "bytes": 4328,
+      "sha256": "10f43ebd1b1ab7da40fdd3a769c5dda53da82ef4e96ded311e9839939adc6ca7"
+    },
+    {
+      "path": "artifacts/phase7/legacy-upgrade-console.log",
+      "bytes": 398,
+      "sha256": "2623faf28fb566e60aeb6793ce8fa8fc865f93a2fb3d480035594f4fcbc6b473"
+    },
+    {
+      "path": "artifacts/phase7/native-runtime.json",
+      "bytes": 1028,
+      "sha256": "1e4ac5dca83403485d052f632cacd2f70296f76ed771907d9dc2d8cedd040952"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/broker.log",
+      "bytes": 63516,
+      "sha256": "7f8f29079571b56c178460f6f198cd28b3653ab2421bb7ac0add69702c41ccbc"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/format.log",
+      "bytes": 112,
+      "sha256": "f56fed5e131ddaa68657dba196984b71b82e61f9386e1319a590edbfe69265fc"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/kafka.properties",
+      "bytes": 689,
+      "sha256": "320d87ace2025b38c14f2ce98d94cb9b3fa05938907fbb883a6f121b71efea34"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/logs/controller.log",
+      "bytes": 9065,
+      "sha256": "111371473b962091add31189cd4f9105bdb2d2f27ba54c25213ad180f98c18cb"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/logs/kafka-authorizer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/logs/kafka-request.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/logs/kafkaServer-gc.log",
+      "bytes": 18049,
+      "sha256": "abf02f8c56dd172627e01bae89f37bd85600be01e9fc9fb0d0c0336ef1d03064"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/logs/log-cleaner.log",
+      "bytes": 164,
+      "sha256": "a9d7da3dd90c2af27719e7d1851884181f80ee498548c36a0b018e1310078a63"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/logs/server.log",
+      "bytes": 63516,
+      "sha256": "7f8f29079571b56c178460f6f198cd28b3653ab2421bb7ac0add69702c41ccbc"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/broker/logs/state-change.log",
+      "bytes": 3997,
+      "sha256": "08f1f9162a606450892c5613beb241573aa31003f8e84cc7e79731668ff98661"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/data/aiops.sqlite3",
+      "bytes": 77824,
+      "sha256": "97001352841262cdc184564438c0225eb2c823f31409c5e967107cdc5317f59c"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01/result.json",
+      "bytes": 3463,
+      "sha256": "4724b1148bfead9b12df65271d3986a0f0defc0d20f97aab9dbc00b4d7cbff38"
+    },
+    {
+      "path": "artifacts/phase7/reliability-01-console.log",
+      "bytes": 1487,
+      "sha256": "40b458cb8c88f00034cdc7c7ffe11705154b025f9849fb5d64815f42cf444c1f"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/broker.log",
+      "bytes": 181646,
+      "sha256": "044089ec4707ded2683bf42e5480848d5b790731a215c0b0df6f85bdb49a5002"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/format.log",
+      "bytes": 112,
+      "sha256": "58b68420649629922c04517f10f276c274d3513d6c6d39496e09168dd3b58900"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/kafka.properties",
+      "bytes": 689,
+      "sha256": "a41b1150bf042dd05c564894a20d26e1aee35783067bd7f0eee0fe9996c40bd5"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/logs/controller.log",
+      "bytes": 32430,
+      "sha256": "dab753af01964ddcb356b22f03733a5b1cba583ee298cf58d3a59915a0ebe352"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/logs/kafka-authorizer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/logs/kafka-request.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/logs/kafkaServer-gc.log",
+      "bytes": 19412,
+      "sha256": "a30324a082c305124854b9d390991246369c350f0e0fb1be0fa81603aa7a3af5"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/logs/log-cleaner.log",
+      "bytes": 164,
+      "sha256": "023256ba5cb7ba6a224725816d5d0277145d3fd00df041fc2703ced93d3bc37c"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/logs/server.log",
+      "bytes": 181646,
+      "sha256": "044089ec4707ded2683bf42e5480848d5b790731a215c0b0df6f85bdb49a5002"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/broker/logs/state-change.log",
+      "bytes": 41190,
+      "sha256": "3c0b1656011a7e884b5be14d17ec13b5a97a595f9c08035ada04a06a91e3b6e5"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/data/aiops.sqlite3",
+      "bytes": 262144,
+      "sha256": "ee1314bb9cfc0bbcbf77181925384399c95fb544ecb0aa104b0d4cc105d54731"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/data/worker-health.json",
+      "bytes": 196,
+      "sha256": "0db02e99480a19ddf1ab3612eb39fb70fea08b7569651a5a6509c97f7dedc3d2"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/logs/api.log",
+      "bytes": 441,
+      "sha256": "38e20a02ef53b6da40f29a1e8d4774c276f180621ef5b16a6e50066ac887552c"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/logs/worker.log",
+      "bytes": 37714,
+      "sha256": "f9c5f0b4c095ecb4ef5261bd014e0272676798f270f8cc7f7ade34e50263f62e"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02/result.json",
+      "bytes": 6269,
+      "sha256": "661c1e0810a149cd115bff18bad70b2410ec24d9510cb66e68edc045701691b9"
+    },
+    {
+      "path": "artifacts/phase7/reliability-02-console.log",
+      "bytes": 4009,
+      "sha256": "cb5633841df25d73ae6af497f028ec2bcae88a7240d7434760bafe4e49f1af07"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/broker.log",
+      "bytes": 390766,
+      "sha256": "06f378ac01c34b349208d4e9767d7f4956e27be1e08723be3210090a1b6ee051"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/format.log",
+      "bytes": 112,
+      "sha256": "9e8c8ab80a35d3db65b6e779eaeca8aae57dc466097bb36e3463452fde2decd9"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/kafka.properties",
+      "bytes": 689,
+      "sha256": "954c82d6dfe87b02d51fcbafd703195ae9f9e2efaf43427a4cbe5d36b0255adc"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/controller.log",
+      "bytes": 65697,
+      "sha256": "cab88934ff20a702dad0e3a2606daaf616f7767766ca30b1f6dcace47bb53c7f"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/kafka-authorizer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/kafka-request.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/kafkaServer-gc.log",
+      "bytes": 22684,
+      "sha256": "eaa8b88b7e665ca93c4520b7759962bca604d48c746ef92fd255b7bc2170209e"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/kafkaServer-gc.log.0",
+      "bytes": 19415,
+      "sha256": "18a1ec89444b7c38f4f4832ea6621b0467a1498364f7cd81c782b6a565aa011a"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/log-cleaner.log",
+      "bytes": 328,
+      "sha256": "86caf8b4ab14992413d85cc8e43ec4a33fb9c875ce1ed1608132fd92d66b5fd6"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/server.log",
+      "bytes": 390766,
+      "sha256": "06f378ac01c34b349208d4e9767d7f4956e27be1e08723be3210090a1b6ee051"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/broker/logs/state-change.log",
+      "bytes": 97193,
+      "sha256": "4b93930500ae2f2ca5c286af8099118e6ca59eac3af5926b8439481f87ee2120"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/data/aiops.sqlite3",
+      "bytes": 262144,
+      "sha256": "5af813f311d6df09443dedca9e4a18183912f3e74870adf435a190385c9cdbe0"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/data/worker-health.json",
+      "bytes": 79,
+      "sha256": "8a66487faf5346170bed416b0822ff8abc4ec695c2d71745605609063c1f4761"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/logs/api.log",
+      "bytes": 441,
+      "sha256": "fe50c6386b54e1ff792f062583d3e7dbbf76a7f8770ef301d0c8844a0446a17c"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/logs/worker.log",
+      "bytes": 41558,
+      "sha256": "ab86b6b4d7d5ba3899557c97e9b5c1af9d54fa31876840aa21e39e27550a0905"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03/result.json",
+      "bytes": 6496,
+      "sha256": "ddc1dcf7dd3f11b129f6eb67821081f222cc18940c315e798192fa3eaf110f57"
+    },
+    {
+      "path": "artifacts/phase7/reliability-03-console.log",
+      "bytes": 3448,
+      "sha256": "3c39b139ad4c21d53f4185344bde464f8c9d573d0c0e2d9e116765641c272326"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/broker.log",
+      "bytes": 392691,
+      "sha256": "6b6ab0b65d376c3de9a5422095f6ec618eaafafb930bbb84f8101ecbb9cf21b8"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/format.log",
+      "bytes": 112,
+      "sha256": "bb90f085b643da4943cc75e13d13fa01704c8244631a4d969c6156447afec4e4"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/kafka.properties",
+      "bytes": 689,
+      "sha256": "e19147001746476c0fc046819adb13cb10c9ce64ef7c0f715683b80c29a82723"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/controller.log",
+      "bytes": 65697,
+      "sha256": "39a508d7cd06cc431a42c42b51f35823f472fa16ca4cdfd7983b438242489f43"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/kafka-authorizer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/kafka-request.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/kafkaServer-gc.log",
+      "bytes": 22683,
+      "sha256": "e6dea04649c76558634ccd410f91237e4aa001ba2d0d735c179b483952fece04"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/kafkaServer-gc.log.0",
+      "bytes": 22677,
+      "sha256": "6b384b8e9ae3a1af4a590c58fda487d64578401baffa5bc548fc490f566772d4"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/log-cleaner.log",
+      "bytes": 328,
+      "sha256": "7d0cb9d4810c18598b863090d0432fe5e66cd23aa8e0476805d946386129539b"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/server.log",
+      "bytes": 392691,
+      "sha256": "6b6ab0b65d376c3de9a5422095f6ec618eaafafb930bbb84f8101ecbb9cf21b8"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/broker/logs/state-change.log",
+      "bytes": 97195,
+      "sha256": "61550fab8c2c99afe5a0c1809f98861f58111164a56626b83fdc8e9dfde0e996"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/data/aiops.sqlite3",
+      "bytes": 274432,
+      "sha256": "8c6fe9ed23d34c502ce1bb422d9254d09cd4e71c0cf5f79745dcb374ef2a8f3c"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/data/worker-health.json",
+      "bytes": 47,
+      "sha256": "517430e73970ed01a6d257851a75252a8041f032c1e726278c7926333d4383d8"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/historical-report.json",
+      "bytes": 33492,
+      "sha256": "19fd26d0ed3cc6d8651c0c80aadb09399811f45853ab82d2f508a08212bba661"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/logs/api.log",
+      "bytes": 884,
+      "sha256": "93a56bf05970d1b4b0dd7516581fe9c3733437bd867ea9b7700a60909da63946"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/logs/worker.log",
+      "bytes": 44567,
+      "sha256": "ce795facb4421b0bca08a0e60250de350d2a9c0cf8343044ff393bd03a8dec30"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04/result.json",
+      "bytes": 7406,
+      "sha256": "65abbdfe4c90608175515fec0da8067c8fecf07914a6bf6ab44644f1dea7cd1f"
+    },
+    {
+      "path": "artifacts/phase7/reliability-04-console.log",
+      "bytes": 4017,
+      "sha256": "e38afbbacecbae688d3f92a104cfe3ad19c2c1dc389efc7386381610b963a2db"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/broker.log",
+      "bytes": 394371,
+      "sha256": "59e9837103e1b95a2f2ce7eb800bf94ce9c811982b567f195838d14cebb1f94e"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/format.log",
+      "bytes": 112,
+      "sha256": "cec3fff52e7cc068b671236b21a56e637c6f34f32af3b54a72e89f7a123e971e"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/kafka.properties",
+      "bytes": 689,
+      "sha256": "a10a477a06c659cb7ad0fc75caa8143f29d920d085e9da11f365963755de5b65"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/controller.log",
+      "bytes": 65697,
+      "sha256": "2c98ce4cdb5830dba9f8509c09f25da6401beae2e9d5059e1b76687008fb7855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/kafka-authorizer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/kafka-request.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/kafkaServer-gc.log",
+      "bytes": 22679,
+      "sha256": "99a34a317872ef0c6c15faa7c3a1ad71b73b2e03db72917d15b91635409f599e"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/kafkaServer-gc.log.0",
+      "bytes": 18148,
+      "sha256": "53ee551ed168bf93512b2f8f0f880bc585fc45f3bb623ba093fa7891f53eb880"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/log-cleaner.log",
+      "bytes": 328,
+      "sha256": "58dc48ccf938a55d55f006f8441fb9c7ce4ec60cca0c55cef2ce79a62be522ae"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/server.log",
+      "bytes": 394371,
+      "sha256": "59e9837103e1b95a2f2ce7eb800bf94ce9c811982b567f195838d14cebb1f94e"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/broker/logs/state-change.log",
+      "bytes": 97195,
+      "sha256": "08ad631aec78c993d2042645b182cfae63beb8776b1dfcb149de1f2371d7c50f"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/crash-data/aiops.sqlite3",
+      "bytes": 77824,
+      "sha256": "add35d2e8c74658cd690115a07fff4f00b8dfced3733cd429b0dc3f03b333ba9"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/crash-data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/data/aiops.sqlite3",
+      "bytes": 311296,
+      "sha256": "030ef766a0b42cd2f613d9a87eb00616f00c91b1151ea3f8f7a472c7e93bcc7e"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/data/worker-health.json",
+      "bytes": 47,
+      "sha256": "509bd02f35f2f923204ec627ac4d962945dba2dec6f08401fff9384da9c6a405"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/historical-report.json",
+      "bytes": 33492,
+      "sha256": "6c2886e9b7bce5a1ad26506b62d030d6a7249b8b6f6d625472032ce418a33f3b"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/logs/api.log",
+      "bytes": 789,
+      "sha256": "76e622bee75a6af4cc038912e99026c3c5bd55a39e78eb42d12446ec4e833b29"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/logs/worker.log",
+      "bytes": 50694,
+      "sha256": "99d4727a417f3f750ce58df91ce585516492569784ef25e49f909221ed32a8da"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/model-timeout-data/aiops.sqlite3",
+      "bytes": 221184,
+      "sha256": "e85ca4674aa05f33903d3fc0a958ffbf91592901df6d45ea14c3ee7d156fd651"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/model-timeout-data/aiops.sqlite3.access.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/model-timeout-data/backups/before-model-budget-v2-df7dc8c8a34c4722abe80b44594e4f3c.sqlite3",
+      "bytes": 163840,
+      "sha256": "ff042961bc11c4c934c770d446205678319de9ca03982f37743c188d472d6f60"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/result.json",
+      "bytes": 10400,
+      "sha256": "4787431c728125e3f59ff3092c8ead24ff75ecb6451fcad519051e893be610f9"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05/timeout-fallback-report.json",
+      "bytes": 44652,
+      "sha256": "32f222151d2d0c300fe604b5922bb6b1ec0284277a0f46955f0f20bc510dcdbb"
+    },
+    {
+      "path": "artifacts/phase7/reliability-05-console.log",
+      "bytes": 6138,
+      "sha256": "1ee4341c60a9a453f2d60ea5d14a8f2b4bf1229661660b580fbf99ca9d1e7567"
+    },
+    {
+      "path": "artifacts/phase7/reliability-tools-unit.log",
+      "bytes": 788,
+      "sha256": "2d8072219a6e4f0977f28ff1cac937fad970a097f1ab13dd10d6125e8b1381e9"
+    },
+    {
+      "path": "artifacts/phase7/reliability-unit.log",
+      "bytes": 4006,
+      "sha256": "f54e3c02575541b34df29d2ddd8d1cee403175c7f4cc478e0a77f8fbd1afd0c8"
+    },
+    {
+      "path": "artifacts/phase7/retry-recovery-fixed.log",
+      "bytes": 12031,
+      "sha256": "8db4be9c4a0f89a3e070626ff4a5f3dd63e72137c33207fd15bb5168284ecdb2"
+    },
+    {
+      "path": "artifacts/phase7/static-checks.json",
+      "bytes": 251,
+      "sha256": "7fd75e6fd3a81b7a900f74545bca41b35a0fdd514a5a4d49a0053fa4941fbd73"
+    },
+    {
+      "path": "artifacts/phase7/storage-first.log",
+      "bytes": 9843,
+      "sha256": "02d63e3e4471f5d2ae9308adaa8075ff292d9150fa1f077deff26ab9e8af0f66"
+    },
+    {
+      "path": "artifacts/phase7/storage-fixed.log",
+      "bytes": 6557,
+      "sha256": "076cf94b676ff47500153d5cd9c761b6f42620479abb4b1e47f55a0650ba910a"
+    }
+  ]
+}

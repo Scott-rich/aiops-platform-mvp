@@ -1,0 +1,106 @@
+{
+  "phase": 3,
+  "created_at_utc": "2026-10-20T10:00:36.848489+00:00",
+  "status": "implemented_and_functionally_verified_with_unresolved_storage_reliability_blocker",
+  "overall_platform_acceptance": false,
+  "phase2_real_model_accepted": false,
+  "user_explicitly_authorized_phase3": true,
+  "full_regression": {
+    "total": 212,
+    "passed": 210,
+    "failed": 0,
+    "skipped": 2,
+    "elapsed_seconds": 35.28
+  },
+  "phase3_new_tests_in_full_regression": 48,
+  "real_local_http": {
+    "passed": 12,
+    "failed": 0,
+    "elapsed_seconds": 112.565,
+    "result": "artifacts/phase3/local-http-attempt-01/optimized-run.json"
+  },
+  "real_native_second_attempt": {
+    "passed": 25,
+    "failed": 0,
+    "elapsed_seconds": 120.497,
+    "checkpoint_recovery_seconds": 14.851,
+    "cleanup": {
+      "errors": [],
+      "all_processes_stopped": true
+    },
+    "result": "artifacts/phase3/native-attempt-02/result.json"
+  },
+  "real_native_first_attempt": {
+    "passed_checks": 16,
+    "failed_assertions": 0,
+    "execution_errors": 1,
+    "remaining_checks_unexecuted": 9,
+    "cause": "SQLite index corruption stopped worker; report wait timed out",
+    "result": "artifacts/phase3/native-attempt-01/result.json"
+  },
+  "evaluation": {
+    "kind": "12 fixed synthetic cases / 10 families; not production accuracy",
+    "metrics": {
+      "top1_any_labelled_root_accuracy": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "top3_any_labelled_root_accuracy": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "multi_root_top3_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "multi_root_all_roots_in_top3": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "unknown_recall": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "healthy_false_positive_rate": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "execution_success_rate": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      },
+      "evidence_reference_validity": {
+        "numerator": 12,
+        "denominator": 12,
+        "value": 1.0
+      }
+    },
+    "archived_real_replay_labelled": false,
+    "result": "artifacts/phase3/evaluation-final/result.json"
+  },
+  "blockers": [
+    "SQLite corruption recurred despite prior serialization; origin unknown",
+    "Real LLM diagnosis has not passed phase2 acceptance"
+  ],
+  "unverified": [
+    "Docker/Compose runtime",
+    "browser visual QA",
+    "production RCA accuracy",
+    "high availability",
+    "dynamic baseline and later phases"
+  ],
+  "source_hashes_verified": 79,
+  "test_provenance": "Local HTTP before final malformed-attachment/residual-reference guards; final full regression and native second attempt cover final source. RCA algorithm unchanged between runs.",
+  "next_tasks": [
+    "Reproduce and resolve storage corruption; add native worker-failure early diagnostics",
+    "Phase4 service/metric/time-segment adaptive baseline with sample gating",
+    "Compare fixed/dynamic thresholds on same labelled data; precision/recall/FPR/FNR/detection delay"
+  ]
+}

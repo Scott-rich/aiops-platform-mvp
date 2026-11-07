@@ -1,0 +1,92 @@
+[
+  {
+    "path": "app/diagnosis.py",
+    "change": "modified",
+    "before_sha256": "07cf294cb1078b4e1e97f342ae79d476412fa64128ebd084c8f8a81a1becd885",
+    "after_sha256": "ee8f8e9ea60a0bb63a49f43f9cd853833eb61e249f393596052c2f1beac0fc3e"
+  },
+  {
+    "path": "app/reporting.py",
+    "change": "modified",
+    "before_sha256": "42c390fb8ae6aa54e25f20296af576dc27cf8bafc0dffd2d69c69cc988fa2377",
+    "after_sha256": "e5a23bcf07e3429093c648211b457433021a42bdaf9b4d40af4d5336590b42a3"
+  },
+  {
+    "path": "app/rca.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "f67a9ce0231f3578f151f4afe5b2a79470fd2b4b88982d58801eebe122ca2ed0"
+  },
+  {
+    "path": "app/api.py",
+    "change": "modified",
+    "before_sha256": "d1f6f92b3b63e5f3b50af2a790f004e4b1f660f08cda93d765bb2af163793421",
+    "after_sha256": "284057e7259e7ec6efbae3f11655752c9c430edf814979b086bcfb550fc82745"
+  },
+  {
+    "path": "app/rca_integrity.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "72ebfa837fb300f7b3e374d2ac58b970ea1515a856accd1567f64807eb16bbf8"
+  },
+  {
+    "path": "app/static/index.html",
+    "change": "modified",
+    "before_sha256": "a471914ea33058e88471b72212ca485675bff4788d07dedf3a93e028fae4ffc8",
+    "after_sha256": "43b9e53b4b07d9b2dc9aa978c668349a5e98be3b10b153f5e73ada12d20d5b3a"
+  },
+  {
+    "path": "scripts/native_streaming.py",
+    "change": "modified",
+    "before_sha256": "c94ae4aba0249f72ca8fbe3f168e5b3ccb9e1e68ecc2a844f25cf72a14186e5a",
+    "after_sha256": "bac7488ffb3f8751fa183dfed2b21ae2d9c8f5a4b6371d9d6b921bca7b932cf6"
+  },
+  {
+    "path": "scripts/evaluate_rca.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "e8d866539f1b1c05171b87b287f981fa5b125bd4bee5b5c3e4fa2a7823d79939"
+  },
+  {
+    "path": "scripts/verify_optimized.py",
+    "change": "modified",
+    "before_sha256": "3a8dea72b184530edb8ea4be8cfa3f1bae917ff3546a74a846e6e9e491bb9265",
+    "after_sha256": "1ad3a3557c69b95604638a0235433174e8b130d97b9a0e2f430dd13648ca2f6c"
+  },
+  {
+    "path": "tests/test_rca_evaluation.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "83ca4841d0f1d0be6b5d211f0c087fe9daa0b02608c1968ab2a0b5785a25304e"
+  },
+  {
+    "path": "tests/rca_scenarios.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "aadb42a5e97a99c328fef3347a35c0bd1e549d94d171db56d4dfe96e7a1e3dcc"
+  },
+  {
+    "path": "tests/test_rca_reporting.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "8d029ab6551b469c60041e370fe7be72c6f25f5adea1b2fa0a8c8a2ed25434f7"
+  },
+  {
+    "path": "tests/test_llm_phase2.py",
+    "change": "modified",
+    "before_sha256": "1bf1732586baa228fd07e164e74009418bbff75a27e9171c4d74606eebbffe40",
+    "after_sha256": "10d716c5b5e931c348366bc7c2334f40e4c6bca6f1afd6a5b2b58587df8701f8"
+  },
+  {
+    "path": "tests/test_rca.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "f562d1a6ab3daba1748e2891cc07774760b5ec07bdccdb4ec8e0034b924fca2a"
+  },
+  {
+    "path": "tests/test_rca_ui.py",
+    "change": "added",
+    "before_sha256": null,
+    "after_sha256": "adfa925aaef4d1f3c8f2cd81a2eafc1cb422e2990d5ac28a4d3ab813a79292d3"
+  }
+]

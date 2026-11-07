@@ -1,0 +1,25 @@
+test_conflicting_replay_cannot_drive_fast_detector (tests.test_storage_idempotency.StorageIdempotencyTests.test_conflicting_replay_cannot_drive_fast_detector) ... ok
+test_cross_batch_conflict_survives_reopen_and_does_not_replace_event (tests.test_storage_idempotency.StorageIdempotencyTests.test_cross_batch_conflict_survives_reopen_and_does_not_replace_event) ... ok
+test_identical_canonical_payload_is_ignored_even_with_new_source (tests.test_storage_idempotency.StorageIdempotencyTests.test_identical_canonical_payload_is_ignored_even_with_new_source) ... ok
+test_invalid_batch_preserves_atomic_validation_for_events_and_conflicts (tests.test_storage_idempotency.StorageIdempotencyTests.test_invalid_batch_preserves_atomic_validation_for_events_and_conflicts) ... ok
+test_restart_replay_does_not_reach_fast_detector_or_create_alerts (tests.test_storage_idempotency.StorageIdempotencyTests.test_restart_replay_does_not_reach_fast_detector_or_create_alerts) ... ok
+test_same_batch_conflict_keeps_first_and_records_full_raw_and_source (tests.test_storage_idempotency.StorageIdempotencyTests.test_same_batch_conflict_keeps_first_and_records_full_raw_and_source) ... ok
+test_all_three_incidents_receive_enrichment_without_starvation (tests.test_engine.EngineSchedulingTests.test_all_three_incidents_receive_enrichment_without_starvation) ... ok
+test_batch_validation_is_atomic (tests.test_engine.EngineSchedulingTests.test_batch_validation_is_atomic) ... ok
+test_pending_model_job_does_not_block_a_new_initial_report (tests.test_engine.EngineSchedulingTests.test_pending_model_job_does_not_block_a_new_initial_report) ... ok
+test_ingestion_and_alert_replay_dedup (tests.test_core.EvidenceTests.test_ingestion_and_alert_replay_dedup) ... ok
+test_poison_log_and_tombstone_rejected (tests.test_core.EvidenceTests.test_poison_log_and_tombstone_rejected) ... ok
+test_report_idempotent_immutable_and_cited (tests.test_core.EvidenceTests.test_report_idempotent_immutable_and_cited) ... ok
+test_topic_contract_mismatch_rejected (tests.test_core.EvidenceTests.test_topic_contract_mismatch_rejected) ... ok
+test_trace_join_and_unrelated_exclusion (tests.test_core.EvidenceTests.test_trace_join_and_unrelated_exclusion) ... ok
+test_unknown_model_citations_fallback (tests.test_core.EvidenceTests.test_unknown_model_citations_fallback) ... ok
+test_valid_model_references_accepted (tests.test_core.EvidenceTests.test_valid_model_references_accepted) ... ok
+test_anomaly_threshold_and_event_dedup (tests.test_core.WindowTests.test_anomaly_threshold_and_event_dedup) ... ok
+test_exact_error_rate_boundary (tests.test_core.WindowTests.test_exact_error_rate_boundary) ... ok
+test_future_and_nan_rejected (tests.test_core.WindowTests.test_future_and_nan_rejected) ... ok
+test_low_sample_and_healthy_do_not_alert (tests.test_core.WindowTests.test_low_sample_and_healthy_do_not_alert) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 13.628s
+
+OK

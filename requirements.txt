@@ -1,0 +1,6 @@
+fastapi==0.115.12
+httpx==0.28.1
+kafka-python==2.2.12
+uvicorn==0.34.2
+pydantic==2.14.1
+filelock==4.2.4

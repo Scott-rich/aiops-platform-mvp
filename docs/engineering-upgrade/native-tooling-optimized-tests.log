@@ -1,0 +1,8 @@
+test_apache_grouped_checksum_and_wrong_bytes (tests.test_native_tooling.NativeToolingTests.test_apache_grouped_checksum_and_wrong_bytes) ... ok
+test_failure_check_is_not_disabled_by_optimized_python (tests.test_native_tooling.NativeToolingTests.test_failure_check_is_not_disabled_by_optimized_python) ... ok
+test_fixture_is_explicit_v1_without_injection_label (tests.test_native_tooling.NativeToolingTests.test_fixture_is_explicit_v1_without_injection_label) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.021s
+
+OK

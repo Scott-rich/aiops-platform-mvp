@@ -1,0 +1,115 @@
+# 参考资料：数据集 / 方法 / 评测基准（给 Astra 的"读什么"清单）
+
+引用纪律（写进项目文档或提示词里）：**每条引用必须可打开**（DOI / arXiv / 官方仓库 URL 三选一）。
+不确定的先标 `[待核验]`，不许编造作者、年份、DOI。Astra 提交报告前要自查一遍。
+
+---
+
+## 一、数据集（按"接入成本"排序）
+
+| 数据集 | 链接 | 规模/形态 | 用途 | 坑 |
+|---|---|---|---|---|
+| **SMD**（ServerMachineDataset） | https://github.com/NetManAIOps/OmniAnomaly | 28 台服务器 × 38 维 KPI，逐点标签 | 检测器对照的**首选**：标准化成熟、体量小、论文引用多 | 标签是"点级"，需自己转区间；不同机器异常率差异大，必须逐机报告 |
+| **SMAP / MSL** | https://github.com/khundman/telemanom | NASA 遥测，多通道 + 区间标签 | 第二个检测数据集，验证泛化 | 通道语义差异大，别把 SMD 的超参直接搬来 |
+| **PSM**（eBay） | https://github.com/eBay/RANSynCoders | 26 维，逐点标签 | 第三个数据集，工业味更重 | 缺失值/常数段多，预处理要写清 |
+| **SWaT**（水处理工控） | https://itrust.sutd.edu.sg/itrust-labs_datasets/ | 51 维，需申请表 | 想强调"跨域泛化"时用 | **需审批**，没有就老实写"未获取"，不要伪造 |
+| **GAIA** | https://github.com/CloudWise-OpenSource/GAIA-DataSet | 多模态（指标/日志/追踪）+ 故障标签 | 想做"告警关联/根因"的真实数据 | 体量大、清洗成本高，先看样例再决定 |
+| **AIOps Challenge（CCF）** | http://iops.ai/ | 每年赛题数据（金融/运营商） | **冲奖/证明工业价值**最强的一手材料 | 需报名；数据不可二次分发，注意 license |
+| **TrainTicket** | https://github.com/FudanSELab/train-ticket | 40+ 微服务，多语言 | P3 真实系统实验（最真实） | 资源重（单机跑不动全量），可裁剪部署 |
+| **Online Boutique** | https://github.com/GoogleCloudPlatform/microservices-demo | 11 服务，Go/C#/Node/Python | P3 轻量方案，kind 单机可跑 | 依赖较多，镜像拉取慢；用离线镜像或精简服务 |
+| **Sock Shop** | https://github.com/microservices-demo/microservices-demo | 10 服务 | Online Boutique 的替代 | 社区维护较旧，注意依赖版本 |
+
+---
+
+## 二、检测方法（P0 的基线池）
+
+| 方法 | 出处 | 为什么用它 | 实现成本 |
+|---|---|---|---|
+| 3σ / Z-score | 教科书基线 | 与你现有固定阈值语义最近，作为"旧方法"对照 | 极低 |
+| Median + MAD | 稳健统计（1970s） | 你已有 `flink/adaptive.py`，作为"现有方法" | 极低 |
+| **Isolation Forest** | Liu, Ting, Zhou, ICDM 2008 | 无监督、快、审稿人认；`pyod` 一行 | 低 |
+| **SPOT / DSPOT** | Siffer et al., KDD 2017（极值理论流式检测） | 流式场景的标准对照，正好对应你的 Flink | 中（GPD 拟合，~60 行） |
+| LSTM-VAE / OmniAnomaly | Su et al., KDD 2019（https://github.com/NetManAIOps/OmniAnomaly） | 想证明"深度模型不一定更好"时的强基线 | 高（训练成本） |
+| USAD | Audibert et al., KDD 2020 | 对抗训练基线，复现脚本多 | 中高 |
+| TranAD | Tuli et al., VLDB 2022 | 当前常用强基线 | 高 |
+| Anomaly Transformer | Xu et al., ICLR 2022 | SOTA 级对照（有余力再做） | 很高 |
+
+**建议**：P0 只做前 4 个（成本可控、结论足够）。8 个全做是浪费时间——评委看的是"有没有外部对照+统计"，不是数量。
+
+---
+
+## 三、根因定位（想升级 RCA 时读）
+
+| 方法 | 说明 | 与本项目关系 |
+|---|---|---|
+| **MicroRCA**（Wu et al., NOMS 2018） | 用服务依赖图 + 异常传播打分 | 你现在的 span 传播思路的同源方法，可作为对照 |
+| **Sage**（Gan et al., ICSE 2019） | 因果图 + 无监督定位 | 想讲"因果"就必须引它 |
+| **CIRCA**（Wang et al., ICSE 2021） | 因果推断 + 请求上下文 | 同上 |
+| **Eadro**（Lee et al., ICSE 2023） | 多模态（metric/log/trace）联合定位 | 你"三模态"叙事的最佳对标 |
+| **CausalRCA**（Bi et al., 2022, arXiv） | 图 + 因果发现 | 想做 GNN-RCA 的入口 |
+| **OpenRCA**（ICLR 2025, https://microsoft.github.io/OpenRCA/） | LLM 做 RCA 的公开 benchmark | **P1 最重要参考**：它的标注协议与指标定义可直接借用 |
+
+---
+
+## 四、LLM × AIOps 评测基准（P1 的主战场）
+
+| 资源 | 链接 | 用它的理由 |
+|---|---|---|
+| **OpenRCA** | https://microsoft.github.io/OpenRCA/ | 目前最贴近"LLM 定位根因"的公开 benchmark，含真实故障数据与标注 |
+| **AIOpsLab** | https://microsoft.github.io/AIOpsLab/ 、https://github.com/microsoft/AIOpsLab | 微软的"agent 做 AIOps"框架，定义了任务/环境/评测协议，直接对标能显出你项目的定位 |
+| **ITBench** | https://github.com/itbench-hub/ITBench | IBM 的 IT 自动化 benchmark，适合做"横向对比"讨论 |
+| **AgentDojo** | arXiv:2406.13352 | 提示注入攻击/防御的标准测试集，P1 注入实验可直接借它的攻击分类 |
+
+---
+
+## 五、方法论与"评测陷阱"（决定你像不像研究者）
+
+| 主题 | 参考 | 你要做的事 |
+|---|---|---|
+| **point-adjust 会虚高** | Kim et al., *Towards a Rigorous Evaluation of Time-series Anomaly Detection*, AAAI 2022 | 必须同时报 PA-F1 与 PA%K / range-based，并在局限里解释 |
+| 选择式预测 / 弃权 | El-Yaniv & Wiener, JMLR 2010 | 用 risk–coverage 曲线评价"弃权"，而不是只看准确率 |
+| 置信度校准 | Guo et al., *On Calibration of Modern Neural Networks*, ICML 2017 | 报 ECE；你的"置信上限 low"必须能被这张图支撑 |
+| 保形预测 | Angelopoulos & Bates, *A Gentle Introduction to Conformal Prediction*, arXiv:2107.07511 | 想把"置信区间"做得严谨，这是最短路径 |
+| 提示注入 | Greshake et al., arXiv:2302.12173；OWASP Top 10 for LLM Applications（LLM01） | 注入实验的攻击面与分类直接照抄，别自创 |
+| 实验可复现 | ML Reproducibility Checklist（NeurIPS） | 当作交付检查表用 |
+
+---
+
+## 六、工程侧参考实现
+
+| 项目 | 链接 | 借什么 |
+|---|---|---|
+| pyod | https://github.com/yzhao062/pyod | 20+ 异常检测基线，统一 API；P0 直接用 |
+| scikit-learn | https://github.com/scikit-learn/scikit-learn | IForest / PCA / 评估指标 |
+| Chaos Mesh | https://github.com/chaos-mesh/chaos-mesh | P3 故障注入（Pod Kill/网络/压力） |
+| kind | https://kind.sigs.k8s.io/ | 3 节点本地 k8s |
+| OpenTelemetry Collector | https://github.com/open-telemetry/opentelemetry-collector | 统一采集 trace/metrics/logs 进 Kafka |
+| Prometheus client_python | https://github.com/prometheus/client_python | P2 的 `/metrics` |
+| telemanom | https://github.com/khundman/telemanom | SMAP/MSL 数据处理与 LSTM 基线参考 |
+| OmniAnomaly | https://github.com/NetManAIOps/OmniAnomaly | SMD 数据加载与官方评测口径 |
+
+---
+
+## 七、建议阅读顺序（两周，每天 1 小时）
+
+1. Kim et al. AAAI'22（评测陷阱）——先知道自己错在哪
+2. OpenRCA 论文 + 站点（LLM 做 RCA 怎么评）
+3. AIOpsLab 论文 + 仓库 README（agent 化 AIOps 的任务定义）
+4. SPOT（流式检测）+ IForest（基线）
+5. Eadro / MicroRCA（多模态 + 图）
+6. Greshake et al.（提示注入）+ OWASP LLM01
+7. El-Yaniv & Wiener（弃权）+ Guo et al.（校准）
+
+读完这 7 篇，你答辩时被问"你的工作相对这些是什么位置"，能答得比 90% 的本科生好。
+
+---
+
+## 八、把资源映射到阶段
+
+| 阶段 | 主要用到的资源 |
+|---|---|
+| P0 | SMD / SMAP-MSL / PSM；IForest、SPOT、MAD；Kim et al.（评测口径） |
+| P1 | OpenRCA、AgentDojo、OWASP LLM01；Greshake；El-Yaniv；Guo |
+| P2 | pyod / sklearn / Prometheus client / kind / Helm 文档 |
+| P3 | Online Boutique 或 TrainTicket；Chaos Mesh；OTel Collector；AIOpsLab 的评测协议 |
+| P4 | OpenRCA / AIOpsLab / ITBench 的"相关工作"写法与指标定义 |

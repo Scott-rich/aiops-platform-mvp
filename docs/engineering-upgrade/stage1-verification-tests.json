@@ -1,0 +1,11 @@
+{
+  "command": "PYTHONPATH=/tmp/aiops-python-deps:. python -m unittest discover -s tests -p test_verification.py -v",
+  "test_count": 12,
+  "duration_seconds": 1.439,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "exit_code": 0,
+  "recorded_at_utc": "2026-10-20T07:21:10.905028+00:00",
+  "scope": "final verification guards, mocked failure paths, environment isolation; actual python -O subprocess"
+}

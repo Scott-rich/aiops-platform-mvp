@@ -1,0 +1,19 @@
+Using CPython 3.12.14 interpreter at: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3.12
+Creating virtual environment at: /tmp/aiops-report-clean-env
+Using Python 3.12.14 environment at: /tmp/aiops-report-clean-env
+Resolved 4 packages in 9.68s
+Downloading reportlab (1.9MiB)
+Downloading pillow (6.8MiB)
+Downloading fonttools (4.7MiB)
+ Downloaded reportlab
+ Downloaded fonttools
+ Downloaded pillow
+Prepared 4 packages in 746ms
+Installed 4 packages in 15ms
+ + charset-normalizer==3.5.2
+ + fonttools==4.61.1
+ + pillow==13.0.0
+ + reportlab==4.4.9
+Using Python 3.12.14 environment at: /tmp/aiops-report-clean-env
+Checked 4 packages in 0.51ms
+All installed packages are compatible

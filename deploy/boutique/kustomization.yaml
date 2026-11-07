@@ -1,0 +1,60 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: boutique
+resources:
+- base.yaml
+patches:
+- patch: "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: checkoutservice\n\
+    spec:\n  template:\n    spec:\n      containers:\n      - name: server\n     \
+    \   env:\n        - name: COLLECTOR_SERVICE_ADDR\n          value: aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_EXPORTER_OTLP_ENDPOINT\n          value: http://aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_SERVICE_NAME\n          value: checkoutservice\n       \
+    \ - name: ENABLE_TRACING\n          value: '1'\n        - name: DISABLE_PROFILER\n\
+    \          value: '1'\n        - name: POD_UID\n          valueFrom:\n       \
+    \     fieldRef:\n              fieldPath: metadata.uid\n        - name: OTEL_RESOURCE_ATTRIBUTES\n\
+    \          value: service.instance.id=$(POD_UID),k8s.pod.uid=$(POD_UID)\n"
+- patch: "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: currencyservice\n\
+    spec:\n  template:\n    spec:\n      containers:\n      - name: server\n     \
+    \   env:\n        - name: COLLECTOR_SERVICE_ADDR\n          value: aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_EXPORTER_OTLP_ENDPOINT\n          value: http://aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_SERVICE_NAME\n          value: currencyservice\n       \
+    \ - name: ENABLE_TRACING\n          value: '1'\n        - name: DISABLE_PROFILER\n\
+    \          value: '1'\n        - name: POD_UID\n          valueFrom:\n       \
+    \     fieldRef:\n              fieldPath: metadata.uid\n        - name: OTEL_RESOURCE_ATTRIBUTES\n\
+    \          value: service.instance.id=$(POD_UID),k8s.pod.uid=$(POD_UID)\n"
+- patch: "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: frontend\nspec:\n\
+    \  template:\n    spec:\n      containers:\n      - name: server\n        env:\n\
+    \        - name: COLLECTOR_SERVICE_ADDR\n          value: aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_EXPORTER_OTLP_ENDPOINT\n          value: http://aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_SERVICE_NAME\n          value: frontend\n        - name:\
+    \ ENABLE_TRACING\n          value: '1'\n        - name: DISABLE_PROFILER\n   \
+    \       value: '1'\n        - name: POD_UID\n          valueFrom:\n          \
+    \  fieldRef:\n              fieldPath: metadata.uid\n        - name: OTEL_RESOURCE_ATTRIBUTES\n\
+    \          value: service.instance.id=$(POD_UID),k8s.pod.uid=$(POD_UID)\n"
+- patch: "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: paymentservice\n\
+    spec:\n  template:\n    spec:\n      containers:\n      - name: server\n     \
+    \   env:\n        - name: COLLECTOR_SERVICE_ADDR\n          value: aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_EXPORTER_OTLP_ENDPOINT\n          value: http://aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_SERVICE_NAME\n          value: paymentservice\n        -\
+    \ name: ENABLE_TRACING\n          value: '1'\n        - name: DISABLE_PROFILER\n\
+    \          value: '1'\n        - name: POD_UID\n          valueFrom:\n       \
+    \     fieldRef:\n              fieldPath: metadata.uid\n        - name: OTEL_RESOURCE_ATTRIBUTES\n\
+    \          value: service.instance.id=$(POD_UID),k8s.pod.uid=$(POD_UID)\n"
+- patch: "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: productcatalogservice\n\
+    spec:\n  template:\n    spec:\n      containers:\n      - name: server\n     \
+    \   env:\n        - name: COLLECTOR_SERVICE_ADDR\n          value: aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_EXPORTER_OTLP_ENDPOINT\n          value: http://aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_SERVICE_NAME\n          value: productcatalogservice\n \
+    \       - name: ENABLE_TRACING\n          value: '1'\n        - name: DISABLE_PROFILER\n\
+    \          value: '1'\n        - name: POD_UID\n          valueFrom:\n       \
+    \     fieldRef:\n              fieldPath: metadata.uid\n        - name: OTEL_RESOURCE_ATTRIBUTES\n\
+    \          value: service.instance.id=$(POD_UID),k8s.pod.uid=$(POD_UID)\n"
+- patch: "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: recommendationservice\n\
+    spec:\n  template:\n    spec:\n      containers:\n      - name: server\n     \
+    \   env:\n        - name: COLLECTOR_SERVICE_ADDR\n          value: aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_EXPORTER_OTLP_ENDPOINT\n          value: http://aiops-otel.aiops.svc.cluster.local:4317\n\
+    \        - name: OTEL_SERVICE_NAME\n          value: recommendationservice\n \
+    \       - name: ENABLE_TRACING\n          value: '1'\n        - name: DISABLE_PROFILER\n\
+    \          value: '1'\n        - name: POD_UID\n          valueFrom:\n       \
+    \     fieldRef:\n              fieldPath: metadata.uid\n        - name: OTEL_RESOURCE_ATTRIBUTES\n\
+    \          value: service.instance.id=$(POD_UID),k8s.pod.uid=$(POD_UID)\n"

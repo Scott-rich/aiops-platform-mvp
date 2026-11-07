@@ -1,0 +1,22 @@
+{
+  "status": "independently_verified",
+  "source_commit": "fe8df8ac663c375e18f608bebcbcf01c27b4ef7b",
+  "source_files_checked": 190,
+  "subresult_files_checked": 15,
+  "steps_passed": 13,
+  "gates": {
+    "local": "passed",
+    "native": "passed",
+    "model": "passed",
+    "reliability": "passed",
+    "faults": "passed",
+    "http_benchmark": "passed",
+    "kafka_benchmark": "passed",
+    "flink_benchmark": "passed",
+    "docker": "blocked_not_executed"
+  },
+  "acceptance_status": "partial",
+  "full_acceptance": false,
+  "exit_code": 2,
+  "result_sha256": "4996fc43659fbe46c20e898386b7efc758ace9f0ca099c1aeecd8f56f414c14c"
+}

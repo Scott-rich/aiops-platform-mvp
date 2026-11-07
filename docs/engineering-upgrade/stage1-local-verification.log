@@ -1,0 +1,21 @@
+{"started": true, "duration_seconds": 110, "mode": "optimized-local-http; no Kafka/Flink/LLM"}
+{"elapsed_s": 0.0, "phase": "healthy", "storage": {"events": 1, "alerts": 0, "reports": 0, "deadletters": 0, "incidents": 0, "report_versions": 0, "incident_notifications": 0}, "incident_states": []}
+{"elapsed_s": 15.4, "phase": "healthy", "storage": {"events": 556, "alerts": 0, "reports": 0, "deadletters": 0, "incidents": 0, "report_versions": 0, "incident_notifications": 0}, "incident_states": []}
+{"elapsed_s": 30.5, "phase": "healthy", "storage": {"events": 1099, "alerts": 0, "reports": 0, "deadletters": 0, "incidents": 0, "report_versions": 0, "incident_notifications": 0}, "incident_states": []}
+{"elapsed_s": 45.7, "phase": "fault", "storage": {"events": 1409, "alerts": 3, "reports": 0, "deadletters": 0, "incidents": 1, "report_versions": 2, "incident_notifications": 1}, "incident_states": ["open"]}
+{"elapsed_s": 60.5, "phase": "fault", "storage": {"events": 2052, "alerts": 12, "reports": 0, "deadletters": 0, "incidents": 2, "report_versions": 6, "incident_notifications": 2}, "incident_states": ["open", "open"]}
+{"elapsed_s": 75.5, "phase": "recovery", "storage": {"events": 2585, "alerts": 17, "reports": 0, "deadletters": 0, "incidents": 2, "report_versions": 6, "incident_notifications": 2}, "incident_states": ["open", "open"]}
+{"elapsed_s": 90.4, "phase": "recovery", "storage": {"events": 3128, "alerts": 25, "reports": 0, "deadletters": 0, "incidents": 2, "report_versions": 7, "incident_notifications": 3}, "incident_states": ["resolved", "recovering"]}
+{"elapsed_s": 105.5, "phase": "recovery", "storage": {"events": 3671, "alerts": 25, "reports": 0, "deadletters": 0, "incidents": 2, "report_versions": 8, "incident_notifications": 4}, "incident_states": ["resolved", "resolved"]}
+{"completed": false, "status": "failed", "checks": {"ui_http_200": true, "ui_content_valid": true, "one_availability_incident": true, "incident_resolved": true, "one_open_record": true, "one_recovery_record": true, "preliminary_enriched_resolved": true, "all_hashes_and_references_valid": true, "telemetry_failures_zero": false}, "result_path": "/workspace/scratch/599403941817/upgrade-audit/stage1-local-verification/optimized-run.json"}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/599403941817/aiops-platform/scripts/verify_optimized.py", line 220, in <module>
+    parser.add_argument("--output", default="examples")
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/599403941817/aiops-platform/scripts/verify_optimized.py", line 168, in run
+    "services": services})
+  File "/workspace/scratch/599403941817/aiops-platform/scripts/verify_optimized.py", line 22, in require_checks
+    raise VerificationError("failed or unexecuted checks: "+", ".join(failed))
+VerificationError: failed or unexecuted checks: telemetry_failures_zero

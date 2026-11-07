@@ -1,0 +1,17 @@
+test_environment_wins_over_file_including_explicitly_empty_values (test_verification.ChildConfigurationTests.test_environment_wins_over_file_including_explicitly_empty_values) ... ok
+test_simulators_and_loadgen_do_not_inherit_model_credentials (test_verification.ChildConfigurationTests.test_simulators_and_loadgen_do_not_inherit_model_credentials) ... ok
+test_early_http_failure_records_checks_and_stops_launcher (test_verification.FailureArtifactTests.test_early_http_failure_records_checks_and_stops_launcher) ... ok
+test_failed_check_still_persists_forced_shutdown_result (test_verification.FailureArtifactTests.test_failed_check_still_persists_forced_shutdown_result) ... ok
+test_launcher_creation_failure_is_saved_without_secret_text (test_verification.FailureArtifactTests.test_launcher_creation_failure_is_saved_without_secret_text) ... ok
+test_non_http_fault_clear_failure_still_stops_launcher (test_verification.FailureArtifactTests.test_non_http_fault_clear_failure_still_stops_launcher) ... ok
+test_invented_support_or_counter_evidence_and_tampering_fail (test_verification.IntegrityChecksTests.test_invented_support_or_counter_evidence_and_tampering_fail) ... ok
+test_missing_citations_or_hypotheses_never_pass_vacuously (test_verification.IntegrityChecksTests.test_missing_citations_or_hypotheses_never_pass_vacuously) ... ok
+test_missing_or_failed_service_telemetry_does_not_report_success (test_verification.IntegrityChecksTests.test_missing_or_failed_service_telemetry_does_not_report_success) ... ok
+test_optimized_python_still_rejects_invented_counter_evidence (test_verification.IntegrityChecksTests.test_optimized_python_still_rejects_invented_counter_evidence) ... ok
+test_startup_requires_all_four_healthy_services (test_verification.IntegrityChecksTests.test_startup_requires_all_four_healthy_services) ... ok
+test_valid_both_citation_types_and_hashes (test_verification.IntegrityChecksTests.test_valid_both_citation_types_and_hashes) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.439s
+
+OK

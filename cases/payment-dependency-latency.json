@@ -1,0 +1,9 @@
+{
+  "case_id": "EXAMPLE-001", "version": 1, "source": "curated-example-not-production-history",
+  "title": "支付依赖变慢引发调用链延迟", "services": ["payment", "order", "gateway"],
+  "rule_ids": ["high_latency"], "keywords": ["payment", "timeout", "timed"],
+  "symptoms": "支付叶子span延迟升高；订单和网关总耗时同步升高。",
+  "root_cause": "示例案例中支付外部依赖连接池耗尽；不能由本案例推断当前系统也存在该原因。",
+  "remediation": ["检查支付依赖的连接池和超时", "核对变更，验证恢复后的延迟"],
+  "verification": ["比较各服务span自耗时", "采集连接池等待指标与依赖响应时间"]
+}

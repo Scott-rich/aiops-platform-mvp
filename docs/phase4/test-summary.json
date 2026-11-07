@@ -1,0 +1,14 @@
+{
+  "total": 235,
+  "passed": 232,
+  "failed": 0,
+  "skipped": 3,
+  "elapsed_seconds": 16.832,
+  "command": "/tmp/aiops-phase4-runtime/venv/bin/python -m unittest discover -s tests -v",
+  "log": "artifacts/phase4/full-regression-delivery.log",
+  "skip_reasons": [
+    "Legacy native integration requires explicit opt-in; new dynamic native script ran separately",
+    "Real LLM integration not requested in phase4",
+    "Source bridge unittest paths not configured; actual native harness compiled and used bridge successfully"
+  ]
+}

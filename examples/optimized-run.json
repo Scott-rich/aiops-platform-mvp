@@ -1,0 +1,1628 @@
+{
+  "started_at": 1792467463247,
+  "duration_seconds": 110,
+  "mode": "actual local TCP/HTTP + optimized Python incident/report pipeline; no Kafka/Flink/LLM",
+  "checks": {
+    "ui_http_200": true,
+    "one_availability_incident": true,
+    "incident_resolved": true,
+    "one_open_record": true,
+    "one_recovery_record": true,
+    "preliminary_enriched_resolved": true,
+    "all_hashes_and_references_valid": true,
+    "telemetry_failures_zero": true
+  },
+  "storage": {
+    "events": 3946,
+    "alerts": 18,
+    "reports": 0,
+    "deadletters": 0,
+    "incidents": 1,
+    "report_versions": 4,
+    "incident_notifications": 2
+  },
+  "incidents": [
+    {
+      "affected_services": [
+        "gateway",
+        "order",
+        "payment"
+      ],
+      "alert_count": 18,
+      "alert_ids": [
+        "b5d5779cd31904bbeaa039f2",
+        "b4d4aa2573c4963bea57cbd5",
+        "8005eb57cf461c66b6a9aaba",
+        "9b3e10f7e0f9019232402655",
+        "060d2e1508c95b4bea2d24af",
+        "2e1df53800cc7450ecb04bb7",
+        "0092f67ba32864d29f5341ae",
+        "6d279c89c9217b1d5501d858",
+        "abb7496ad6235884bf4e9fd9",
+        "45847341fe0623a13c43a41d",
+        "bafc23c9c4148ed54312d9ef",
+        "b177cb3dd2e586b59abdd5ca",
+        "e79a1c82197a198d7f6616ef",
+        "7829e929cddddfd28778d598",
+        "e4b7b1d8d02a5fec518f14fa",
+        "c8d3a8e0f2ff73ae16d855e9",
+        "7afdf4118874be0c2ebb3446",
+        "4b5ece53e7eccedcbb5b6bc2"
+      ],
+      "alerted_services": [
+        "gateway",
+        "order",
+        "payment"
+      ],
+      "candidate_service": "payment",
+      "correlation_reason": "shared-trace-anomalous-leaf",
+      "correlation_verified": true,
+      "created_at": 1792467499902,
+      "family": "availability",
+      "first_alert_id": "b5d5779cd31904bbeaa039f2",
+      "first_anomaly_at": 1792467498582,
+      "first_event_time": 1792467498582,
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+      "last_anomaly_at": 1792467528601,
+      "last_event_time": 1792467528601,
+      "latest_alert_end": 1792467550000,
+      "opened_at": 1792467499902,
+      "origin_evidence_ids": [
+        "00ab72f161224dd79096f6c299340684",
+        "01307c6f78974f239efa65ccca207ba8",
+        "0690a1c0e60b42558cc210bc8bb590b5",
+        "0834cbb70c134443b14bd3a963cb2631",
+        "0b9b68a212024f5b96c791113884f7cf",
+        "0bcf33a23067434687497d7b6ac54659",
+        "0d3335b45f0c4e48880df60ee9f6ff01",
+        "0f146c6636054162829daf016b0fdd99",
+        "0f853d93bf694f6d8b4149f0ade56b29",
+        "19527833c13a48c3ab2fb73be858cf64",
+        "1985117e57e348288e966ab938bee4f8",
+        "1b214bd29bf1450fbb0d4570bf5948e1",
+        "1c9c0691bd25499885d259a153a35042",
+        "1e23771150514eada633595d11fe464e",
+        "22b04d510adf4e999681e17bf13ae05f",
+        "283d2029359440b5afc42c4d943c225b",
+        "2fbf009a81ea45c59089614bc3a8fd9f",
+        "3051e4a9af7148f98add80c581bfc942",
+        "31453004e1e74e938cb4f5cd1d1ab697",
+        "33405fff98a44fa597fca3642696fc41",
+        "38e9c7eedfa24c6283290623d9d5f2ec",
+        "3f2938f243454562ab2bbc7af517bece",
+        "43bda53a8db4457992324529c5ef13c8",
+        "46f29c6661a748cb8b9eb530d3a1c444",
+        "48aad68ac5f14cc7ad8562f393d53dcf",
+        "492c89ea97484fd9b5fee1185a1ee19e",
+        "4997529452c94c8ea3f852ac4d5e28ad",
+        "4aec6f23515542a9878f10a0e92fdcb8",
+        "4d44890e500e4e1893d53a925623d82d",
+        "50bc1f167b92435d8f36ae9c79c1b9d9",
+        "5523c0abc2f14eaeb5a93e370daa52f2",
+        "5540925416544758bc9ce316c03d97f4",
+        "58b7a5ff4f9043a0bf1b71039dbf8075",
+        "5985a8b4ad3e4a0baab2614bb3bb53b2",
+        "66a3bb3e7c4a4876b9a32a1287544d70",
+        "6722ad97fcc2435aa8e4ecf56b834441",
+        "6c39a120073f4e42bba8ddd53a663933",
+        "704c56ac50f84e15b5071d0fc7e5f29d",
+        "70583e041cc04efd93aefec1c778ff8f",
+        "76824b8bc66b43b28dbe0e8fc8990c25",
+        "77451e2014124474854a0f234f080ec1",
+        "77b59cca08d84dad8f43ab0aac556894",
+        "7a323c50f598474d9c92db239a2fd908",
+        "7e3528fbe06f495fb67403edbb4106a5",
+        "82b9fabda1544ffc85caeca2e128e632",
+        "83ae5dc960b44cf79616ee60276f9215",
+        "87ab9b245d3d475f941f8110808f16dd",
+        "8858d9162df644a096272c9e4f807904",
+        "8cbed9be5ec4480c97168e63de3b7899",
+        "8ffdbf430f8a4bc98739394f8992ec9f",
+        "913a08e0ef6d4fd78411cfc4a9c18064",
+        "91782fdbb08444c68a5a93dea1b05ff8",
+        "94e84a01b3e3482c97cbb0ec177f323d",
+        "9563b961e79f42c0b0fd4d62ac7415c5",
+        "96838ea2040443c9911363aa31bc1c78",
+        "997763e4a31d4bbea1deaffcb937476b",
+        "9baf3acda0cb4126bd66c4648561c386",
+        "a8a7daa9573e433ba0bf2437bda43064",
+        "ac1749a9cc8e450db7daa8a8acd4c7c7",
+        "b3885ae76d38446fb4c3b0a92a6a977a",
+        "b4842a654dc447239958935462b279cf",
+        "ba562446e621420cb343237d70d3cc94",
+        "baf267cd4798403f96d297e556b501a7",
+        "bb43555ae7594ac9b21cba485424d79f",
+        "bfbc0020222f48329062b807365d21d6",
+        "c1cc419abbdc4ea68dd8ad51c43f8532",
+        "c1cca6e966a54ca1be051a5bbcb20410",
+        "c557f672b21f4ca7b6d6592b460efdfd",
+        "c88256c123af45f6898071fd6bcdafbf",
+        "ce10d3df931741548478fc05a02ce147",
+        "ced02695444348ffaa28f5bd031182f1",
+        "d03c6f3590f54caa835e06a486595e1a",
+        "d771eed8ff3b496b95f2b069471b0191",
+        "dc9805e9a9714e8499873e3c8ce740ac",
+        "dcffe01f6fea430fa9cc6ad3ee546f9a",
+        "dd53c8a30658454b85a2a3911cfe3f79",
+        "dfea0fd588d546c29ef2f2a79c73a696",
+        "e2937cf956c54ac8ae6c80f49d9a0f39",
+        "e402760928db47c5b6df768472eb74bc",
+        "e67f2eefb77c4299b940ec9f905b0eac",
+        "ea154545702e4aae8fd374f01d6634a9",
+        "ece3c1ee41de4ffa99381c3abcd14dea",
+        "ecf45c50516e4ef5b9259a63e8bd7d70",
+        "f52a2c2a93214fbca55f1f6d712dfd8c",
+        "f5ef766d8ad2438f980a5423862a8420",
+        "f68a3e7931fc4982b659527243f01773",
+        "f78e9a643df44015b5b190e0973c1370",
+        "fd0a8e164a284ad7a80549806253a9f1",
+        "fdf5419f92b541fdbd36117d618b7a99"
+      ],
+      "recovery": {
+        "checked_at": 1792467549103,
+        "freshness_limit_ms": 5000,
+        "required_healthy_hold_ms": 10000,
+        "sample_window_ms": 10000,
+        "services": {
+          "gateway": {
+            "bad_samples": 0,
+            "fresh": true,
+            "healthy": true,
+            "latest_metric_at": 1792467549065,
+            "maximum_sample_gap_ms": 652,
+            "minimum_samples": 10,
+            "sampled_across_window": true,
+            "samples": 30
+          },
+          "order": {
+            "bad_samples": 0,
+            "fresh": true,
+            "healthy": true,
+            "latest_metric_at": 1792467549044,
+            "maximum_sample_gap_ms": 644,
+            "minimum_samples": 10,
+            "sampled_across_window": true,
+            "samples": 30
+          },
+          "payment": {
+            "bad_samples": 0,
+            "fresh": true,
+            "healthy": true,
+            "latest_metric_at": 1792467549021,
+            "maximum_sample_gap_ms": 605,
+            "minimum_samples": 10,
+            "sampled_across_window": true,
+            "samples": 30
+          }
+        },
+        "state": "resolved-with-fresh-metrics"
+      },
+      "recovery_started_at": 1792467538924,
+      "resolved_at": 1792467549103,
+      "root_anchor": "payment",
+      "root_instance_id": "b948aa35b4bf",
+      "services": [
+        "gateway",
+        "order",
+        "payment"
+      ],
+      "status": "resolved",
+      "trace_ids": [
+        "0267fe8c92da479fb8bd5f57c86ceb43",
+        "03266e589d864e09abdc0878d6d11180",
+        "04defe7183304d088d551a4736e05dd7",
+        "062f96b11a9e4dae9feae3777daeaa79",
+        "06e39c5d2ce54c6d9f2a7226463735a2",
+        "079918385b8545939e7b67d4b45e8056",
+        "0b8c3b34b98b406dbde8f6d5f2e570c5",
+        "0c9a9992f9f342c1baf5d31f1b6d8a82",
+        "0d7a080d62974a568e7ba8b3235b4443",
+        "101e37b888684e5ea4629d6e25a78194",
+        "149b338058954f1eacc7f178b2f83a94",
+        "1fa41285824b4e3d9eab57b997ea43a0",
+        "22f4d1428ca444f680d26360b6c52093",
+        "29a0d89865524ec4a7078fe828c15db4",
+        "29c74cd3c2cc4b29880d73cbf85ff942",
+        "2fae7f3adae642d5a993ddb988b4dd35",
+        "324f56b44bfe4262b3e544b91cd4ec2b",
+        "36df7fdff3574293b9013e5613b3068d",
+        "37923a5c33c0464589f8397c5e57a5fd",
+        "3cee191975f3462a9ee0e52cb08fd4fa",
+        "42da7e74c0874c0790d54c306c5a9449",
+        "44e83ceea02b4d26ae15f6317e749eb8",
+        "4541cdaf079f4d0dbf50d1ad0ba4cee4",
+        "4874c36ce4f24b70b281472050ec5525",
+        "49be5170a75f41fd8a6a7805b1676c5b",
+        "512eac861cf44742a5d3a476b139ad18",
+        "563afb3b7a784390a36de5ca4eaf7192",
+        "5e0414bcbb9c4c429ed55f725bebdcd6",
+        "5efe0234d2154faa8f76be1e5f9d53ad",
+        "5fb96bda7d394f2a842c591c27e9aa2f",
+        "647b2f7a23e04d7f8d4bf85703a42ef0",
+        "6c7ab8a938c949149a49698c2f639977",
+        "6dbe78fe57ab449f9bd33d6b3967ee07",
+        "72c8f79927c84d87bbda334db1ea737f",
+        "7313128d5b8b40bda57f62f2e7d22268",
+        "7a66a9788571456e9ed38b87e5c6a84d",
+        "7b84be2f8e0e45f3b2929b7b1ff29c59",
+        "7c3144f690d645f8b849b342f9c6b285",
+        "7d285bcab918498c9e4fa703a229b814",
+        "81733f0993774e89a4ffac839090e25b",
+        "88ab1bb913a44d0b8c268b592e51a00d",
+        "8cea5960eff9438e84258ec0e591a764",
+        "8cf044db6f0b400dba7793f73fb9fce2",
+        "8e1a3699720240c599f830e1b3d85876",
+        "8ea228add27547d6a8ab218712d37ae8",
+        "91054fb49e7545ab878d8c30297b86d2",
+        "91caa6359eba42a8a75636987b6a38d5",
+        "9383e172c2bf4d19a52b1b878eab8fb4",
+        "944e24c5be4c474faf1f72a4c025057a",
+        "953d48bf1d0e4ade8c336726182ba5f2",
+        "a0690671464a4262a2cad352b8241b95",
+        "ab3fa02dbca7483a8a38587e17c79673",
+        "ac5b35fd18cd46e7aa10b234abe4218b",
+        "b5ba10c7ae28465ea43ec49ff09b3018",
+        "b81d01ec1e824d7c92e36b48009ede5b",
+        "b84a428c85494d71843dd114ec68987f",
+        "bd3c2e6711eb45079f63b78cafe275a1",
+        "be7d751567f4492d9f4694c199a0ac3f",
+        "be960147b80a4b0e8c6d0c7c21f8c608",
+        "c15089c234a14fdba62508150ba19d02",
+        "c1953892441440c0acb2ba7c882e763f",
+        "c280fb71aead4aa69f80fc46095ca9af",
+        "c54770a6d0ba4710a19f9729c99966b1",
+        "c550607fec4f415d92ce9fe6f6a5251d",
+        "c763b1922f274761975040b1af187e24",
+        "c8a23fe5776047f9b0c02c9dfbacdea6",
+        "c9fba16eb7374a919c2b918eb1b57f2e",
+        "caf27eff69bf4102ba6ff8eb652a3bd9",
+        "d0375a1707254312bb4482856e83007f",
+        "d4f9e3434f1c4719a2bc3c8bc274c7ed",
+        "d5e6c3f638d04a7ab2a6d8a82f56bae4",
+        "d86a1ea034bd4335a0accdc1dd848eaf",
+        "e4122cbe63a0493c8d4961ff5492f3ad",
+        "e840081a8926421392ab71bc2b96d953",
+        "e9e39d7afb6445a88da694c39b965131",
+        "ea4c3216f2f74120ad9aa88c0c92b4c7",
+        "ea82e861c19b4b5485ab41a8d0d8a82c",
+        "ed4bdbb1725c49c48346abecd1113ce8",
+        "eeda8ca40fa2426898ca91af9e5710e4",
+        "eef8dd34306443359cb12aac03eafea3",
+        "f0083df4fe894369b1664d4409c907d6",
+        "f084aecc620d4e51a43eba7e7f6a94a9",
+        "f1475d683c704ba5ba47ae0b979cde74",
+        "f1a173ee38f7465cacd19e2b10c3240c",
+        "f2e6a217ae0d45fb9553079009020c92",
+        "f486b4688faa425e830b56076b5871cd",
+        "f5167aa49f584aa689b718aa2fa44f2b",
+        "f55c149520924624b2b90ae444718068",
+        "fe63d8924c2f43bf96a3523a872e4f3b"
+      ],
+      "updated_at": 1792467555465
+    }
+  ],
+  "notifications": [
+    {
+      "created_at": 1792467499902,
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+      "kind": "opened",
+      "notification_id": "5454a6cf5a37c8871eac293a",
+      "payload": {
+        "affected_services": [
+          "gateway",
+          "order",
+          "payment"
+        ],
+        "alert_count": 1,
+        "candidate_service": "payment",
+        "created_at": 1792467499902,
+        "family": "availability",
+        "first_alert_id": "b5d5779cd31904bbeaa039f2",
+        "first_anomaly_at": 1792467498582,
+        "first_event_time": 1792467498582,
+        "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+        "last_anomaly_at": 1792467499891,
+        "last_event_time": 1792467499891,
+        "latest_alert_end": 1792467499892,
+        "opened_at": 1792467499902,
+        "recovery_started_at": null,
+        "resolved_at": null,
+        "root_anchor": "payment",
+        "root_instance_id": "b948aa35b4bf",
+        "services": [
+          "gateway",
+          "order",
+          "payment"
+        ],
+        "status": "open",
+        "updated_at": 1792467499902
+      }
+    },
+    {
+      "created_at": 1792467549103,
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+      "kind": "resolved",
+      "notification_id": "b430967ad59bc251c852d635",
+      "payload": {
+        "affected_services": [
+          "gateway",
+          "order",
+          "payment"
+        ],
+        "alert_count": 15,
+        "candidate_service": "payment",
+        "created_at": 1792467499902,
+        "family": "availability",
+        "first_alert_id": "b5d5779cd31904bbeaa039f2",
+        "first_anomaly_at": 1792467498582,
+        "first_event_time": 1792467498582,
+        "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+        "last_anomaly_at": 1792467528601,
+        "last_event_time": 1792467528601,
+        "latest_alert_end": 1792467540000,
+        "opened_at": 1792467499902,
+        "recovery_started_at": 1792467538924,
+        "resolved_at": 1792467549103,
+        "root_anchor": "payment",
+        "root_instance_id": "b948aa35b4bf",
+        "services": [
+          "gateway",
+          "order",
+          "payment"
+        ],
+        "status": "resolved",
+        "updated_at": 1792467549103
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "t": 35.19,
+      "kind": "inject"
+    },
+    {
+      "t": 36.81,
+      "kind": "incident",
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d"
+    },
+    {
+      "t": 36.81,
+      "kind": "report",
+      "stage": "preliminary",
+      "version": 1,
+      "report_id": "a6eef6e2-b7fe-4158-9c89-71bab9c80dc9"
+    },
+    {
+      "t": 36.81,
+      "kind": "opened",
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d"
+    },
+    {
+      "t": 41.14,
+      "kind": "report",
+      "stage": "enriched",
+      "version": 2,
+      "report_id": "249ad63b-6329-467c-9845-b6098ba2e4d3"
+    },
+    {
+      "t": 44.55,
+      "kind": "report",
+      "stage": "enriched",
+      "version": 3,
+      "report_id": "e9c231ff-ce0e-40bf-a5aa-38caec4d3608"
+    },
+    {
+      "t": 65.5,
+      "kind": "clear"
+    },
+    {
+      "t": 85.95,
+      "kind": "resolved",
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d"
+    },
+    {
+      "t": 86.47,
+      "kind": "report",
+      "stage": "resolved",
+      "version": 4,
+      "report_id": "ddf13356-1ba7-42fb-aee6-ff4389a7772a"
+    }
+  ],
+  "frames": [
+    {
+      "t": 0.0,
+      "phase": "healthy",
+      "storage": {
+        "events": 1,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 5.35,
+      "phase": "healthy",
+      "storage": {
+        "events": 185,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 10.43,
+      "phase": "healthy",
+      "storage": {
+        "events": 366,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 15.13,
+      "phase": "healthy",
+      "storage": {
+        "events": 533,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 20.34,
+      "phase": "healthy",
+      "storage": {
+        "events": 725,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 25.1,
+      "phase": "healthy",
+      "storage": {
+        "events": 882,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 30.25,
+      "phase": "healthy",
+      "storage": {
+        "events": 1072,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 35.19,
+      "phase": "fault",
+      "storage": {
+        "events": 1244,
+        "alerts": 0,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 0,
+        "report_versions": 0,
+        "incident_notifications": 0
+      },
+      "incidents": []
+    },
+    {
+      "t": 40.37,
+      "phase": "fault",
+      "storage": {
+        "events": 1410,
+        "alerts": 3,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 1,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467502916,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 3,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467502773,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467502773,
+          "latest_alert_end": 1792467500136,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 45.1,
+      "phase": "fault",
+      "storage": {
+        "events": 1583,
+        "alerts": 3,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467507828,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 3,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467507805,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467507805,
+          "latest_alert_end": 1792467500136,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 50.41,
+      "phase": "fault",
+      "storage": {
+        "events": 1774,
+        "alerts": 3,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467513191,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 3,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467513108,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467513108,
+          "latest_alert_end": 1792467500136,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 55.35,
+      "phase": "fault",
+      "storage": {
+        "events": 1944,
+        "alerts": 6,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467518047,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 6,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467517836,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467517836,
+          "latest_alert_end": 1792467510000,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 60.33,
+      "phase": "fault",
+      "storage": {
+        "events": 2125,
+        "alerts": 6,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467523423,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 6,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467523305,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467523305,
+          "latest_alert_end": 1792467510000,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 65.5,
+      "phase": "recovery",
+      "storage": {
+        "events": 2317,
+        "alerts": 9,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467528264,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 9,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528261,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528261,
+          "latest_alert_end": 1792467520000,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 70.29,
+      "phase": "recovery",
+      "storage": {
+        "events": 2486,
+        "alerts": 9,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467528813,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 9,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467520000,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 75.08,
+      "phase": "recovery",
+      "storage": {
+        "events": 2667,
+        "alerts": 12,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "open",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467535745,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 12,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467530000,
+          "recovery_started_at": null,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 80.16,
+      "phase": "recovery",
+      "storage": {
+        "events": 2848,
+        "alerts": 12,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "recovering",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467538924,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 12,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467530000,
+          "recovery_started_at": 1792467538924,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 85.42,
+      "phase": "recovery",
+      "storage": {
+        "events": 3032,
+        "alerts": 15,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 3,
+        "incident_notifications": 1
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "recovering",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467545465,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 15,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467540000,
+          "recovery_started_at": 1792467538924,
+          "resolved_at": null
+        }
+      ]
+    },
+    {
+      "t": 90.22,
+      "phase": "recovery",
+      "storage": {
+        "events": 3210,
+        "alerts": 15,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 4,
+        "incident_notifications": 2
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "resolved",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467549103,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 15,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467540000,
+          "recovery_started_at": 1792467538924,
+          "resolved_at": 1792467549103
+        }
+      ]
+    },
+    {
+      "t": 95.11,
+      "phase": "recovery",
+      "storage": {
+        "events": 3381,
+        "alerts": 18,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 4,
+        "incident_notifications": 2
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "resolved",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467555465,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 18,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467550000,
+          "recovery_started_at": 1792467538924,
+          "resolved_at": 1792467549103
+        }
+      ]
+    },
+    {
+      "t": 100.48,
+      "phase": "recovery",
+      "storage": {
+        "events": 3575,
+        "alerts": 18,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 4,
+        "incident_notifications": 2
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "resolved",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467555465,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 18,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467550000,
+          "recovery_started_at": 1792467538924,
+          "resolved_at": 1792467549103
+        }
+      ]
+    },
+    {
+      "t": 105.1,
+      "phase": "recovery",
+      "storage": {
+        "events": 3741,
+        "alerts": 18,
+        "reports": 0,
+        "deadletters": 0,
+        "incidents": 1,
+        "report_versions": 4,
+        "incident_notifications": 2
+      },
+      "incidents": [
+        {
+          "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+          "family": "availability",
+          "root_anchor": "payment",
+          "root_instance_id": "b948aa35b4bf",
+          "candidate_service": "payment",
+          "affected_services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "services": [
+            "gateway",
+            "order",
+            "payment"
+          ],
+          "status": "resolved",
+          "created_at": 1792467499902,
+          "opened_at": 1792467499902,
+          "updated_at": 1792467555465,
+          "first_alert_id": "b5d5779cd31904bbeaa039f2",
+          "alert_count": 18,
+          "first_anomaly_at": 1792467498582,
+          "last_anomaly_at": 1792467528601,
+          "first_event_time": 1792467498582,
+          "last_event_time": 1792467528601,
+          "latest_alert_end": 1792467550000,
+          "recovery_started_at": 1792467538924,
+          "resolved_at": 1792467549103
+        }
+      ]
+    }
+  ],
+  "raw_alerts": [
+    {
+      "alert_id": "4b5ece53e7eccedcbb5b6bc2",
+      "detected_at": 1792467555465,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.292135,
+        "p95_latency_ms": 29.89,
+        "p95_method": "nearest_rank",
+        "sample_count": 89,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "payment",
+      "severity": "warning",
+      "window_end": 1792467550000,
+      "window_start": 1792467520000
+    },
+    {
+      "alert_id": "7afdf4118874be0c2ebb3446",
+      "detected_at": 1792467555451,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.292135,
+        "p95_latency_ms": 222.487,
+        "p95_method": "nearest_rank",
+        "sample_count": 89,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "order",
+      "severity": "warning",
+      "window_end": 1792467550000,
+      "window_start": 1792467520000
+    },
+    {
+      "alert_id": "c8d3a8e0f2ff73ae16d855e9",
+      "detected_at": 1792467555436,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.3,
+        "p95_latency_ms": 317.369,
+        "p95_method": "nearest_rank",
+        "sample_count": 90,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "gateway",
+      "severity": "warning",
+      "window_end": 1792467550000,
+      "window_start": 1792467520000
+    },
+    {
+      "alert_id": "e4b7b1d8d02a5fec518f14fa",
+      "detected_at": 1792467545465,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.629213,
+        "p95_latency_ms": 29.634,
+        "p95_method": "nearest_rank",
+        "sample_count": 89,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "payment",
+      "severity": "warning",
+      "window_end": 1792467540000,
+      "window_start": 1792467510000
+    },
+    {
+      "alert_id": "7829e929cddddfd28778d598",
+      "detected_at": 1792467545442,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.629213,
+        "p95_latency_ms": 214.3,
+        "p95_method": "nearest_rank",
+        "sample_count": 89,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "order",
+      "severity": "warning",
+      "window_end": 1792467540000,
+      "window_start": 1792467510000
+    },
+    {
+      "alert_id": "e79a1c82197a198d7f6616ef",
+      "detected_at": 1792467545420,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.629213,
+        "p95_latency_ms": 289.776,
+        "p95_method": "nearest_rank",
+        "sample_count": 89,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "gateway",
+      "severity": "warning",
+      "window_end": 1792467540000,
+      "window_start": 1792467510000
+    },
+    {
+      "alert_id": "b177cb3dd2e586b59abdd5ca",
+      "detected_at": 1792467535745,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.954545,
+        "p95_latency_ms": 9.903,
+        "p95_method": "nearest_rank",
+        "sample_count": 88,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "payment",
+      "severity": "warning",
+      "window_end": 1792467530000,
+      "window_start": 1792467500000
+    },
+    {
+      "alert_id": "bafc23c9c4148ed54312d9ef",
+      "detected_at": 1792467535717,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.955056,
+        "p95_latency_ms": 405.257,
+        "p95_method": "nearest_rank",
+        "sample_count": 89,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "order",
+      "severity": "warning",
+      "window_end": 1792467530000,
+      "window_start": 1792467500000
+    },
+    {
+      "alert_id": "45847341fe0623a13c43a41d",
+      "detected_at": 1792467535695,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.955056,
+        "p95_latency_ms": 564.82,
+        "p95_method": "nearest_rank",
+        "sample_count": 89,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "gateway",
+      "severity": "warning",
+      "window_end": 1792467530000,
+      "window_start": 1792467500000
+    },
+    {
+      "alert_id": "abb7496ad6235884bf4e9fd9",
+      "detected_at": 1792467525263,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.715909,
+        "p95_latency_ms": 29.631,
+        "p95_method": "nearest_rank",
+        "sample_count": 88,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "payment",
+      "severity": "warning",
+      "window_end": 1792467520000,
+      "window_start": 1792467490000
+    },
+    {
+      "alert_id": "6d279c89c9217b1d5501d858",
+      "detected_at": 1792467525236,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.715909,
+        "p95_latency_ms": 349.832,
+        "p95_method": "nearest_rank",
+        "sample_count": 88,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "order",
+      "severity": "warning",
+      "window_end": 1792467520000,
+      "window_start": 1792467490000
+    },
+    {
+      "alert_id": "0092f67ba32864d29f5341ae",
+      "detected_at": 1792467525214,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.712644,
+        "p95_latency_ms": 564.82,
+        "p95_method": "nearest_rank",
+        "sample_count": 87,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "gateway",
+      "severity": "warning",
+      "window_end": 1792467520000,
+      "window_start": 1792467490000
+    },
+    {
+      "alert_id": "2e1df53800cc7450ecb04bb7",
+      "detected_at": 1792467515373,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.37931,
+        "p95_latency_ms": 29.762,
+        "p95_method": "nearest_rank",
+        "sample_count": 87,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "payment",
+      "severity": "warning",
+      "window_end": 1792467510000,
+      "window_start": 1792467480000
+    },
+    {
+      "alert_id": "060d2e1508c95b4bea2d24af",
+      "detected_at": 1792467515349,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.37931,
+        "p95_latency_ms": 349.832,
+        "p95_method": "nearest_rank",
+        "sample_count": 87,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "order",
+      "severity": "warning",
+      "window_end": 1792467510000,
+      "window_start": 1792467480000
+    },
+    {
+      "alert_id": "9b3e10f7e0f9019232402655",
+      "detected_at": 1792467515311,
+      "event_type": "alert",
+      "evidence": {
+        "error_rate": 0.37931,
+        "p95_latency_ms": 600.91,
+        "p95_method": "nearest_rank",
+        "sample_count": 87,
+        "threshold": 0.2
+      },
+      "rule_id": "high_error_rate",
+      "rule_version": "window-rules-v1",
+      "schema_version": 1,
+      "service": "gateway",
+      "severity": "warning",
+      "window_end": 1792467510000,
+      "window_start": 1792467480000
+    },
+    {
+      "alert_id": "8005eb57cf461c66b6a9aaba",
+      "detected_at": 1792467500148,
+      "event_type": "alert",
+      "evidence": {
+        "consecutive_errors": 5,
+        "error_rate": 1.0,
+        "event_ids": [
+          "470813602922488898974d7c622e08eb",
+          "bf71c19c84fb4b758fbc4a13d3568cab",
+          "65231d783ccd4156b9583ed8ea65b3bd",
+          "863fdf624b2c4ef49f02ddc7f20aa173",
+          "290d50bedb7c49eb9a5e7904f30f30c0"
+        ],
+        "sample_count": 5,
+        "threshold": 5,
+        "trace_ids": [
+          "c15089c234a14fdba62508150ba19d02",
+          "8ea228add27547d6a8ab218712d37ae8",
+          "ed4bdbb1725c49c48346abecd1113ce8",
+          "7a66a9788571456e9ed38b87e5c6a84d",
+          "b5ba10c7ae28465ea43ec49ff09b3018"
+        ],
+        "trigger": "consecutive-5xx"
+      },
+      "instance_id": "b948aa35b4bf",
+      "rule_id": "fast_errors",
+      "rule_version": "fast-errors-v1",
+      "schema_version": 1,
+      "service": "gateway",
+      "severity": "critical",
+      "window_end": 1792467500136,
+      "window_start": 1792467498724
+    },
+    {
+      "alert_id": "b4d4aa2573c4963bea57cbd5",
+      "detected_at": 1792467500064,
+      "event_type": "alert",
+      "evidence": {
+        "consecutive_errors": 5,
+        "error_rate": 1.0,
+        "event_ids": [
+          "69a01acaa41a40d8937bb993099035be",
+          "5f007e3b2be948baa5f5cb05cc027884",
+          "c9ee7697a0ca49e9832dd452e1fefb2a",
+          "9f8df7aa99ba4b3297ecb98b3e8a7bbd",
+          "e9094ff2462242c68806c013c9f58066"
+        ],
+        "sample_count": 5,
+        "threshold": 5,
+        "trace_ids": [
+          "c15089c234a14fdba62508150ba19d02",
+          "8ea228add27547d6a8ab218712d37ae8",
+          "ed4bdbb1725c49c48346abecd1113ce8",
+          "7a66a9788571456e9ed38b87e5c6a84d",
+          "b5ba10c7ae28465ea43ec49ff09b3018"
+        ],
+        "trigger": "consecutive-5xx"
+      },
+      "instance_id": "b948aa35b4bf",
+      "rule_id": "fast_errors",
+      "rule_version": "fast-errors-v1",
+      "schema_version": 1,
+      "service": "order",
+      "severity": "critical",
+      "window_end": 1792467500011,
+      "window_start": 1792467498675
+    },
+    {
+      "alert_id": "b5d5779cd31904bbeaa039f2",
+      "detected_at": 1792467499902,
+      "event_type": "alert",
+      "evidence": {
+        "consecutive_errors": 5,
+        "error_rate": 1.0,
+        "event_ids": [
+          "92a2846eb15f40da96cfbf6d4db94e25",
+          "366540338e68472b972b9ed774cbc3cd",
+          "67fa64f1cbd94144b99a2ce8dee178d0",
+          "2115cb8ad5954cffbd1ffd5bcca6c82a",
+          "63fe2c731b2e4899bcd3ac5600a50cac"
+        ],
+        "sample_count": 5,
+        "threshold": 5,
+        "trace_ids": [
+          "c15089c234a14fdba62508150ba19d02",
+          "8ea228add27547d6a8ab218712d37ae8",
+          "ed4bdbb1725c49c48346abecd1113ce8",
+          "7a66a9788571456e9ed38b87e5c6a84d",
+          "b5ba10c7ae28465ea43ec49ff09b3018"
+        ],
+        "trigger": "consecutive-5xx"
+      },
+      "instance_id": "b948aa35b4bf",
+      "rule_id": "fast_errors",
+      "rule_version": "fast-errors-v1",
+      "schema_version": 1,
+      "service": "payment",
+      "severity": "critical",
+      "window_end": 1792467499892,
+      "window_start": 1792467498582
+    }
+  ],
+  "report_summaries": [
+    {
+      "report_id": "a6eef6e2-b7fe-4158-9c89-71bab9c80dc9",
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+      "version": 1,
+      "stage": "preliminary",
+      "created_at": 1792467499962
+    },
+    {
+      "report_id": "249ad63b-6329-467c-9845-b6098ba2e4d3",
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+      "version": 2,
+      "stage": "enriched",
+      "created_at": 1792467503968
+    },
+    {
+      "report_id": "e9c231ff-ce0e-40bf-a5aa-38caec4d3608",
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+      "version": 3,
+      "stage": "enriched",
+      "created_at": 1792467507314
+    },
+    {
+      "report_id": "ddf13356-1ba7-42fb-aee6-ff4389a7772a",
+      "incident_id": "6b8c4407fa0748bf9070d44110bfaa5d",
+      "version": 4,
+      "stage": "resolved",
+      "created_at": 1792467549624
+    }
+  ],
+  "services": {
+    "services": {
+      "gateway": {
+        "status": "ok",
+        "service": "gateway",
+        "telemetry_mode": "http",
+        "telemetry_sent": 981,
+        "telemetry_failed": 0
+      },
+      "order": {
+        "status": "ok",
+        "service": "order",
+        "telemetry_mode": "http",
+        "telemetry_sent": 981,
+        "telemetry_failed": 0
+      },
+      "inventory": {
+        "status": "ok",
+        "service": "inventory",
+        "telemetry_mode": "http",
+        "telemetry_sent": 981,
+        "telemetry_failed": 0
+      },
+      "payment": {
+        "status": "ok",
+        "service": "payment",
+        "telemetry_mode": "http",
+        "telemetry_sent": 981,
+        "telemetry_failed": 0
+      }
+    },
+    "note": "进程存活状态；异常影响见事件与请求指标"
+  },
+  "data_dir": "/tmp/aiops-v2-verification-f_fzj8yw"
+}

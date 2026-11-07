@@ -1,0 +1,16 @@
+{
+  "method": "pre-change working-source manifest; original archive cannot be used for complete ZIP comparison",
+  "unchanged_existing_source_files": 114,
+  "changed_existing_source_files": [
+    "README.md"
+  ],
+  "missing_existing_source_files": [],
+  "pre_change_source_backup_crc_valid": true,
+  "original_phase5_zip": {
+    "sha256": "fb571e5c09316f0c02a9be766a80b4f5932555674caa6399ffbbaa70fd36354c",
+    "zip_valid": false,
+    "reason": "Missing ZIP end-of-central-directory in available phase5 archive; retained untouched. Current phase6 work uses the existing project tree."
+  },
+  "database_migrations": 0,
+  "old_database_writes": false
+}
